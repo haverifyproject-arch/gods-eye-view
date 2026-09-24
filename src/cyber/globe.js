@@ -6,7 +6,10 @@ export async function createScenarioGlobe({
   container,
   creditContainer,
   geometry,
+  country,
+  camera,
   onSelect,
+  places = [],
 }) {
   const viewer = createApplicationViewer({ container, creditContainer });
   try {
@@ -36,7 +39,7 @@ export async function createScenarioGlobe({
     const source = await Cesium.GeoJsonDataSource.load(
       {
         type: 'Feature',
-        properties: { name: 'Ukraine · reference geography' },
+        properties: { name: `${country} · reference geography` },
         geometry: { type: geometry.type, coordinates: geometry.coordinates },
       },
       {
@@ -47,6 +50,57 @@ export async function createScenarioGlobe({
       },
     );
     await viewer.dataSources.add(source);
+    const markers = new Map();
+    for (const place of places) {
+      const entity = viewer.entities.add({
+        id: place.id,
+        position: Cesium.Cartesian3.fromDegrees(...place.coordinates, 10000),
+        point: {
+          pixelSize: 12,
+          color: Cesium.Color.fromCssColorString('#6be0ca'),
+          outlineColor: Cesium.Color.WHITE,
+          outlineWidth: 2,
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        },
+        label: {
+          text: place.name + '\nCITY REFERENCE',
+          font: '13px sans-serif',
+          fillColor: Cesium.Color.WHITE,
+          showBackground: true,
+          backgroundColor:
+            Cesium.Color.fromCssColorString('#102431').withAlpha(0.9),
+          pixelOffset: new Cesium.Cartesian2(0, -32),
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        },
+      });
+      markers.set(place.id, entity);
+    }
+    const connection =
+      places.length === 2
+        ? viewer.entities.add({
+            id: 'pipeline-context',
+            polyline: {
+              positions: places.map((p) =>
+                Cesium.Cartesian3.fromDegrees(...p.coordinates, 20000),
+              ),
+              width: 3,
+              material: new Cesium.PolylineDashMaterialProperty({
+                color: Cesium.Color.fromCssColorString('#ffc777'),
+                dashLength: 18,
+              }),
+            },
+          })
+        : null;
+    const fly = (destination) => {
+      viewer.camera.cancelFlight();
+      viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(...destination),
+        orientation: { heading: 0, pitch: -Math.PI / 2, roll: 0 },
+        duration: matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 0
+          : 1.4,
+      });
+    };
     for (const entity of source.entities.values) {
       if (entity.polygon) {
         entity.polygon.height = 1500;
@@ -59,26 +113,32 @@ export async function createScenarioGlobe({
         };
       }
     }
-    const focus = () =>
+    const focus = (selected = true) =>
       viewer.camera.flyTo({
-        destination: Cesium.Cartesian3.fromDegrees(31.5, 48.5, 11000000),
+        destination: Cesium.Cartesian3.fromDegrees(
+          camera[0],
+          camera[1],
+          camera[2] * (selected ? 0.52 : 1),
+        ),
         orientation: { heading: 0, pitch: -Math.PI / 2, roll: 0 },
         duration: matchMedia('(prefers-reduced-motion: reduce)').matches
           ? 0
           : 0.8,
       });
     viewer.camera.setView({
-      destination: Cesium.Cartesian3.fromDegrees(31.5, 48.5, 11000000),
+      destination: Cesium.Cartesian3.fromDegrees(...camera),
       orientation: { heading: 0, pitch: -Math.PI / 2, roll: 0 },
     });
     const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction((event) => {
       const picked = viewer.scene.pick(event.position);
-      if (picked?.id && source.entities.contains(picked.id)) onSelect();
+      if (picked?.id && markers.has(picked.id.id)) onSelect(picked.id.id);
+      else if (picked?.id === connection) onSelect('pipeline');
+      else if (picked?.id && source.entities.contains(picked.id)) onSelect();
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     viewer.scene.canvas.setAttribute(
       'aria-label',
-      'Interactive 3D globe. Ukraine reference outline. Use the Ukraine button for keyboard selection.',
+      `Interactive 3D globe. ${country} reference outline. Use the ${country} button for keyboard selection.`,
     );
     const remove = viewer.scene.postRender.addEventListener(() => {
       if (!viewer.scene.globe.tilesLoaded) return;
@@ -89,6 +149,54 @@ export async function createScenarioGlobe({
     return {
       viewer,
       focus,
+      inspect(id) {
+        for (const [key, entity] of markers)
+          entity.point.pixelSize = key === id ? 20 : 12;
+        const place = places.find((p) => p.id === id);
+        fly(place ? [...place.coordinates, 1500000] : [-84.5, 35.3, 6200000]);
+        container.dataset.focus = id || 'pipeline';
+      },
+      setMilestone(id) {
+        if (connection)
+          connection.polyline.material =
+            new Cesium.PolylineDashMaterialProperty({
+              color: Cesium.Color.fromCssColorString(
+                id === 'event-recovery' ? '#6be0ca' : '#ffc777',
+              ),
+              dashLength: 18,
+            });
+        container.dataset.milestone = id;
+        viewer.scene.requestRender();
+      },
+      intro() {
+        fly([-84.5, 35.3, 6200000]);
+      },
+      highlight(active) {
+        for (const entity of source.entities.values) {
+          if (entity.polygon)
+            entity.polygon.material = Cesium.Color.fromCssColorString(
+              active ? '#ffc777' : '#5edbc3',
+            ).withAlpha(active ? 0.23 : 0.15);
+          if (entity.polyline)
+            entity.polyline.material = Cesium.Color.fromCssColorString(
+              active ? '#ffc777' : '#6be0ca',
+            );
+        }
+        viewer.scene.requestRender();
+      },
+      zoom(direction) {
+        viewer.camera.cancelFlight();
+        const height = viewer.camera.positionCartographic.height;
+        if (direction > 0)
+          viewer.camera.zoomIn(
+            Math.max(0, height - Math.max(250000, height * 0.7)),
+          );
+        else
+          viewer.camera.zoomOut(
+            Math.min(height * 0.4, Math.max(0, 30000000 - height)),
+          );
+        viewer.scene.requestRender();
+      },
       setVisible(value) {
         source.show = value;
         viewer.scene.requestRender();

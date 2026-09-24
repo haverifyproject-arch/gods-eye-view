@@ -1,11 +1,13 @@
-# Cyber Situation Room
+# Reality Debugger
 
-Read `docs/cyber/CHARTER.md`, `docs/cyber/ARCHITECTURE.md`, and `docs/cyber/SOURCES.md` before changing this product. Preserve upstream compatibility and attribution. Baseline: `ce671ce500a393be27e3cbb2a08799fbca9b6e28` (Bilawal Sidhu / God's Eye View, MIT).
+The product owner replaced Cyber Situation Room with Reality Debugger and authorized the full build. Read docs/reality/MASTER-CONTRACT.md and docs/REALITY-DEBUGGER-HANDOFF.md. This scope supersedes archived docs/cyber/ directions. Preserve the earlier prototype; do not develop Kyivstar, Colonial, or Russia/Ukraine scenarios.
 
-Build only the December 2023 Kyivstar scenario until its evidence and interaction quality are excellent. No live integrations, AI agent, authentication, enterprise telemetry, billing, or other scenarios in this milestone.
+THE WORLD IS THE INTERFACE. Build one exceptional source-backed Tonga January2022 mission as a native mode of God's Eye View. Reuse the existing Cesium viewer, camera/navigation ownership, scene motion, annotations and action architecture. No permanent dashboard sidebars. Camera, time, evidence filters, dependency traversal and source interrogation must materially operate the world.
 
-Important assertions must carry OBSERVED, REPORTED, DERIVED, INFERRED, DISPUTED, or UNKNOWN status and evidence references. Never turn inference into fact. Never assign arbitrary geography to a CVE, technique, actor, ASN, or organization. Current infrastructure is CURRENT REFERENCE, never EVENT-TIME OBSERVATION. Country context is not measured outage extent.
+Implement a generic validated Situation runtime and static mission before optional AI. Evidence states: OBSERVED, REPORTED, DERIVED, RECONSTRUCTED, INFERRED, CURRENT_REFERENCE, UNKNOWN. Preserve source/event times and geographic uncertainty. No fabricated samples, exact cable breaks, vessel tracks, confidence percentages or causal links. Current cable geometry is not historical evidence. Preserve TeleGeography CC BY-NC-SA attribution separately from MIT code.
 
-Keep provider payloads behind adapters; validate normalized records before rendering. Keep secrets server-side. Preserve source dates, retrieval dates, temporal scope, limitations, and rights. Unverified rights mean no commercial clearance.
+Cloud-first development and testing are preferred because the owner's computer is slow. GitHub repository: haverifyproject-arch/gods-eye-view. Deployment target: Vercel. Do not assume Vite development proxies exist in production. Core mission must work without AI credentials. Follow existing secret/proxy security boundaries.
 
-The upstream experience stays at `/`; Cyber Situation Room lives at `/cyber.html`. Original product code belongs in `src/cyber/`. Follow upstream ES modules, two spaces, single quotes, semicolons. Run focused data/UI tests, production build, formatting and boundary checks. Record pre-existing baseline failures honestly. Use Node >=24.14 <25 or >=26 <27. This checkout has an ignored portable Node runtime under `.local-runtime/`.
+Upstream: Bilawal Sidhu / God's Eye View, MIT; baseline ce671ce500a393be27e3cbb2a08799fbca9b6e28. Preserve prominent upstream credit and document original contributions. Follow upstream ES modules, two spaces, single quotes, semicolons; Node >=24.14 <25 or >=26 <27. Local portable Node is under .local-runtime (never commit it).
+
+Maintain docs/reality/BUILD-JOURNAL.md with DONE/CURRENT/NEXT/BLOCKERS/DECISIONS. Run focused tests, production build, formatting, boundaries, upstream tests and tracking checks; distinguish external provider failures. Capture and inspect all nine contract demo states. Do not call the mission complete based only on DOM assertions or compilation. Continue through visual polish, interruptible60–120second demo and acceptance criteria. Routine implementation needs no further permission.

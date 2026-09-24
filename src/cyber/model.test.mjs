@@ -119,3 +119,35 @@ for (const [name, mutate, expected] of [
     mutate(data);
     assert.throws(() => validateScenario(data), expected);
   });
+
+test('Colonial reports remain distinct from measurements and event-time geography', () => {
+  const data = validateScenario(
+    JSON.parse(
+      readFileSync(
+        new URL('../../public/cyber/colonial.json', import.meta.url),
+        'utf8',
+      ),
+    ),
+  );
+  assert.equal(data.observations.length, 0);
+  assert.ok(data.claims.every((c) => c.status !== 'OBSERVED'));
+  assert.equal(data.geometries.length, 3);
+  for (const id of ['houston', 'linden']) {
+    const g = data.geometries.find((g) => g.id === `geo-${id}`);
+    assert.equal(g.type, 'Point');
+    assert.equal(g.role, 'REFERENCE_CONTEXT');
+    assert.match(
+      evidenceForClaims(data, [`c-${id}`])[1].provenance.publisher,
+      /Census/,
+    );
+  }
+  assert.equal(
+    data.times.find((t) => t.id === data.geometries[0].timeId).basis,
+    'CURRENT_REFERENCE',
+  );
+  const evidence = evidenceForClaims(data, ['c-link']);
+  assert.match(evidence[0].provenance.publicationLabel, /2022/);
+  assert.equal(data.claims.find((c) => c.id === 'c-link').timeId, 't-attack');
+  assert.equal(data.claims.find((c) => c.id === 'c-unknown').status, 'UNKNOWN');
+  assert.ok(data.times.every((t) => t.precision === 'day'));
+});

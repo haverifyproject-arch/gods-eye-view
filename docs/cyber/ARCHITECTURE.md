@@ -1,3 +1,4 @@
+<!-- Scope update, 24 Sep 2026: user authorized Colonial Pipeline (May 2021) as the primary case; Kyivstar remains optional. This supersedes the original single-case restriction below. -->
 # Architecture decision 001: a separate application on the upstream globe
 
 Upstream is vanilla JavaScript, CesiumJS and Vite. `src/app/application.js` owns phased lifecycle; `src/app/viewer.js` exposes its viewer constructor. `src/standalone/` assembles the full original experience; `server/providers/` owns secret-bearing access. See upstream `docs/APPLICATION.md` and `docs/CURRENT-STATE.md`.

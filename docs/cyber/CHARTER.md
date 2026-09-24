@@ -1,3 +1,4 @@
+<!-- Scope update, 24 Sep 2026: user authorized Colonial Pipeline (May 2021) as the primary case; Kyivstar remains optional. This supersedes the original single-case restriction below. -->
 # CYBER SITUATION ROOM
 
 An AI-native cyber-physical investigation environment built on God's Eye View. Geography, time, digital and physical infrastructure, organizations, networks, evidence, uncertainty, cyber events and relationships belong in one investigation. This is more than cybersecurity feeds on a globe.

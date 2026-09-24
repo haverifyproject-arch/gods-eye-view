@@ -1,12 +1,12 @@
 <div align="center">
 
-# Cyber Situation Room — Kyivstar milestone
+# Cyber Situation Room — Colonial Pipeline
 
-An evidence-led cyber-physical investigation workspace built on **God's Eye View by Bilawal Sidhu and contributors**. The original upstream application remains intact at `/`; open **[/cyber.html](http://127.0.0.1:4173/cyber.html)** for the December 2023 Kyivstar scenario.
+An evidence-led cyber-physical investigation workspace built on **God's Eye View by Bilawal Sidhu and contributors**. The original upstream application remains intact at `/`; open **[/cyber.html](http://127.0.0.1:4173/cyber.html)** for the May 2021 Colonial Pipeline scenario in the United States. Kyivstar remains available in the case selector.
 
 Run `./Start-Cyber.ps1` on this Windows checkout (uses its project-local Node 24.14 runtime), or use a supported Node version and `npm ci && npm run dev`. No API keys are needed for the curated scenario. See [milestone and validation notes](docs/cyber/MILESTONE.md), [project charter](docs/cyber/CHARTER.md), [architecture](docs/cyber/ARCHITECTURE.md), and [source/rights register](docs/cyber/SOURCES.md).
 
-The original contribution is the canonical evidence model, provenance validation, Kyivstar research bundle, linked investigation panel, semantic relationship graph and historical timeline. Globe/viewer foundations remain upstream work. Country geography is reference context; the scenario does not invent outage footprints, traffic samples, facility locations or attribution.
+The original contribution is the canonical evidence model, provenance validation, Colonial Pipeline and Kyivstar research bundles, linked investigation panel, semantic relationship graph and historical timeline. Globe/viewer foundations remain upstream work. Country geography is reference context; the scenario does not invent outage footprints, traffic samples, facility locations or attribution.
 
 ---
 

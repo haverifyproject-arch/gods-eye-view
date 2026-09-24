@@ -23,3 +23,18 @@ The bundle contains original concise research notes and links, not copies of art
 No raw Cloudflare samples are present; the interval is a published measurement summary. Do not draw synthetic traffic curves or equate observed Internet traffic with voice availability. Kyivstar and VEON are related sources, not independent corroboration. A 99% base-station statement is geographically qualified and is not a 99% subscriber-restoration measurement. The reviewed sources do not independently establish the initial access method, an affected-facility list, customer-level downtime, or exfiltration. The UI leaves these UNKNOWN. No credible source conflict is asserted without two reviewed conflicting records.
 
 Next: independently retrieve IODA historical signals, obtain event-time infrastructure evidence, and review forensic primary reports. The static adapter stays replaceable; adding a provider requires both evidentiary and rights review.
+
+## Colonial Pipeline · primary case (24 September 2026)
+
+User-authorized scope update: the default case is now Colonial Pipeline, United States, May 2021. Kyivstar remains explicitly selectable via the case library or `?case=kyivstar`.
+
+Reviewed sources:
+- DOE: https://www.energy.gov/ceser/colonial-pipeline-cyber-incident — shutdown, federal response and 13 May restart announcement. Undated HTML page; event dates are not publication dates.
+- EIA, 11 May 2021: https://www.eia.gov/todayinenergy/detail.php?id=47917 — system geography and replenishment limitations. No route coordinates copied. EIA reuse policy: https://www.eia.gov/about/copyrights_reuse.php (U.S. government material generally public domain; third-party exceptions and logo restrictions remain).
+- FBI, 10 May 2021: https://www.fbi.gov/news/press-releases/fbi-statement-on-compromise-of-colonial-pipeline-networks — reported attribution only; no actor geography.
+- Senate hearing, 8 June 2021, GPO edition 2022: https://www.govinfo.gov/content/pkg/CHRG-117shrg46569/html/CHRG-117shrg46569.htm — retrospective operator testimony about IT detection, precautionary shutdown and ongoing OT investigation. No invented publication day or proof of absence.
+- Natural Earth v5.1.2: same pinned country dataset as the original case, selecting ADM0_A3=USA. Public domain; current reference only.
+
+Original paraphrases and links are bundled. No blanket commercial clearance for third-party statements or embedded media is asserted. CISA and an original operator statement were inaccessible during review and are not used as evidence. The geographic follow-up now includes 2021 Census Gazetteer internal points for Houston (GEOID 4835000) and Linden, New Jersey (GEOID 3440350), with individual provenance URLs in the canonical bundle. These are city reference coordinates, not terminal coordinates. The dashed globe connection is schematic, not actual pipeline alignment. No measured impact footprint is supplied.
+
+The four milestones are source-reported, with day precision. The 7–13 May label is a milestone span, not a measured six-day outage. There are no synthetic flow observations. Full-system restart does not imply immediate recovery at every downstream station.

@@ -1,4 +1,6 @@
-# Kyivstar spatial vertical slice
+# Development history
+
+Current behavior and verification entry points: [CURRENT-EXPERIENCE.md](CURRENT-EXPERIENCE.md). The sections below record earlier milestones and may describe superseded interfaces.
 
 Open `http://127.0.0.1:4173/cyber.html`. The original upstream app remains at `/`.
 
@@ -51,3 +53,14 @@ A further upstream tracking run with both server and browser network access was 
 No raw Cloudflare samples or IODA signals have been imported. No event-time facility inventory or physical dependency routes were established. PeeringDB is researched but not bundled or treated as 2023 topology. The current country outline is not a telecom coverage polygon. Independent forensic confirmation of initial access, affected facilities and data exposure remains outside this verified bundle. Sources and access limitations are recorded in `SOURCES.md`; research can continue without pretending those gaps are facts.
 
 No live feeds, agent, enterprise telemetry, authentication, other scenarios or deployment are part of this milestone. Optional upstream integrations remain available through the original app. Code MIT licensing does not grant redistribution rights to every source or upstream dataset.
+
+## Colonial Pipeline follow-up
+
+Default `/cyber.html` now opens the United States May 2021 case; the case selector retains Kyivstar. Added a separately normalized, reproducible canonical bundle and parameterized the existing globe, evidence, export and timeline controls. The U.S. outline is reference geography only. No actual route or measured outage geometry is available in this bundle.
+
+Validation: both canonical bundles reproduce; 14 focused model tests; production build; import/package boundaries; formatting. Real Chromium/SwiftShader browser acceptance covers default Colonial evidence/restart/country selection, mobile layout, case-switch navigation, existing Kyivstar timeline/timezone/provenance, offline globe pixels and zero external requests. Desktop and mobile screenshots inspected. Existing upstream baseline limitations recorded above remain unchanged; the large upstream suite was not rerun for this focused scenario addition.
+`nInteraction follow-up: subject, graph and milestone selections now focus and highlight country reference context, update the stage heading, and reveal the relevant section on mobile. Added zoom controls and Overview reset. Geographic detail remains limited to the sourced country outline. Browser acceptance checks include visible canvas change and linked graph selection.
+
+Visual follow-up: Colonial selections now render source-linked incident explainers for shutdown, IT/operations dependency, endpoint geography, emergency response, attribution, restart and evidence gaps. Endpoint diagram is explicitly schematic, not route geometry. Country selection retains the globe. Browser checks exercise four milestone visuals, pipeline diagram and evidence steps; production build, formatting and boundaries pass.
+
+Persistent-scene redesign: replaced interchangeable three-card explainers with a stable system diagram. Milestones update pipeline, response and attribution states; subject selections highlight system components. Evidence preserves the scene DOM, layout and timeline, with a mobile drawer. Country outline is reference; endpoint line is explicitly schematic. Removed duplicate graph and empty status groups for Colonial. Browser acceptance now asserts scene continuity, reversible state, matching evidence, subject focus, mobile drawer and Kyivstar provenance regression. Build, focused model tests and boundary checks pass.
