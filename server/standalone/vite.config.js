@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => {
   for (const [key, value] of Object.entries(loaded)) {
     if (process.env[key] === undefined) process.env[key] = value;
   }
-  return createBrowserViteConfig({
+  const config = createBrowserViteConfig({
     plugins: [...localProviderPlugins(), apiNotFoundPlugin()],
     googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
     cesiumToken: process.env.CESIUM_ION_TOKEN,
@@ -20,4 +20,12 @@ export default defineConfig(({ command, mode }) => {
     port: process.env.PORT,
     command,
   });
+  // Preserve the standalone entry and add the evidence-led investigation workspace.
+  config.build.rollupOptions = {
+    input: {
+      main: fileURLToPath(new URL('../../index.html', import.meta.url)),
+      cyber: fileURLToPath(new URL('../../cyber.html', import.meta.url)),
+    },
+  };
+  return config;
 });

@@ -1,5 +1,15 @@
 <div align="center">
 
+# Cyber Situation Room — Kyivstar milestone
+
+An evidence-led cyber-physical investigation workspace built on **God's Eye View by Bilawal Sidhu and contributors**. The original upstream application remains intact at `/`; open **[/cyber.html](http://127.0.0.1:4173/cyber.html)** for the December 2023 Kyivstar scenario.
+
+Run `./Start-Cyber.ps1` on this Windows checkout (uses its project-local Node 24.14 runtime), or use a supported Node version and `npm ci && npm run dev`. No API keys are needed for the curated scenario. See [milestone and validation notes](docs/cyber/MILESTONE.md), [project charter](docs/cyber/CHARTER.md), [architecture](docs/cyber/ARCHITECTURE.md), and [source/rights register](docs/cyber/SOURCES.md).
+
+The original contribution is the canonical evidence model, provenance validation, Kyivstar research bundle, linked investigation panel, semantic relationship graph and historical timeline. Globe/viewer foundations remain upstream work. Country geography is reference context; the scenario does not invent outage footprints, traffic samples, facility locations or attribution.
+
+---
+
 # 🌐 God's Eye View
 
 [![CI](https://github.com/bilawalsidhu/gods-eye-view/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bilawalsidhu/gods-eye-view/actions/workflows/ci.yml) [![Reached #1 on GitHub Trending](https://img.shields.io/badge/%231_GitHub_Trending-thank_you!-F0A63C?style=flat-square&logo=github)](https://x.com/bilawalsidhu/status/2093798887815348521)

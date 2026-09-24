@@ -32,6 +32,10 @@
     "visualization"
   ],
   "scripts": {
+    "cyber:data": "node scripts/build-cyber-scenario.mjs",
+    "cyber:validate": "node scripts/build-cyber-scenario.mjs --check",
+    "test:cyber": "node --test src/cyber/model.test.mjs",
+    "qa:cyber": "node scripts/qa-cyber.mjs",
     "doctor": "node scripts/setup-doctor.mjs",
     "format": "node scripts/format.mjs --write",
     "format:check": "node scripts/format.mjs --check",

@@ -1,0 +1,876 @@
+{
+  "schemaVersion": 1,
+  "id": "kyivstar-2023",
+  "title": "Kyivstar",
+  "subtitle": "Cyberattack & telecommunications outage",
+  "provenance": [
+    {
+      "id": "src-kyivstar",
+      "publisher": "Kyivstar",
+      "title": "Service recovery after the cyberattack",
+      "url": "https://kyivstar.ua/news/id191220231000",
+      "publishedAt": "2023-12-19",
+      "retrievedAt": "2026-09-24",
+      "locator": "Why Kyivstar did not work; personal data; service availability sections",
+      "summary": "Kyivstar says the 12 December attack interrupted mobile and Internet services. It says subscriber personal data was not compromised. Recovery work continued.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Copyright retained by source. Original paraphrase and link; no open redistribution license established.",
+      "transformation": "Concise English research note; dates normalized without inventing time precision."
+    },
+    {
+      "id": "src-cloudflare",
+      "publisher": "Cloudflare Radar · David Belson",
+      "title": "Q4 2023 Internet disruption summary",
+      "url": "https://blog.cloudflare.com/q4-2023-internet-disruption-summary/",
+      "publishedAt": "2024-01-22",
+      "retrievedAt": "2026-09-24",
+      "locator": "Cyberattacks → Ukraine; linked Kyivstar AS15895 chart",
+      "summary": "Cloudflare describes a Kyivstar traffic disruption from 12 December 04:30 UTC to 15 December 12:00 UTC. This is its network vantage point, not a census of subscribers.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Copyright retained by source. Original paraphrase and link; no open redistribution license established.",
+      "transformation": "Concise English research note; dates normalized without inventing time precision."
+    },
+    {
+      "id": "src-voice",
+      "publisher": "VEON / Kyivstar",
+      "title": "Voice service restoration begins",
+      "url": "https://www.globenewswire.com/news-release/2023/12/13/2795840/0/en/Kyivstar-starts-restoring-voice-services-on-its-network-following-widespread-cyber-attack.html",
+      "publishedAt": "2023-12-13",
+      "retrievedAt": "2026-09-24",
+      "locator": "Opening two paragraphs",
+      "summary": "VEON reports mobile voice restoration beginning at 18:00 Kyiv time on 13 December. Restoration is gradual, with possible setbacks.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Copyright retained by source. Original paraphrase and link; no open redistribution license established.",
+      "transformation": "Concise English research note; dates normalized without inventing time precision."
+    },
+    {
+      "id": "src-mobile",
+      "publisher": "VEON / Kyivstar",
+      "title": "Mobile Internet restored across Ukraine",
+      "url": "https://www.globenewswire.com/news-release/2023/12/15/2797248/0/en/Kyivstar-restores-mobile-internet-across-Ukraine-reactivates-international-roaming.html",
+      "publishedAt": "2023-12-15",
+      "retrievedAt": "2026-09-24",
+      "locator": "Opening paragraphs and customer experience qualification",
+      "summary": "VEON reports mobile Internet restored across Ukraine, including 4G, while warning that individual experience and service quality may vary.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Copyright retained by source. Original paraphrase and link; no open redistribution license established.",
+      "transformation": "Concise English research note; dates normalized without inventing time precision."
+    },
+    {
+      "id": "src-recovery",
+      "publisher": "VEON / Kyivstar",
+      "title": "Service categories restored; 99% of base stations operational",
+      "url": "https://www.globenewswire.com/news-release/2023/12/19/2798765/0/en/Kyivstar-restores-services-in-all-categories-brings-99-of-mobile-network-back-on-air.html",
+      "publishedAt": "2023-12-19",
+      "retrievedAt": "2026-09-24",
+      "locator": "Opening three paragraphs",
+      "summary": "VEON reports all service categories available and 99% of base stations operational in Ukrainian-government-controlled territory. Quality and accessibility work continued.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Copyright retained by source. Original paraphrase and link; no open redistribution license established.",
+      "transformation": "Concise English research note; dates normalized without inventing time precision."
+    },
+    {
+      "id": "src-geography",
+      "publisher": "Natural Earth",
+      "title": "Admin 0 countries · 1:110m · v5.1.2",
+      "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_110m_admin_0_countries.geojson",
+      "publishedAt": null,
+      "retrievedAt": "2026-09-24",
+      "locator": "Feature ADM0_A3 = UKR",
+      "summary": "Generalized country outline; reference geography only. It does not describe territorial control or outage extent.",
+      "access": "Public HTML; manually reviewed",
+      "rights": "Public domain. Courtesy credit: Natural Earth.",
+      "transformation": "Select UKR feature; retain geometry only in canonical bundle."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-kyivstar",
+      "provenanceId": "src-kyivstar",
+      "locator": "Why Kyivstar did not work; personal data; service availability sections",
+      "summary": "Kyivstar says the 12 December attack interrupted mobile and Internet services. It says subscriber personal data was not compromised. Recovery work continued."
+    },
+    {
+      "id": "ev-cloudflare",
+      "provenanceId": "src-cloudflare",
+      "locator": "Cyberattacks → Ukraine; linked Kyivstar AS15895 chart",
+      "summary": "Cloudflare describes a Kyivstar traffic disruption from 12 December 04:30 UTC to 15 December 12:00 UTC. This is its network vantage point, not a census of subscribers."
+    },
+    {
+      "id": "ev-voice",
+      "provenanceId": "src-voice",
+      "locator": "Opening two paragraphs",
+      "summary": "VEON reports mobile voice restoration beginning at 18:00 Kyiv time on 13 December. Restoration is gradual, with possible setbacks."
+    },
+    {
+      "id": "ev-mobile",
+      "provenanceId": "src-mobile",
+      "locator": "Opening paragraphs and customer experience qualification",
+      "summary": "VEON reports mobile Internet restored across Ukraine, including 4G, while warning that individual experience and service quality may vary."
+    },
+    {
+      "id": "ev-recovery",
+      "provenanceId": "src-recovery",
+      "locator": "Opening three paragraphs",
+      "summary": "VEON reports all service categories available and 99% of base stations operational in Ukrainian-government-controlled territory. Quality and accessibility work continued."
+    },
+    {
+      "id": "ev-geography",
+      "provenanceId": "src-geography",
+      "locator": "Feature ADM0_A3 = UKR",
+      "summary": "Generalized country outline; reference geography only. It does not describe territorial control or outage extent."
+    }
+  ],
+  "times": [
+    {
+      "id": "t-attack",
+      "start": "2023-12-12",
+      "end": "2023-12-12",
+      "precision": "day",
+      "basis": "EVENT_TIME"
+    },
+    {
+      "id": "t-disruption",
+      "start": "2023-12-12T04:30:00Z",
+      "end": "2023-12-15T12:00:00Z",
+      "precision": "minute",
+      "basis": "EVENT_TIME"
+    },
+    {
+      "id": "t-voice",
+      "start": "2023-12-13T16:00:00Z",
+      "end": "2023-12-13T16:00:00Z",
+      "precision": "minute",
+      "basis": "EVENT_TIME"
+    },
+    {
+      "id": "t-mobile",
+      "start": "2023-12-15",
+      "end": "2023-12-15",
+      "precision": "day",
+      "basis": "EVENT_TIME"
+    },
+    {
+      "id": "t-recovery",
+      "start": "2023-12-19",
+      "end": "2023-12-19",
+      "precision": "day",
+      "basis": "EVENT_TIME"
+    },
+    {
+      "id": "t-reference",
+      "start": "2026-09-24",
+      "end": "2026-09-24",
+      "precision": "day",
+      "basis": "CURRENT_REFERENCE"
+    }
+  ],
+  "entities": [
+    {
+      "id": "kyivstar",
+      "type": "organization",
+      "name": "Kyivstar",
+      "description": "Telecommunications operator. Organization-level subject; no inferred headquarters or attack coordinate."
+    },
+    {
+      "id": "as15895",
+      "type": "network",
+      "name": "AS15895",
+      "description": "Network identified by the Cloudflare report’s Kyivstar link. An autonomous system is a logical network, not a point on Earth."
+    },
+    {
+      "id": "ukraine",
+      "type": "country",
+      "name": "Ukraine",
+      "description": "Country-level context. The outline does not imply uniform outage, network coverage or territorial control."
+    }
+  ],
+  "geometries": [
+    {
+      "id": "geo-ukraine",
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            31.785992,
+            52.101678
+          ],
+          [
+            32.15944,
+            52.06125
+          ],
+          [
+            32.412058,
+            52.288695
+          ],
+          [
+            32.715761,
+            52.238465
+          ],
+          [
+            33.7527,
+            52.335075
+          ],
+          [
+            34.391731,
+            51.768882
+          ],
+          [
+            34.141978,
+            51.566413
+          ],
+          [
+            34.224816,
+            51.255993
+          ],
+          [
+            35.022183,
+            51.207572
+          ],
+          [
+            35.37791,
+            50.77394
+          ],
+          [
+            35.356116,
+            50.577197
+          ],
+          [
+            36.626168,
+            50.225591
+          ],
+          [
+            37.39346,
+            50.383953
+          ],
+          [
+            38.010631,
+            49.915662
+          ],
+          [
+            38.594988,
+            49.926462
+          ],
+          [
+            40.06904,
+            49.60105
+          ],
+          [
+            40.080789,
+            49.30743
+          ],
+          [
+            39.67465,
+            48.78382
+          ],
+          [
+            39.89562,
+            48.23241
+          ],
+          [
+            39.738278,
+            47.898937
+          ],
+          [
+            38.77057,
+            47.82562
+          ],
+          [
+            38.255112,
+            47.5464
+          ],
+          [
+            38.223538,
+            47.10219
+          ],
+          [
+            37.425137,
+            47.022221
+          ],
+          [
+            36.759855,
+            46.6987
+          ],
+          [
+            35.823685,
+            46.645964
+          ],
+          [
+            34.962342,
+            46.273197
+          ],
+          [
+            35.012659,
+            45.737725
+          ],
+          [
+            34.861792,
+            45.768182
+          ],
+          [
+            34.732017,
+            45.965666
+          ],
+          [
+            34.410402,
+            46.005162
+          ],
+          [
+            33.699462,
+            46.219573
+          ],
+          [
+            33.435988,
+            45.971917
+          ],
+          [
+            33.298567,
+            46.080598
+          ],
+          [
+            31.74414,
+            46.333348
+          ],
+          [
+            31.675307,
+            46.706245
+          ],
+          [
+            30.748749,
+            46.5831
+          ],
+          [
+            30.377609,
+            46.03241
+          ],
+          [
+            29.603289,
+            45.293308
+          ],
+          [
+            29.149725,
+            45.464925
+          ],
+          [
+            28.679779,
+            45.304031
+          ],
+          [
+            28.233554,
+            45.488283
+          ],
+          [
+            28.485269,
+            45.596907
+          ],
+          [
+            28.659987,
+            45.939987
+          ],
+          [
+            28.933717,
+            46.25883
+          ],
+          [
+            28.862972,
+            46.437889
+          ],
+          [
+            29.072107,
+            46.517678
+          ],
+          [
+            29.170654,
+            46.379262
+          ],
+          [
+            29.759972,
+            46.349988
+          ],
+          [
+            30.024659,
+            46.423937
+          ],
+          [
+            29.83821,
+            46.525326
+          ],
+          [
+            29.908852,
+            46.674361
+          ],
+          [
+            29.559674,
+            46.928583
+          ],
+          [
+            29.415135,
+            47.346645
+          ],
+          [
+            29.050868,
+            47.510227
+          ],
+          [
+            29.122698,
+            47.849095
+          ],
+          [
+            28.670891,
+            48.118149
+          ],
+          [
+            28.259547,
+            48.155562
+          ],
+          [
+            27.522537,
+            48.467119
+          ],
+          [
+            26.857824,
+            48.368211
+          ],
+          [
+            26.619337,
+            48.220726
+          ],
+          [
+            26.19745,
+            48.220881
+          ],
+          [
+            25.945941,
+            47.987149
+          ],
+          [
+            25.207743,
+            47.891056
+          ],
+          [
+            24.866317,
+            47.737526
+          ],
+          [
+            24.402056,
+            47.981878
+          ],
+          [
+            23.760958,
+            47.985598
+          ],
+          [
+            23.142236,
+            48.096341
+          ],
+          [
+            22.710531,
+            47.882194
+          ],
+          [
+            22.64082,
+            48.15024
+          ],
+          [
+            22.085608,
+            48.422264
+          ],
+          [
+            22.280842,
+            48.825392
+          ],
+          [
+            22.558138,
+            49.085738
+          ],
+          [
+            22.776419,
+            49.027395
+          ],
+          [
+            22.51845,
+            49.476774
+          ],
+          [
+            23.426508,
+            50.308506
+          ],
+          [
+            23.922757,
+            50.424881
+          ],
+          [
+            24.029986,
+            50.705407
+          ],
+          [
+            23.527071,
+            51.578454
+          ],
+          [
+            24.005078,
+            51.617444
+          ],
+          [
+            24.553106,
+            51.888461
+          ],
+          [
+            25.327788,
+            51.910656
+          ],
+          [
+            26.337959,
+            51.832289
+          ],
+          [
+            27.454066,
+            51.592303
+          ],
+          [
+            28.241615,
+            51.572227
+          ],
+          [
+            28.617613,
+            51.427714
+          ],
+          [
+            28.992835,
+            51.602044
+          ],
+          [
+            29.254938,
+            51.368234
+          ],
+          [
+            30.157364,
+            51.416138
+          ],
+          [
+            30.555117,
+            51.319503
+          ],
+          [
+            30.619454,
+            51.822806
+          ],
+          [
+            30.927549,
+            52.042353
+          ],
+          [
+            31.785992,
+            52.101678
+          ]
+        ]
+      ],
+      "crs": "EPSG:4326",
+      "timeId": "t-reference",
+      "evidenceIds": [
+        "ev-geography"
+      ],
+      "role": "REFERENCE_CONTEXT"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-traffic",
+      "subjectId": "as15895",
+      "observer": "Cloudflare Radar",
+      "metric": "Internet traffic disruption interval",
+      "method": "published-summary",
+      "value": null,
+      "unit": null,
+      "timeId": "t-disruption",
+      "evidenceIds": [
+        "ev-cloudflare"
+      ],
+      "limitation": "Published measurement summary; no raw samples, percentage drop, or per-location measurements imported."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c-attack",
+      "text": "Kyivstar reports a cyberattack interrupting mobile and Internet services on 12 December.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar"
+      ],
+      "evidenceIds": [
+        "ev-kyivstar"
+      ],
+      "timeId": "t-attack",
+      "limitation": "Operator account. This bundle does not independently establish the attack mechanism."
+    },
+    {
+      "id": "c-traffic",
+      "text": "Cloudflare measured a disruption in Kyivstar Internet traffic spanning 12–15 December.",
+      "status": "OBSERVED",
+      "subjects": [
+        "as15895"
+      ],
+      "evidenceIds": [
+        "ev-cloudflare"
+      ],
+      "timeId": "t-disruption",
+      "limitation": "Observed by Cloudflare, retained as a published summary. Internet traffic is not a direct measurement of voice service.",
+      "observationIds": [
+        "obs-traffic"
+      ]
+    },
+    {
+      "id": "c-duration",
+      "text": "The published disruption interval spans 79 hours 30 minutes.",
+      "status": "DERIVED",
+      "subjects": [
+        "as15895"
+      ],
+      "evidenceIds": [
+        "ev-cloudflare"
+      ],
+      "timeId": "t-disruption",
+      "limitation": "Elapsed time between the report’s endpoints; not downtime for every subscriber.",
+      "premiseIds": [
+        "c-traffic"
+      ],
+      "derivation": "2023-12-15T12:00Z minus 2023-12-12T04:30Z = 79.5 hours"
+    },
+    {
+      "id": "c-voice",
+      "text": "Mobile voice restoration began at 18:00 Kyiv time on 13 December.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar"
+      ],
+      "evidenceIds": [
+        "ev-voice"
+      ],
+      "timeId": "t-voice",
+      "limitation": "A restoration start, not completion. December Kyiv time is UTC+02:00."
+    },
+    {
+      "id": "c-mobile",
+      "text": "VEON reports mobile Internet restored across Ukraine on 15 December.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar",
+        "ukraine"
+      ],
+      "evidenceIds": [
+        "ev-mobile"
+      ],
+      "timeId": "t-mobile",
+      "limitation": "Customer experience could still vary; no precise restoration time supplied."
+    },
+    {
+      "id": "c-recovery",
+      "text": "VEON reports 99% of base stations operational in Ukrainian-government-controlled territory.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar",
+        "ukraine"
+      ],
+      "evidenceIds": [
+        "ev-recovery"
+      ],
+      "timeId": "t-recovery",
+      "limitation": "19 December statement. Not 99% of customers or land area; quality work continued."
+    },
+    {
+      "id": "c-data",
+      "text": "Kyivstar states subscriber personal data was not compromised.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar"
+      ],
+      "evidenceIds": [
+        "ev-kyivstar"
+      ],
+      "timeId": "t-recovery",
+      "limitation": "An operator statement, not independently verified forensic evidence."
+    },
+    {
+      "id": "c-link",
+      "text": "The measured traffic disruption is consistent with the operator’s reported service interruption.",
+      "status": "INFERRED",
+      "subjects": [
+        "kyivstar",
+        "as15895"
+      ],
+      "evidenceIds": [
+        "ev-cloudflare",
+        "ev-kyivstar"
+      ],
+      "timeId": "t-disruption",
+      "limitation": "Temporal agreement supports consistency, not independent proof of cause or attribution.",
+      "premiseIds": [
+        "c-attack",
+        "c-traffic"
+      ]
+    },
+    {
+      "id": "c-network",
+      "text": "The historical Cloudflare report identifies Kyivstar through AS15895.",
+      "status": "REPORTED",
+      "subjects": [
+        "kyivstar",
+        "as15895"
+      ],
+      "evidenceIds": [
+        "ev-cloudflare"
+      ],
+      "timeId": "t-disruption",
+      "limitation": "One network identifier; this is not a complete inventory of the operator’s infrastructure."
+    },
+    {
+      "id": "c-geography",
+      "text": "The outline provides country-level reference context.",
+      "status": "DERIVED",
+      "subjects": [
+        "ukraine"
+      ],
+      "evidenceIds": [
+        "ev-geography"
+      ],
+      "timeId": "t-reference",
+      "limitation": "Natural Earth reference cartography. Not outage extent or December 2023 control lines.",
+      "derivation": "Select Natural Earth v5.1.2 feature ADM0_A3=UKR."
+    },
+    {
+      "id": "c-unknown",
+      "text": "Initial access, affected facilities and independently verified exfiltration remain unresolved in this bundle.",
+      "status": "UNKNOWN",
+      "subjects": [
+        "kyivstar"
+      ],
+      "evidenceIds": [],
+      "timeId": "t-recovery",
+      "limitation": "Missing evidence is not evidence of absence."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r-target",
+      "from": "event-attack",
+      "to": "kyivstar",
+      "predicate": "affected operator",
+      "status": "REPORTED",
+      "claimIds": [
+        "c-attack"
+      ],
+      "timeId": "t-attack"
+    },
+    {
+      "id": "r-network",
+      "from": "kyivstar",
+      "to": "as15895",
+      "predicate": "identified network",
+      "status": "REPORTED",
+      "claimIds": [
+        "c-network"
+      ],
+      "timeId": "t-disruption"
+    },
+    {
+      "id": "r-observation",
+      "from": "as15895",
+      "to": "obs-traffic",
+      "predicate": "measured disruption",
+      "status": "OBSERVED",
+      "claimIds": [
+        "c-traffic"
+      ],
+      "timeId": "t-disruption"
+    },
+    {
+      "id": "r-country",
+      "from": "kyivstar",
+      "to": "ukraine",
+      "predicate": "reported service geography",
+      "status": "REPORTED",
+      "claimIds": [
+        "c-mobile"
+      ],
+      "timeId": "t-mobile"
+    },
+    {
+      "id": "r-geometry",
+      "from": "ukraine",
+      "to": "geo-ukraine",
+      "predicate": "reference outline",
+      "status": "DERIVED",
+      "claimIds": [
+        "c-geography"
+      ],
+      "timeId": "t-reference"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-attack",
+      "title": "Service interruption",
+      "label": "12 DEC",
+      "timeId": "t-attack",
+      "entityIds": [
+        "kyivstar",
+        "as15895",
+        "ukraine"
+      ],
+      "claimIds": [
+        "c-attack",
+        "c-traffic",
+        "c-duration"
+      ],
+      "summary": "An operator-reported cyberattack. A separately measured Internet disruption."
+    },
+    {
+      "id": "event-voice",
+      "title": "Voice recovery begins",
+      "label": "13 DEC",
+      "timeId": "t-voice",
+      "entityIds": [
+        "kyivstar"
+      ],
+      "claimIds": [
+        "c-voice"
+      ],
+      "summary": "Voice service starts returning. Recovery is gradual and setbacks remain possible."
+    },
+    {
+      "id": "event-mobile",
+      "title": "Mobile Internet returns",
+      "label": "15 DEC",
+      "timeId": "t-mobile",
+      "entityIds": [
+        "kyivstar",
+        "ukraine"
+      ],
+      "claimIds": [
+        "c-mobile",
+        "c-traffic"
+      ],
+      "summary": "Reported mobile Internet recovery aligns with the end of the measured disruption interval."
+    },
+    {
+      "id": "event-recovery",
+      "title": "Recovery expands",
+      "label": "19 DEC",
+      "timeId": "t-recovery",
+      "entityIds": [
+        "kyivstar",
+        "ukraine"
+      ],
+      "claimIds": [
+        "c-recovery",
+        "c-data"
+      ],
+      "summary": "Service categories are available again; quality and accessibility work continues."
+    }
+  ],
+  "questions": [
+    "Can IODA independently corroborate the AS-level disruption?",
+    "Which facilities and dependencies were affected in December 2023?",
+    "What primary forensic evidence establishes initial access or data exposure?"
+  ]
+}
