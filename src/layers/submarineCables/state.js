@@ -70,6 +70,8 @@ export function createState({ sweepClock, overlayHost }) {
   state._markerBlendInvariantWarned = false;
 
   state._pickByEntity = new WeakMap();
+  state._debugPickCarriers = new Map();
+  state._debugGeneration = 0;
 
   state._referenceLabelCount = 0;
 

@@ -3,6 +3,9 @@ import { initAnnotations } from '../annotations/index.js';
 import { initDrawTool } from '../annotations/drawTool.js';
 import { initImageryBoxTool } from '../ui/imageryBoxTool.js';
 import { createRecentImageryPanel } from '../ui/recentImagery.js';
+import { createWorldDebug } from '../reality/worldDebug.js';
+import { createSignalEvidenceSource } from '../reality/signalEvidence.js';
+import { createWorldDebugUI } from '../ui/worldDebug.js';
 import { initGevVoiceCommands } from '../voice/gevRealtime.js';
 import { installScopeMask, destroyScopeMask } from '../scopeMask.js';
 import {
@@ -55,6 +58,16 @@ export function createApplicationTools({
   // lifetime rather than to whoever last pressed the button.
   const drawTool = initDrawTool({ viewer, annotations });
   defer(() => drawTool?.destroy());
+  const worldDebug = createWorldDebug({
+    signalSource: createSignalEvidenceSource(),
+    viewer,
+    dataManager,
+    annotations,
+    styleManager,
+  });
+  defer(() => worldDebug.destroy());
+  const worldDebugUI = createWorldDebugUI({ service: worldDebug });
+  defer(() => worldDebugUI.destroy());
   // DATA ▸ Recent Imagery: the box tool claims the pointer like Draw and the
   // panel lives on the right rail, so both belong to the application
   // lifetime. The tileset lets the layer drape while the globe is hidden.
@@ -148,6 +161,7 @@ export function createApplicationTools({
     mapStackController,
     annotations,
     weatherEffects,
+    worldDebug,
     cockpitCloudEffects,
     getRenderGovernorDiagnostics,
     surfaceServices: operations.surface,
@@ -169,6 +183,7 @@ export function createApplicationTools({
     dataManager,
     sceneDirector,
     annotations,
+    debugWorld: worldDebug,
   });
   defer(() => {
     voiceCommands.stop({ removeUi: true });

@@ -128,6 +128,7 @@ const schemas = [
             'flights',
             'military',
             'earthquakes',
+            'internet-health',
             'satellites',
             'rocket-launches',
             'traffic',
@@ -163,6 +164,7 @@ const schemas = [
             'flights',
             'military',
             'earthquakes',
+            'internet-health',
             'satellites',
             'traffic',
             'cctv',
@@ -282,6 +284,8 @@ const schemas = [
           type: 'string',
           enum: [
             'local-datacenters',
+            'internet-health',
+            'earthquakes',
             'local-dams',
             'telegeography-submarine-cables',
             'local-firms',
@@ -791,6 +795,7 @@ const schemas = [
               'ais-live-vessels',
               'local-firms',
               'earthquakes',
+              'internet-health',
               'satellites',
               'local-datacenters',
               'local-dams',
@@ -900,6 +905,38 @@ const schemas = [
     },
   },
 ];
+
+schemas.push({
+  name: 'debug_world',
+  parameters: {
+    type: 'object',
+    additionalProperties: false,
+    required: ['action'],
+    properties: {
+      action: {
+        type: 'string',
+        enum: [
+          'explore',
+          'verify',
+          'export',
+          'debug',
+          'context',
+          'infrastructure',
+          'observed',
+          'reported',
+          'all',
+          'hide_reference',
+          'clear_inference',
+          'clear',
+          'follow',
+          'another',
+          'sources',
+        ],
+      },
+      id: { type: 'string' },
+    },
+  },
+});
 
 function freeze(value) {
   if (value && typeof value === 'object') {

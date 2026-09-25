@@ -35,9 +35,9 @@ export function createSituationRuntime(input) {
       ...visibleRecords(situation, state),
       selected: records.get(state.selectedId) || null,
     });
-  const publish = () => {
+  const publish = (event) => {
     const snapshot = context();
-    for (const listener of listeners) listener(snapshot);
+    for (const listener of listeners) listener(snapshot, event);
     return snapshot;
   };
   const live = () => {
@@ -107,6 +107,47 @@ export function createSituationRuntime(input) {
         ),
       });
     },
+    /** Explore existing visible associations in either direction; never infer new edges. */
+    trace({ id = state.selectedId } = {}) {
+      live();
+      if (!records.has(id))
+        throw new RangeError(
+          'Select a situation object to trace its relationships',
+        );
+      const snapshot = context();
+      const visible = new Map(
+        snapshot.records.map((record) => [record.id, record]),
+      );
+      const seedEdge = snapshot.relationships.find((edge) => edge.id === id);
+      const reached = new Set(
+        seedEdge ? [seedEdge.from, seedEdge.to] : visible.has(id) ? [id] : [],
+      );
+      const edges = new Set();
+      let changed = true;
+      while (changed) {
+        changed = false;
+        for (const edge of snapshot.relationships) {
+          if (
+            edges.has(edge.id) ||
+            (!reached.has(edge.from) && !reached.has(edge.to))
+          )
+            continue;
+          edges.add(edge.id);
+          reached.add(edge.from);
+          reached.add(edge.to);
+          changed = true;
+        }
+      }
+      return freeze({
+        id,
+        time: snapshot.time,
+        lens: snapshot.lens,
+        records: snapshot.records.filter((record) => reached.has(record.id)),
+        relationships: snapshot.relationships.filter((edge) =>
+          edges.has(edge.id),
+        ),
+      });
+    },
     reset() {
       live();
       state = {
@@ -115,7 +156,7 @@ export function createSituationRuntime(input) {
         selectedId: null,
         hiddenIds: [],
       };
-      return publish();
+      return publish('reset');
     },
     destroy() {
       disposed = true;

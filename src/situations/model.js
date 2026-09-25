@@ -186,6 +186,9 @@ export function validateSituation(situation) {
     ...indexRecords(situation[key], key).values(),
   ]);
   const records = indexRecords(groups.flat(), 'all records');
+  const entities = new Map(
+    situation.entities.map((entity) => [entity.id, entity]),
+  );
   const checkEvidence = (ids, label) => {
     requireValue(
       Array.isArray(ids) && ids.every((id) => evidence.has(id)),
@@ -233,6 +236,23 @@ export function validateSituation(situation) {
       );
     }
     validateGeometry(record.geometry);
+    if (record.anchorId !== undefined) {
+      const anchor = entities.get(record.anchorId);
+      requireValue(
+        typeof record.anchorId === 'string' &&
+          anchor &&
+          anchor.id !== record.id &&
+          anchor.geometry?.type === 'Point' &&
+          anchor.anchorId === undefined,
+        `${record.id} needs a direct point entity anchor; missing, recursive or non-point anchors are invalid`,
+      );
+      requireValue(
+        record.geometry == null &&
+          typeof record.spatialDescription === 'string' &&
+          record.spatialDescription.trim(),
+        `${record.id} anchor needs explicit spatial context and cannot also supply geometry`,
+      );
+    }
     if (record.geometry) {
       checkEvidence(record.geometry.evidenceIds, `${record.id} geometry`);
       if (record.geometry.basis === 'CURRENT_REFERENCE') {

@@ -37,7 +37,10 @@ class FakeElement {
     this.style = {};
     this.classList = new FakeClassList(this);
     this.textContent = '';
+    this.listeners = new Map();
   }
+
+  addEventListener(name, callback) { this.listeners.set(name, callback); }
 
   setAttribute(name, value) {
     this.attributes.set(name, String(value));
@@ -98,7 +101,6 @@ class FakeElement {
     return matches;
   }
 
-  addEventListener() {}
 
   getBBox() {
     return { x: 0, y: 0, width: 40, height: 16 };
@@ -138,6 +140,32 @@ function findAnnotationGroup(document) {
     group: svg.children.find((child) => child.classList.contains('gev-anno')),
   };
 }
+
+test('source-backed annotation callouts are keyboard and pointer inspectable', (t) => {
+  const originalDocument = globalThis.document;
+  const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+  globalThis.document = fakeDocument();
+  globalThis.requestAnimationFrame = (callback) => { callback(); return 1; };
+  t.after(() => {
+    if (originalDocument === undefined) delete globalThis.document;
+    else globalThis.document = originalDocument;
+    if (originalRequestAnimationFrame === undefined) delete globalThis.requestAnimationFrame;
+    else globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+  });
+  const camera = { positionWC: Cesium.Cartesian3.ZERO, directionWC: Cesium.Cartesian3.ZERO, positionCartographic: { height: 1000 } };
+  const scene = { camera, canvas: { clientWidth: 1280, clientHeight: 720, width: 1280, height: 720 }, postRender: { addEventListener() {}, removeEventListener() {} } };
+  const renderer = createScreenAnnotationRenderer({ scene, camera, trackedEntity: null });
+  const selected = [];
+  renderer.add({ id: 'evidence-mark', type: 'pin', color: 'cyan', label: 'Observed source', alpha: 1, anchor: { lon: 0, lat: 0, height: 0 }, onSelect: (id) => selected.push(id) });
+  const { group } = findAnnotationGroup(globalThis.document);
+  assert.equal(group.getAttribute('role'), 'button');
+  assert.equal(group.getAttribute('tabindex'), '0');
+  assert.equal(group.style.pointerEvents, 'auto');
+  group.listeners.get('click')({ stopPropagation() {} });
+  group.listeners.get('keydown')({ key: 'Enter', preventDefault() {}, stopPropagation() {} });
+  assert.deepEqual(selected, ['evidence-mark', 'evidence-mark']);
+  renderer.destroy();
+});
 
 test('outline upgrade preserves the existing SVG group identity', (t) => {
   const originalDocument = globalThis.document;

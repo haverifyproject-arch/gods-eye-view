@@ -1,5 +1,15 @@
 # God's Eye View Current State
 
+## Reality Debugger — September 24, 2026
+
+The active product extension is the native Tonga mission at `/?situation=tonga`.
+Its immutable Situation runtime, source-backed chronology, current-reference cable
+traversal, offline Natural Earth geography, selectable world evidence, filters,
+text actions and optional voice delegation share the existing viewer/lifecycle.
+Earlier Cyber HUD and prototype notes below describe preserved upstream/history,
+not the current mission scope. See `docs/reality/BUILD-JOURNAL.md` for delivery
+and acceptance status; `docs/reality/MASTER-CONTRACT.md` governs the product.
+
 ## Cyber HUD — September 23, 2026
 
 Display > HUD > Layout includes Cyber, also available through the HUD voice
@@ -4356,3 +4366,9 @@ Desktop wind now allows 7,200 baked native GPU paths (narrow viewports remain at
 Temperature uses stronger fixed −40..50°C colors; the underlying 1° forecast and
 numeric inspection values are unchanged. No volumetric cloud height or local rain
 arrival prediction is claimed. NOAA source limits are documented in DATA_SOURCES.
+
+## Reality Debugger · native Tonga mission (September 2026)
+
+The standalone application mounts a lazy native mode at `/?situation=tonga` and exposes a mission launch button on its ordinary globe. It retains the existing Cesium viewer and camera, cancels the Austin fly-to for mission startup, owns transient mission/geographic data sources and world annotations, and destroys them on exit. `src/situations/model.js` validates source-linked temporal records, anchors, geometry basis and status; `runtime.js` owns filtering and cancellation-aware actions; `tonga.js` is the source registry and static mission. `world.js` renders those records, the TeleGeography subset, Natural Earth reference land and an explicitly illustrative 37 km scale. `world.css` reduces ordinary chrome only while the mission is active. Optional native voice tool `operate_situation`, deterministic text and UI share the Situation dispatcher. `vercel.json` builds static `dist` without relying on Vite development proxies.
+
+Observed Cloudflare traffic decline after ~03:00 UTC January 15 precedes the NASA JPL main eruption time 04:14 UTC. The mission deliberately does not draw a causal edge explaining the first decline. It distinguishes retrospective display time, measurement acquisition and source publication. The cable reference is current, CC BY-NC-SA 3.0, and is never treated as event-time observed geometry. Emergency terminal activation time, exact fault location, historical surveyed route and repair-vessel track remain unknown. Browser QA script `scripts/qa-reality.mjs` captures nine states; review still requires an environment that permits launching headless WebGL Chrome.

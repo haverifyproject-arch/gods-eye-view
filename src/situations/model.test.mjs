@@ -230,3 +230,74 @@ test('invalid intervals, timeline order and lens names fail loudly', () => {
     /unknown evidence lens/,
   );
 });
+
+function anchoredFixture() {
+  const situation = fixture();
+  situation.entities.push({
+    id: 'country-context',
+    label: 'Country context, not a sensor',
+    status: 'CURRENT_REFERENCE',
+    evidenceIds: ['evidence'],
+    validTime: { ...range },
+    geometry: {
+      type: 'Point',
+      coordinates: [-175, -21],
+      basis: 'CURRENT_REFERENCE',
+      precision: 'APPROXIMATE',
+      evidenceIds: ['evidence'],
+      description: 'Test cartographic anchor, not historical measurement.',
+    },
+  });
+  Object.assign(situation.observations[0], {
+    anchorId: 'country-context',
+    spatialDescription: 'Country context; not a sensor location.',
+  });
+  return situation;
+}
+
+test('direct point entity anchors retain observation status without leaking filtered reference entities', () => {
+  const situation = validateSituation(anchoredFixture());
+  const visible = visibleRecords(situation, {
+    time: after.start,
+    lens: 'OBSERVED',
+  });
+  assert.equal(visible.records[0].anchorId, 'country-context');
+  assert.ok(!visible.records.some((record) => record.id === 'country-context'));
+});
+
+test('dangling, non-entity, non-point, self and chained anchors are rejected', () => {
+  for (const id of ['missing', 'damage', 'cable', 'traffic']) {
+    const situation = anchoredFixture();
+    situation.observations[0].anchorId = id;
+    assert.throws(
+      () => validateSituation(situation),
+      /direct point entity anchor/,
+    );
+  }
+  const chain = anchoredFixture();
+  chain.entities[1].anchorId = 'country-context';
+  assert.throws(() => validateSituation(chain), /direct point entity anchor/);
+  const cycle = anchoredFixture();
+  cycle.entities.push({
+    ...structuredClone(cycle.entities[1]),
+    id: 'other-context',
+    anchorId: 'country-context',
+  });
+  cycle.entities[1].anchorId = 'other-context';
+  assert.throws(() => validateSituation(cycle), /direct point entity anchor/);
+});
+
+test('anchored observations must explain context and cannot claim independent geometry', () => {
+  const missing = anchoredFixture();
+  delete missing.observations[0].spatialDescription;
+  assert.throws(() => validateSituation(missing), /explicit spatial context/);
+  const ambiguous = anchoredFixture();
+  ambiguous.observations[0].geometry = {
+    ...ambiguous.entities[1].geometry,
+    basis: 'RECONSTRUCTED',
+  };
+  assert.throws(
+    () => validateSituation(ambiguous),
+    /cannot also supply geometry/,
+  );
+});

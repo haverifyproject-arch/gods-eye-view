@@ -1,10 +1,61 @@
 import * as Cesium from 'cesium';
 import { isPointerFree } from '../../data/inputOwnership.js';
+import { cableDebugRecords } from './geometry.js';
 
-export function createInteraction({ state, screenSpaceEventHandlerFactory }) {
+export function createInteraction({
+  state,
+  screenSpaceEventHandlerFactory,
+  contextServices = {},
+}) {
   function registerPickEntity(entity, info) {
     entity.__gevTeleGeography = info;
     state._pickByEntity.set(entity, info);
+    if (!info.featureId) return;
+    const record = cableDebugRecords(
+      state._cachedCableJson,
+      state._cachedLandingJson,
+      {
+        kind: info.kind,
+        ids: [String(info.featureId)],
+        limit: 1,
+      },
+    )[0];
+    if (!record) return;
+    info.contextId = record.id;
+    state._debugPickCarriers.set(record.id, entity);
+    contextServices.registerEntityContext?.(entity, {
+      id: record.id,
+      layerId: 'telegeography-submarine-cables',
+      layerName: 'Submarine Cables',
+      source: record.source,
+      label: record.label,
+      dataSource:
+        info.kind === 'cable'
+          ? state._cableDataSource
+          : state._landingDataSource,
+      longitude: record.reference?.lon,
+      latitude: record.reference?.lat,
+      geometry: record.geometry,
+      properties: record,
+    });
+  }
+
+  function selectById(id) {
+    if (!state._enabled || !state._loaded) return null;
+    const entity = state._debugPickCarriers.get(id);
+    if (!entity || entity.show === false) return null;
+    if (state._viewer) state._viewer.selectedEntity = entity;
+    return contextServices.selectEntityContext?.(entity) || null;
+  }
+
+  function clearContexts() {
+    contextServices.clearSelectedEntityContextForLayer?.(
+      'telegeography-submarine-cables',
+    );
+    contextServices.removeEntityContextsForLayer?.(
+      'telegeography-submarine-cables',
+    );
+    state._debugPickCarriers.clear();
   }
 
   function beginInteraction(viewer) {
@@ -17,7 +68,7 @@ export function createInteraction({ state, screenSpaceEventHandlerFactory }) {
       const picked = viewer.scene.pick(click.position);
       const record = resolvePickRecord(picked);
       if (!record?.reference) return;
-      flyToReference(viewer, record.reference);
+      selectById(record.contextId);
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   }
 
@@ -74,5 +125,7 @@ export function createInteraction({ state, screenSpaceEventHandlerFactory }) {
     beginInteraction,
     resolvePickRecord,
     flyToReference,
+    selectById,
+    clearContexts,
   };
 }

@@ -499,3 +499,24 @@ test('a world add that fails mid-way leaves its landed entities removable', (t) 
   assert.equal(annotationGroups(svg).length, 1);
   renderer.destroy();
 });
+
+test('evidence routes use static subdued references and removable dashed hypotheses', (t) => {
+  installBrowserGlobals(t);
+  const { viewer, dataSources } = fakeViewer(12, 44);
+  const renderer = createHybridAnnotationRenderer(viewer);
+  const route = (id, evidenceState) => ({id, type:'route', evidenceState, color:'amber', alpha:1, path:[{lon:12,lat:44},{lon:13,lat:45}], label:null});
+  const reference = route('reference', 'CURRENT_REFERENCE');
+  const inferred = route('inferred', 'INFERRED');
+  renderer.add(reference);
+  renderer.add(inferred);
+  const entities = dataSources[0].entities.values;
+  assert.equal(entities.length, 2);
+  const time = Cesium.JulianDate.now();
+  assert.equal(entities[0].polyline.material.getType(time), 'Color');
+  assert.ok(entities[0].polyline.material.color.getValue(time).alpha < 0.5);
+  assert.equal(entities[1].polyline.material.getType(time), 'PolylineDash');
+  renderer.remove(inferred);
+  assert.equal(dataSources[0].entities.values.length, 1);
+  assert.equal(dataSources[0].entities.values[0].polyline.material.getType(time), 'Color');
+  renderer.destroy();
+});

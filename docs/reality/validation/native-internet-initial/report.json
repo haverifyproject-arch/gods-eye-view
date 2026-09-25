@@ -1,0 +1,1903 @@
+{
+  "checks": [
+    {
+      "name": "Live IODA returned mapped country records",
+      "passed": true,
+      "detail": {
+        "count": 18,
+        "lastUpdate": 1790348243420,
+        "loading": false,
+        "error": null,
+        "source": "IODA",
+        "sourceLimited": false,
+        "excluded": 0,
+        "window": {
+          "from": 1790261843,
+          "until": 1790348243
+        },
+        "coverage": "Country-level detections; not confirmed nationwide blackouts"
+      }
+    },
+    {
+      "name": "Selected current source available before debug",
+      "passed": true,
+      "detail": {
+        "id": "ioda-country-CV",
+        "label": "Cape Verde · Internet observations",
+        "state": "OBSERVED",
+        "explanation": "Country-level IODA anomaly. The outline is geographic reference, not a measured outage footprint. Recovery and affected ASNs are not established.",
+        "provenance": [
+          {
+            "label": "IODA / Georgia Tech",
+            "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+            "retrievedAt": "2026-09-25T14:57:23.420Z",
+            "time": "2026-09-24T14:57:23.000Z – 2026-09-25T14:57:23.000Z",
+            "detail": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Actual scene polygon pointer click selects native record",
+      "passed": true,
+      "detail": {
+        "x": 710,
+        "y": 450,
+        "id": "ioda-country-CV"
+      }
+    },
+    {
+      "name": "Investigation reaches ready with native relationships",
+      "passed": true,
+      "detail": {
+        "status": "ready",
+        "count": 8,
+        "errors": []
+      }
+    },
+    {
+      "name": "Observations filter hides reference marks",
+      "passed": true
+    },
+    {
+      "name": "Layer off clears health selection",
+      "passed": true
+    },
+    {
+      "name": "No unhandled exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "responses": [
+    {
+      "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+      "status": 200
+    }
+  ],
+  "layer": {
+    "stats": {
+      "count": 18,
+      "lastUpdate": 1790348243420,
+      "loading": false,
+      "error": null,
+      "source": "IODA",
+      "sourceLimited": false,
+      "excluded": 0,
+      "window": {
+        "from": 1790261843,
+        "until": 1790348243
+      },
+      "coverage": "Country-level detections; not confirmed nationwide blackouts"
+    },
+    "records": [
+      {
+        "id": "ioda-country-CV",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "CV",
+        "name": "Cape Verde",
+        "label": "Cape Verde · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -23.639434,
+          "latitude": 15.074761,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790301000:1790306400",
+            "from": 1790301000,
+            "until": 1790306400,
+            "startTime": "2026-09-25T01:50:00.000Z",
+            "endTime": "2026-09-25T03:20:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 271.35678391959794,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "bgp:median:1790286000:1790287800",
+            "from": 1790286000,
+            "until": 1790287800,
+            "startTime": "2026-09-24T21:40:00.000Z",
+            "endTime": "2026-09-24T22:10:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 226.13065326633165,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "ping-slash24:median:1790001600:1790348243",
+            "from": 1790001600,
+            "until": 1790348243,
+            "startTime": "2026-09-21T14:40:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "ping-slash24",
+            "method": "median",
+            "score": 120049.5238095238,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-PM",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "PM",
+        "name": "St. Pierre And Miquelon",
+        "label": "St. Pierre And Miquelon · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -56.332352,
+          "latitude": 47.040344,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789683300:1790348243",
+            "from": 1789683300,
+            "until": 1790348243,
+            "startTime": "2026-09-17T22:15:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 20522.93209876543,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-PY",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "PY",
+        "name": "Paraguay",
+        "label": "Paraguay · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -60.146394,
+          "latitude": -21.674509,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789497000:1790348243",
+            "from": 1789497000,
+            "until": 1790348243,
+            "startTime": "2026-09-15T18:30:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 19327.214417482617,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-TN",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "TN",
+        "name": "Tunisia",
+        "label": "Tunisia · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 9.007881,
+          "latitude": 33.687263,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790073600:1790348243",
+            "from": 1790073600,
+            "until": 1790348243,
+            "startTime": "2026-09-22T10:40:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 15363.468266194674,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-TC",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "TC",
+        "name": "Turks And Caicos Islands",
+        "label": "Turks And Caicos Islands · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -71.752704,
+          "latitude": 21.81663,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789683300:1790336700",
+            "from": 1789683300,
+            "until": 1790336700,
+            "startTime": "2026-09-17T22:15:00.000Z",
+            "endTime": "2026-09-25T11:45:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 12235.955056179777,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-SO",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "SO",
+        "name": "Somalia",
+        "label": "Somalia · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 45.19238,
+          "latitude": 3.568925,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789986000:1790348243",
+            "from": 1789986000,
+            "until": 1790348243,
+            "startTime": "2026-09-21T10:20:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 11896.32183908046,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-BM",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "BM",
+        "name": "Bermuda",
+        "label": "Bermuda · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -64.763573,
+          "latitude": 32.296592,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789673100:1790348243",
+            "from": 1789673100,
+            "until": 1790348243,
+            "startTime": "2026-09-17T19:25:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 11511.389599317989,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-NG",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "NG",
+        "name": "Nigeria",
+        "label": "Nigeria · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 7.50322,
+          "latitude": 9.439799,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1789824000:1790348243",
+            "from": 1789824000,
+            "until": 1790348243,
+            "startTime": "2026-09-19T13:20:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 10175.1805907173,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-NE",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "NE",
+        "name": "Niger",
+        "label": "Niger · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 9.504356,
+          "latitude": 17.446195,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790242500:1790263500",
+            "from": 1790242500,
+            "until": 1790263500,
+            "startTime": "2026-09-24T09:35:00.000Z",
+            "endTime": "2026-09-24T15:25:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 5628.140703517587,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-CG",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "CG",
+        "name": "Congo",
+        "label": "Congo · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 15.9005,
+          "latitude": 0.142331,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "merit-nt:median:1790271660:1790272020",
+            "from": 1790271660,
+            "until": 1790272020,
+            "startTime": "2026-09-24T17:41:00.000Z",
+            "endTime": "2026-09-24T17:47:00.000Z",
+            "observationType": "merit-nt",
+            "method": "median",
+            "score": 480,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "merit-nt:median:1790270640:1790271600",
+            "from": 1790270640,
+            "until": 1790271600,
+            "startTime": "2026-09-24T17:24:00.000Z",
+            "endTime": "2026-09-24T17:40:00.000Z",
+            "observationType": "merit-nt",
+            "method": "median",
+            "score": 1440,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "merit-nt:median:1790268120:1790270580",
+            "from": 1790268120,
+            "until": 1790270580,
+            "startTime": "2026-09-24T16:42:00.000Z",
+            "endTime": "2026-09-24T17:23:00.000Z",
+            "observationType": "merit-nt",
+            "method": "median",
+            "score": 3690,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-BH",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "BH",
+        "name": "Bahrain",
+        "label": "Bahrain · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 50.554816,
+          "latitude": 26.055972,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "ping-slash24:median:1790300400:1790305200",
+            "from": 1790300400,
+            "until": 1790305200,
+            "startTime": "2026-09-25T01:40:00.000Z",
+            "endTime": "2026-09-25T03:00:00.000Z",
+            "observationType": "ping-slash24",
+            "method": "median",
+            "score": 2849.1446345256604,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-OM",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "OM",
+        "name": "Oman",
+        "label": "Oman · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 57.336553,
+          "latitude": 22.120427,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "ping-slash24:median:1790299800:1790305200",
+            "from": 1790299800,
+            "until": 1790305200,
+            "startTime": "2026-09-25T01:30:00.000Z",
+            "endTime": "2026-09-25T03:00:00.000Z",
+            "observationType": "ping-slash24",
+            "method": "median",
+            "score": 2582.0105820105823,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-PK",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "PK",
+        "name": "Pakistan",
+        "label": "Pakistan · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 68.545632,
+          "latitude": 29.328389,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "ping-slash24:median:1790300400:1790305200",
+            "from": 1790300400,
+            "until": 1790305200,
+            "startTime": "2026-09-25T01:40:00.000Z",
+            "endTime": "2026-09-25T03:00:00.000Z",
+            "observationType": "ping-slash24",
+            "method": "median",
+            "score": 2394.9044585987263,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-BI",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "BI",
+        "name": "Burundi",
+        "label": "Burundi · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 29.917086,
+          "latitude": -3.332836,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "ping-slash24:median:1790295000:1790296800",
+            "from": 1790295000,
+            "until": 1790296800,
+            "startTime": "2026-09-25T00:10:00.000Z",
+            "endTime": "2026-09-25T00:40:00.000Z",
+            "observationType": "ping-slash24",
+            "method": "median",
+            "score": 1271.186440677966,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-SS",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "SS",
+        "name": "South Sudan",
+        "label": "South Sudan · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 30.390151,
+          "latitude": 7.230477,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790317500:1790319000",
+            "from": 1790317500,
+            "until": 1790319000,
+            "startTime": "2026-09-25T06:25:00.000Z",
+            "endTime": "2026-09-25T06:50:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 44.24778761061947,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "bgp:median:1790298000:1790313600",
+            "from": 1790298000,
+            "until": 1790313600,
+            "startTime": "2026-09-25T01:00:00.000Z",
+            "endTime": "2026-09-25T05:20:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 460.1769911504425,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "bgp:median:1790293200:1790297100",
+            "from": 1790293200,
+            "until": 1790297100,
+            "startTime": "2026-09-24T23:40:00.000Z",
+            "endTime": "2026-09-25T00:45:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 115.04424778761063,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-WF",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "WF",
+        "name": "Wallis And Futuna Islands",
+        "label": "Wallis And Futuna Islands · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -178.137436,
+          "latitude": -14.286415,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790344200:1790345100",
+            "from": 1790344200,
+            "until": 1790345100,
+            "startTime": "2026-09-25T13:50:00.000Z",
+            "endTime": "2026-09-25T14:05:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 42.85714285714286,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "bgp:median:1790341500:1790343300",
+            "from": 1790341500,
+            "until": 1790343300,
+            "startTime": "2026-09-25T13:05:00.000Z",
+            "endTime": "2026-09-25T13:35:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 85.71428571428572,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          },
+          {
+            "id": "bgp:median:1790334000:1790339400",
+            "from": 1790334000,
+            "until": 1790339400,
+            "startTime": "2026-09-25T11:00:00.000Z",
+            "endTime": "2026-09-25T12:30:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 257.14285714285717,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-GQ",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "GQ",
+        "name": "Equatorial Guinea",
+        "label": "Equatorial Guinea · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": 8.9902,
+          "latitude": 2.333,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790344500:1790348243",
+            "from": 1790344500,
+            "until": 1790348243,
+            "startTime": "2026-09-25T13:55:00.000Z",
+            "endTime": "2026-09-25T14:57:23.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 152.15447154471545,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": true,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      },
+      {
+        "id": "ioda-country-VG",
+        "layerId": "internet-health",
+        "kind": "internet-disruption",
+        "countryCode": "VG",
+        "name": "British Virgin Islands",
+        "label": "British Virgin Islands · Internet observations",
+        "status": "recent-detections",
+        "evidenceState": "OBSERVED",
+        "geometryState": "CURRENT_REFERENCE",
+        "spatialScope": "country",
+        "displayAnchor": {
+          "longitude": -64.63661,
+          "latitude": 18.426606,
+          "basis": "Natural Earth administrative label anchor; not a measured outage location"
+        },
+        "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+        "affectedNetworks": null,
+        "events": [
+          {
+            "id": "bgp:median:1790334300:1790336700",
+            "from": 1790334300,
+            "until": 1790336700,
+            "startTime": "2026-09-25T11:05:00.000Z",
+            "endTime": "2026-09-25T11:45:00.000Z",
+            "observationType": "bgp",
+            "method": "median",
+            "score": 54.05405405405405,
+            "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+            "windowClipped": false,
+            "recoveryEstablished": false
+          }
+        ],
+        "provenance": {
+          "publisher": "IODA / Georgia Tech",
+          "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+          "retrievedAt": "2026-09-25T14:57:23.420Z",
+          "windowStart": "2026-09-24T14:57:23.000Z",
+          "windowEnd": "2026-09-25T14:57:23.000Z",
+          "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+          "geographySource": "Natural Earth · public domain country reference"
+        }
+      }
+    ]
+  },
+  "selected": {
+    "status": "idle",
+    "selected": {
+      "id": "ioda-country-CV",
+      "label": "Cape Verde · Internet observations",
+      "layerId": "internet-health"
+    },
+    "subject": null,
+    "summary": "Cape Verde · Internet observations. Select Debug this to inspect available context.",
+    "filter": "all",
+    "relationships": [],
+    "inspected": null,
+    "unknowns": [],
+    "errors": [],
+    "following": false
+  },
+  "source": {
+    "id": "ioda-country-CV",
+    "label": "Cape Verde · Internet observations",
+    "state": "OBSERVED",
+    "explanation": "Country-level IODA anomaly. The outline is geographic reference, not a measured outage footprint. Recovery and affected ASNs are not established.",
+    "provenance": [
+      {
+        "label": "IODA / Georgia Tech",
+        "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+        "retrievedAt": "2026-09-25T14:57:23.420Z",
+        "time": "2026-09-24T14:57:23.000Z – 2026-09-25T14:57:23.000Z",
+        "detail": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved."
+      }
+    ]
+  },
+  "debug": {
+    "status": "ready",
+    "selected": {
+      "id": "ioda-country-CV",
+      "label": "Cape Verde · Internet observations",
+      "layerId": "internet-health"
+    },
+    "subject": {
+      "id": "ioda-country-CV",
+      "layerId": "internet-health",
+      "kind": "internet-disruption",
+      "countryCode": "CV",
+      "name": "Cape Verde",
+      "label": "Cape Verde · Internet observations",
+      "status": "recent-detections",
+      "evidenceState": "OBSERVED",
+      "geometryState": "CURRENT_REFERENCE",
+      "spatialScope": "country",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -25.17,
+                16.946
+              ],
+              [
+                -25.267,
+                16.926
+              ],
+              [
+                -25.308,
+                16.936
+              ],
+              [
+                -25.322,
+                17.015
+              ],
+              [
+                -25.342,
+                17.068
+              ],
+              [
+                -25.337,
+                17.091
+              ],
+              [
+                -25.113,
+                17.194
+              ],
+              [
+                -25.035,
+                17.176
+              ],
+              [
+                -24.98,
+                17.095
+              ],
+              [
+                -25.017,
+                17.049
+              ],
+              [
+                -25.17,
+                16.946
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -23.444,
+                15.008
+              ],
+              [
+                -23.505,
+                14.916
+              ],
+              [
+                -23.637,
+                14.923
+              ],
+              [
+                -23.705,
+                14.961
+              ],
+              [
+                -23.785,
+                15.077
+              ],
+              [
+                -23.783,
+                15.166
+              ],
+              [
+                -23.754,
+                15.244
+              ],
+              [
+                -23.759,
+                15.311
+              ],
+              [
+                -23.748,
+                15.329
+              ],
+              [
+                -23.707,
+                15.317
+              ],
+              [
+                -23.701,
+                15.272
+              ],
+              [
+                -23.58,
+                15.161
+              ],
+              [
+                -23.535,
+                15.139
+              ],
+              [
+                -23.444,
+                15.008
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -24.887,
+                16.818
+              ],
+              [
+                -24.969,
+                16.794
+              ],
+              [
+                -25.02,
+                16.797
+              ],
+              [
+                -25.093,
+                16.833
+              ],
+              [
+                -25.07,
+                16.871
+              ],
+              [
+                -24.991,
+                16.913
+              ],
+              [
+                -24.936,
+                16.922
+              ],
+              [
+                -24.892,
+                16.846
+              ],
+              [
+                -24.887,
+                16.818
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -22.918,
+                16.237
+              ],
+              [
+                -22.834,
+                16.219
+              ],
+              [
+                -22.803,
+                16.226
+              ],
+              [
+                -22.749,
+                16.222
+              ],
+              [
+                -22.693,
+                16.169
+              ],
+              [
+                -22.682,
+                16.113
+              ],
+              [
+                -22.71,
+                16.043
+              ],
+              [
+                -22.821,
+                15.986
+              ],
+              [
+                -22.884,
+                15.993
+              ],
+              [
+                -22.959,
+                16.045
+              ],
+              [
+                -22.916,
+                16.148
+              ],
+              [
+                -22.918,
+                16.237
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -24.308,
+                14.856
+              ],
+              [
+                -24.386,
+                14.818
+              ],
+              [
+                -24.441,
+                14.835
+              ],
+              [
+                -24.492,
+                14.874
+              ],
+              [
+                -24.517,
+                14.931
+              ],
+              [
+                -24.497,
+                14.98
+              ],
+              [
+                -24.392,
+                15.038
+              ],
+              [
+                -24.329,
+                15.019
+              ],
+              [
+                -24.296,
+                14.93
+              ],
+              [
+                -24.308,
+                14.856
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -24.088,
+                16.623
+              ],
+              [
+                -24.046,
+                16.593
+              ],
+              [
+                -24.033,
+                16.572
+              ],
+              [
+                -24.094,
+                16.561
+              ],
+              [
+                -24.243,
+                16.599
+              ],
+              [
+                -24.283,
+                16.576
+              ],
+              [
+                -24.322,
+                16.493
+              ],
+              [
+                -24.398,
+                16.618
+              ],
+              [
+                -24.393,
+                16.664
+              ],
+              [
+                -24.377,
+                16.678
+              ],
+              [
+                -24.271,
+                16.645
+              ],
+              [
+                -24.088,
+                16.623
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -22.888,
+                16.659
+              ],
+              [
+                -22.92,
+                16.608
+              ],
+              [
+                -22.959,
+                16.683
+              ],
+              [
+                -22.981,
+                16.701
+              ],
+              [
+                -22.991,
+                16.809
+              ],
+              [
+                -22.933,
+                16.841
+              ],
+              [
+                -22.905,
+                16.844
+              ],
+              [
+                -22.904,
+                16.732
+              ],
+              [
+                -22.888,
+                16.659
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -23.182,
+                15.137
+              ],
+              [
+                -23.21,
+                15.133
+              ],
+              [
+                -23.252,
+                15.178
+              ],
+              [
+                -23.242,
+                15.241
+              ],
+              [
+                -23.247,
+                15.257
+              ],
+              [
+                -23.21,
+                15.324
+              ],
+              [
+                -23.138,
+                15.318
+              ],
+              [
+                -23.119,
+                15.268
+              ],
+              [
+                -23.116,
+                15.167
+              ],
+              [
+                -23.182,
+                15.137
+              ]
+            ]
+          ]
+        ]
+      },
+      "displayAnchor": {
+        "longitude": -23.639434,
+        "latitude": 15.074761,
+        "basis": "Natural Earth administrative label anchor; not a measured outage location"
+      },
+      "spatialDescription": "Country-level measurement aggregation. Country outline is context, not proof that every network, place or person was affected.",
+      "affectedNetworks": null,
+      "events": [
+        {
+          "id": "bgp:median:1790301000:1790306400",
+          "from": 1790301000,
+          "until": 1790306400,
+          "startTime": "2026-09-25T01:50:00.000Z",
+          "endTime": "2026-09-25T03:20:00.000Z",
+          "observationType": "bgp",
+          "method": "median",
+          "score": 271.35678391959794,
+          "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+          "windowClipped": false,
+          "recoveryEstablished": false
+        },
+        {
+          "id": "bgp:median:1790286000:1790287800",
+          "from": 1790286000,
+          "until": 1790287800,
+          "startTime": "2026-09-24T21:40:00.000Z",
+          "endTime": "2026-09-24T22:10:00.000Z",
+          "observationType": "bgp",
+          "method": "median",
+          "score": 226.13065326633165,
+          "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+          "windowClipped": false,
+          "recoveryEstablished": false
+        },
+        {
+          "id": "ping-slash24:median:1790001600:1790348243",
+          "from": 1790001600,
+          "until": 1790348243,
+          "startTime": "2026-09-21T14:40:00.000Z",
+          "endTime": "2026-09-25T14:57:23.000Z",
+          "observationType": "ping-slash24",
+          "method": "median",
+          "score": 120049.5238095238,
+          "scoreMeaning": "Raw provider detection score; not percentage, confidence or population impact",
+          "windowClipped": true,
+          "recoveryEstablished": false
+        }
+      ],
+      "provenance": {
+        "publisher": "IODA / Georgia Tech",
+        "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790261843&until=1790348243&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+        "retrievedAt": "2026-09-25T14:57:23.420Z",
+        "windowStart": "2026-09-24T14:57:23.000Z",
+        "windowEnd": "2026-09-25T14:57:23.000Z",
+        "rights": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved.",
+        "geographySource": "Natural Earth · public domain country reference"
+      }
+    },
+    "summary": "Cape Verde · Internet observations: 4 cable references and 0 loaded physical observations in scope. No cause or affected network is established.",
+    "filter": "all",
+    "relationships": [
+      {
+        "id": "reference:telegeography-submarine-cables:cable:senegal-horn-of-africa-regional-express-share-cable",
+        "label": "Senegal Horn of Africa Regional Express (SHARE) Cable",
+        "state": "CURRENT_REFERENCE",
+        "kind": "cable",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [
+          [
+            [
+              -17.445713405352947,
+              14.686594841994992
+            ],
+            [
+              -18.449912693968844,
+              14.5835116451186
+            ],
+            [
+              -22.499909824912876,
+              14.5835116451186
+            ],
+            [
+              -23.521209101414858,
+              14.923035560171673
+            ]
+          ]
+        ],
+        "point": {
+          "lat": 14.5835116451186,
+          "lon": -20.508343703945016
+        },
+        "recordId": "telegeography-submarine-cables:cable:senegal-horn-of-africa-regional-express-share-cable",
+        "visible": true,
+        "annotationIds": [
+          "anno-1"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-2",
+        "label": "Cabo Verde Telecom Domestic Submarine Cable Phase 2",
+        "state": "CURRENT_REFERENCE",
+        "kind": "cable",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [
+          [
+            [
+              -25.05940801174037,
+              17.019177136056
+            ],
+            [
+              -25.031158031752888,
+              16.911292789233343
+            ],
+            [
+              -25.060796682631576,
+              16.823445181003198
+            ],
+            [
+              -25.07740799898894,
+              16.724585511421417
+            ],
+            [
+              -25.07740799898894,
+              16.61681385037869
+            ],
+            [
+              -23.962408788864845,
+              15.452760959322058
+            ],
+            [
+              -23.751080813571605,
+              15.276859352491847
+            ]
+          ]
+        ],
+        "point": {
+          "lat": 16.084567433773092,
+          "lon": -24.567590671386295
+        },
+        "recordId": "telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-2",
+        "visible": true,
+        "annotationIds": [
+          "anno-2"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-3",
+        "label": "Cabo Verde Telecom Domestic Submarine Cable Phase 3",
+        "state": "CURRENT_REFERENCE",
+        "kind": "cable",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [
+          [
+            [
+              -22.91905015298992,
+              16.174753793884737
+            ],
+            [
+              -23.06240942643288,
+              15.994209911785974
+            ],
+            [
+              -23.231109306924335,
+              15.669513225155248
+            ],
+            [
+              -23.287409267040825,
+              15.23578178303578
+            ],
+            [
+              -23.209772603289398,
+              15.129919208617387
+            ],
+            [
+              -23.287409267040825,
+              15.018578573757472
+            ],
+            [
+              -23.521209101414858,
+              14.923035560171673
+            ],
+            [
+              -23.512409107648864,
+              14.801154224791581
+            ],
+            [
+              -23.62490902795288,
+              14.692360031374392
+            ],
+            [
+              -23.849908868560828,
+              14.5835116451186
+            ],
+            [
+              -24.2999085497769,
+              14.692360031374392
+            ],
+            [
+              -24.41240847008083,
+              14.746763925028056
+            ],
+            [
+              -24.500933797993653,
+              14.897153768217688
+            ],
+            [
+              -24.581158350536903,
+              14.855530885060197
+            ],
+            [
+              -24.695416082095644,
+              14.872992709661734
+            ],
+            [
+              -24.63740831068887,
+              15.018578573757472
+            ],
+            [
+              -24.524908390384848,
+              15.127208002058548
+            ],
+            [
+              -24.2999085497769,
+              15.23578178303578
+            ],
+            [
+              -24.074908709168866,
+              15.344299555517528
+            ],
+            [
+              -23.751080813571605,
+              15.276859352491847
+            ],
+            [
+              -24.074908709168866,
+              15.452760959322058
+            ],
+            [
+              -25.189907919292956,
+              16.61681385037869
+            ],
+            [
+              -25.189907919292956,
+              16.724585511421417
+            ],
+            [
+              -25.060796682631576,
+              16.823445181003198
+            ],
+            [
+              -25.08740799190485,
+              16.911292789233343
+            ],
+            [
+              -25.05940801174037,
+              17.019177136056
+            ]
+          ]
+        ],
+        "point": {
+          "lat": 15.100182190335259,
+          "lon": -24.55289713811713
+        },
+        "recordId": "telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-3",
+        "visible": true,
+        "annotationIds": [
+          "anno-3"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-1",
+        "label": "Cabo Verde Telecom Domestic Submarine Cable Phase 1",
+        "state": "CURRENT_REFERENCE",
+        "kind": "cable",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [
+          [
+            [
+              -25.060796682631576,
+              16.823445181003198
+            ],
+            [
+              -24.974908071600833,
+              16.642014062854003
+            ],
+            [
+              -24.63740831068887,
+              16.534196198259725
+            ],
+            [
+              -24.357135071737105,
+              16.56583652167652
+            ],
+            [
+              -24.187408629472884,
+              16.426318069774343
+            ],
+            [
+              -23.399909187344846,
+              16.534196198259725
+            ],
+            [
+              -22.935309907096357,
+              16.67709796429937
+            ],
+            [
+              -22.94990950612886,
+              16.426318069774343
+            ],
+            [
+              -22.91905015298992,
+              16.174753793884737
+            ],
+            [
+              -23.1749093467369,
+              15.994209911785974
+            ],
+            [
+              -23.34365922719288,
+              15.669513225155248
+            ],
+            [
+              -23.399909187344846,
+              15.23578178303578
+            ],
+            [
+              -23.399909187344846,
+              15.018578573757472
+            ],
+            [
+              -23.521209101414858,
+              14.923035560171673
+            ]
+          ]
+        ],
+        "point": {
+          "lat": 16.626458747530958,
+          "lon": -23.099947086292776
+        },
+        "recordId": "telegeography-submarine-cables:cable:cabo-verde-telecom-domestic-submarine-cable-phase-1",
+        "visible": true,
+        "annotationIds": [
+          "anno-4"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:landing-point:praia-cape-verde",
+        "label": "Praia, Cape Verde",
+        "state": "CURRENT_REFERENCE",
+        "kind": "landing",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [],
+        "point": {
+          "lon": -23.521246992608987,
+          "lat": 14.923010648471926
+        },
+        "recordId": "telegeography-submarine-cables:landing-point:praia-cape-verde",
+        "visible": true,
+        "annotationIds": [
+          "anno-5"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:landing-point:murdeira-cape-verde",
+        "label": "Murdeira, Cape Verde",
+        "state": "CURRENT_REFERENCE",
+        "kind": "landing",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [],
+        "point": {
+          "lon": -22.93530990769235,
+          "lat": 16.6771096578609
+        },
+        "recordId": "telegeography-submarine-cables:landing-point:murdeira-cape-verde",
+        "visible": true,
+        "annotationIds": [
+          "anno-6"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:landing-point:tarrafal-de-so-nicolau-cape-verde",
+        "label": "Tarrafal de São Nicolau, Cape Verde",
+        "state": "CURRENT_REFERENCE",
+        "kind": "landing",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [],
+        "point": {
+          "lon": -24.35715948637768,
+          "lat": 16.565883323041565
+        },
+        "recordId": "telegeography-submarine-cables:landing-point:tarrafal-de-so-nicolau-cape-verde",
+        "visible": true,
+        "annotationIds": [
+          "anno-7"
+        ]
+      },
+      {
+        "id": "reference:telegeography-submarine-cables:landing-point:sao-pedro-cape-verde",
+        "label": "Sao Pedro, Cape Verde",
+        "state": "CURRENT_REFERENCE",
+        "kind": "landing",
+        "explanation": "Reference geometry has a sampled point inside the selected country outline. This is geographic context, not proof that the cable carries affected traffic.",
+        "provenance": [
+          {
+            "label": "TeleGeography",
+            "url": "https://www.submarinecablemap.com/",
+            "time": "2026-05-24",
+            "detail": "© TeleGeography — CC BY-NC-SA 3.0; not MIT"
+          }
+        ],
+        "evidenceNeeded": "Operator service mapping and incident reports are needed to establish an affected dependency.",
+        "parts": [],
+        "point": {
+          "lon": -25.060808890249906,
+          "lat": 16.823421811849204
+        },
+        "recordId": "telegeography-submarine-cables:landing-point:sao-pedro-cape-verde",
+        "visible": true,
+        "annotationIds": [
+          "anno-8"
+        ]
+      }
+    ],
+    "inspected": null,
+    "unknowns": [
+      "No cause is established by geographic proximity.",
+      "Affected ASNs and service dependencies are not supplied by the country-level outage feed."
+    ],
+    "errors": [],
+    "following": false
+  }
+}

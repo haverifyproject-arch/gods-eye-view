@@ -1,0 +1,84 @@
+{
+  "testedAt": "2026-09-25T17:33:15.235Z",
+  "checks": [
+    {
+      "name": "Discoverable entrance names the investigation",
+      "passed": true
+    },
+    {
+      "name": "Explore materially moves the world to the anomaly",
+      "passed": true
+    },
+    {
+      "name": "Live source checks produce an explicit assessment",
+      "passed": true,
+      "detail": {
+        "verdict": "not-reproduced",
+        "checks": [
+          {
+            "id": "bgp",
+            "status": "available",
+            "stale": false,
+            "comparison": "similar"
+          },
+          {
+            "id": "ping-slash24",
+            "status": "available",
+            "stale": false,
+            "comparison": "similar"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Same-publisher limitation is explicit",
+      "passed": true
+    },
+    {
+      "name": "No permanent mission or story shell",
+      "passed": true
+    },
+    {
+      "name": "Findings download as Markdown",
+      "passed": true
+    },
+    {
+      "name": "Evidence filter changes native relationship visibility",
+      "passed": true
+    },
+    {
+      "name": "Source inspection provides visible evidence",
+      "passed": true
+    },
+    {
+      "name": "Mobile popover fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Clear removes investigation and closes popover",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "providers": [
+    {
+      "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790271215&until=1790357615&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+      "status": 200
+    },
+    {
+      "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790271219&until=1790357619&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+      "status": 200
+    },
+    {
+      "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/signals/raw/country/CV?from=1790271223&until=1790357623&datasource=bgp",
+      "status": 200
+    },
+    {
+      "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/signals/raw/country/CV?from=1790271223&until=1790357623&datasource=ping-slash24",
+      "status": 200
+    }
+  ],
+  "country": "Cape Verde · Internet observations",
+  "verdict": "not-reproduced",
+  "visualAcceptance": "Desktop and mobile screenshots inspected; loaded map, legible assessment and next action. Compact popover scrolls; close button requires scrolling back to its header or Escape."
+}

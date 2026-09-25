@@ -65,7 +65,13 @@ export function createStandaloneApplication({
       }),
     createData: (context) =>
       createStandaloneData({ ...context, allowQaRegistration, catalog }),
-    createTools: (context) =>
-      createStandaloneTools({ ...context, loadingScreen, placeSearch, voice }),
+    createTools: (context) => {
+      return createStandaloneTools({
+        ...context,
+        loadingScreen,
+        placeSearch,
+        voice,
+      });
+    },
   });
 }

@@ -12,7 +12,13 @@ export * from './model.js';
 export { createUsgsEarthquakeSource } from './source.js';
 
 /** Own one earthquake display and its refresh lifecycle. */
-export function createEarthquakesLayer({ source, overlayHost } = {}) {
+export function createEarthquakesLayer({
+  source,
+  overlayHost,
+  context,
+  screenSpaceEventHandlerFactory,
+  isPointerFree = () => true,
+} = {}) {
   if (typeof source?.getSnapshot !== 'function')
     throw new TypeError('Earthquakes require a snapshot source');
   if (!overlayHost) throw new TypeError('Earthquakes require an overlay host');
@@ -23,6 +29,16 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
   let _lastUpdate = null;
   let _lastError = null;
   let _enabled = false;
+  let _handler = null;
+  const register = (entity) => {
+    context?.registerEntityContext(entity, entity.__earthquakeContext);
+  };
+  const clearContext = () => {
+    context?.clearSelectedEntityContextForLayer('earthquakes');
+    context?.removeEntityContextsForLayer('earthquakes');
+    if (_viewer?.selectedEntity?.__earthquakeContext)
+      _viewer.selectedEntity = undefined;
+  };
 
   const layer = {
     id: 'earthquakes',
@@ -42,6 +58,17 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
       _lastError = null;
       _enabled = false;
       overlayHost.setVisible(EARTHQUAKE_OVERLAY_SOURCE_ID, false);
+      _handler = viewer.scene?.canvas
+        ? screenSpaceEventHandlerFactory?.(viewer.scene.canvas)
+        : null;
+      _handler?.setInputAction((click) => {
+        if (!_enabled || !isPointerFree()) return;
+        const entity = viewer.scene.pick(click.position)?.id;
+        if (!entity?.__earthquakeContext) return;
+        viewer.selectedEntity = entity;
+        context?.selectEntityContext(entity);
+        viewer.scene.requestRender();
+      }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
       console.log('[Data:Earthquakes] Initialized');
     },
 
@@ -50,6 +77,7 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
       // No continuous-render hold: the discs are static geometry now, so the
       // layer has no per-frame animator to keep the render loop alive for.
       if (_dataSource) _dataSource.show = true;
+      for (const entity of _dataSource?.entities.values || []) register(entity);
       overlayHost.setVisible(EARTHQUAKE_OVERLAY_SOURCE_ID, true);
     },
 
@@ -57,6 +85,7 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
       _request?.abort();
       _request = null;
       _enabled = false;
+      clearContext();
       if (_dataSource) _dataSource.show = false;
       overlayHost.clearSource(EARTHQUAKE_OVERLAY_SOURCE_ID);
       overlayHost.setVisible(EARTHQUAKE_OVERLAY_SOURCE_ID, false);
@@ -121,6 +150,29 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
               },
             }),
           );
+          const entity = nextEntities.at(-1);
+          entity.__localBaseCartesian = position;
+          entity.__earthquakeContext = {
+            id: entity.id,
+            layerId: 'earthquakes',
+            layerName: 'Earthquakes (24h)',
+            label: place || usgsId || String(stableId),
+            source: 'USGS',
+            dataSource: _dataSource,
+            latitude: lat,
+            longitude: lon,
+            properties: {
+              ...mapAnalystRecord(
+                { id: usgsId, mag, place, time, depth: depthKm, lat, lon },
+                count - 1,
+              ),
+              evidenceState: 'OBSERVED',
+              spatialScope: 'reported-epicenter',
+              sourceUrl: usgsId
+                ? `https://earthquake.usgs.gov/earthquakes/eventpage/${encodeURIComponent(usgsId)}`
+                : 'https://earthquake.usgs.gov/',
+            },
+          };
           overlayEntries.push(
             createEarthquakeOverlayEntry({
               id: String(stableId),
@@ -131,8 +183,19 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
           );
         }
 
+        const selectedId = context?.getSelectedEntityContext?.()?.id;
         _dataSource.entities.removeAll();
-        for (const entity of nextEntities) _dataSource.entities.add(entity);
+        for (const entity of nextEntities) {
+          _dataSource.entities.add(entity);
+          register(entity);
+        }
+        context?.removeEntityContextsForLayer('earthquakes', {
+          retainIds: new Set(nextEntities.map((entity) => entity.id)),
+        });
+        if (_viewer?.selectedEntity?.__earthquakeContext)
+          _viewer.selectedEntity = nextEntities.find(
+            (entity) => entity.id === selectedId,
+          );
         if (_enabled) {
           overlayHost.setEntries(
             EARTHQUAKE_OVERLAY_SOURCE_ID,
@@ -164,6 +227,9 @@ export function createEarthquakesLayer({ source, overlayHost } = {}) {
     destroy(viewer = _viewer) {
       _request?.abort();
       _request = null;
+      clearContext();
+      _handler?.destroy();
+      _handler = null;
       _viewer = null;
       _enabled = false;
       overlayHost.clearSource(EARTHQUAKE_OVERLAY_SOURCE_ID);

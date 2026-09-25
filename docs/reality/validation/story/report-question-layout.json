@@ -1,0 +1,641 @@
+{
+  "provenance": {
+    "startedAt": "2026-09-25T13:45:43.193Z",
+    "baseURL": "http://127.0.0.1:4180",
+    "serverMode": "plain-static-production",
+    "revision": "9433a83ed96d59b4cfa6b390b3cb62976ee6b2d9",
+    "workingTree": "M README.md\n M docs/reality/BUILD-JOURNAL.md\n M scripts/qa-reality.mjs\n M src/situations/tonga.js\n M src/situations/world.js\n?? docs/reality/STORY-ACCEPTANCE.md\n?? docs/reality/STORY-REVIEW.md\n?? scripts/qa-reality-story.mjs\n?? src/situations/story.js\n?? src/situations/story.test.mjs\n?? src/situations/storyPlayer.css\n?? src/situations/storyPlayer.js\n?? src/situations/storyWorld.css\n?? src/situations/storyWorld.js"
+  },
+  "checks": [
+    {
+      "name": "targeted-desktop-answer: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 521.84375,
+          "width": 800,
+          "height": 346.15625
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-desktop-answer: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "desktop: answer replaces chapter body",
+      "passed": true
+    },
+    {
+      "name": "desktop: return restores chapter explanation",
+      "passed": true
+    },
+    {
+      "name": "targeted-mobile-answer: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 230.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 464.890625,
+          "width": 366,
+          "height": 367.109375
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-mobile-answer: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "mobile: answer replaces chapter body",
+      "passed": true
+    },
+    {
+      "name": "mobile: return restores chapter explanation",
+      "passed": true
+    },
+    {
+      "name": "targeted-laptop-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 655.671875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 54.625,
+          "y": 344.28125,
+          "width": 532.734375,
+          "height": 391.71875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-laptop-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "targeted-laptop-answer: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 655.671875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 54.625,
+          "y": 383.53125,
+          "width": 532.734375,
+          "height": 352.46875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-laptop-answer: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "laptop: answer replaces chapter body",
+      "passed": true
+    },
+    {
+      "name": "laptop: return restores chapter explanation",
+      "passed": true
+    },
+    {
+      "name": "No unhandled application exception",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "targeted-desktop-answer",
+      "index": 2,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The timeline has a gap",
+      "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+      "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+      "question": "Back to explanation",
+      "time": "2022-01-15T05:35:00Z",
+      "lens": "OBSERVED",
+      "records": [
+        "traffic-collapse",
+        "bgp-spike"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "c84c62cd-8301-4a4b-b0bd-986626492cd7",
+            "d839eca2-5ec2-4e6f-85bf-0c21f3d03758",
+            "5ec23f31-a928-4dbd-bffe-f159ca1362df",
+            "bf765a0c-1e06-4dc3-a529-b590b9c4e80c",
+            "0897ae95-6e97-41fd-a477-e9c008e050a3",
+            "569602d6-d59f-48c0-bdcc-6a96ffcf1ea8",
+            "835a27c0-f77c-4fe0-b703-f4315d2c8de3",
+            "905fa9d9-f78e-4817-a4cd-4fc244c4c36f",
+            "c85505c0-59a8-4313-885c-45f9fbff3b82",
+            "ed21570b-fce6-4fa3-89cb-69a6d95a5c4d",
+            "2d1dd559-11f0-4d8c-8633-a8b6434aebcc",
+            "40f1cf89-077f-4c24-b248-6a134c9e85f1",
+            "cf814246-23f6-4a2f-8f40-6412130a2d8c",
+            "b7505d8a-6daf-4d85-be3d-e361b51c64b0",
+            "a3b6dda0-0da8-4c5c-92dd-bde0056f93b8",
+            "33679863-57c5-4962-8557-0c48b5897df2",
+            "35c827e5-27cc-418b-8f3b-82b373bf7308",
+            "1034fbae-4537-4a16-8b70-0cab277b6908",
+            "8a26cab4-2260-4239-ab18-a79fc679abc2",
+            "48590185-9481-457d-9a31-90b7f274c099",
+            "405305fb-b859-4852-9da4-ec3272c30043",
+            "c2153656-479a-4b05-ace6-90b5e49ea753",
+            "5d55c616-0a1d-4d10-a5a8-aebeb132c8e3",
+            "de5092bc-f30e-4c6b-9a2e-ff5620f51fcc",
+            "61eac519-67b8-4e0e-a664-812d9b81eb03",
+            "c1f3e8e4-ff29-49e3-9e89-412408e4d116",
+            "cc375f09-73fe-466c-afac-5827fafc4c93",
+            "cf11af5c-6278-4ac7-8868-c0ea47a27ec5",
+            "b95796de-1dce-4877-b332-cf7160c69842",
+            "e1c5979a-eae5-49fb-a4b6-b18ab7332605",
+            "4e169525-1687-44bc-984e-6c6cd4074f65",
+            "fd714e8b-8b36-4363-95f0-aa399dc26999",
+            "6706e707-c667-4e0b-86f3-b5488a39733a",
+            "e3c1fa53-7942-407f-a5ac-aa9eb3f0abdc",
+            "93867350-e0b1-4088-b851-500a5296cd5e",
+            "86c3b187-fc20-4262-addf-b53e55946ed6",
+            "df738f11-124e-4578-b019-13d9c718a55c",
+            "82f11628-ce2d-4a29-8ae1-a9625f7d53e0",
+            "7da5adf6-b429-44c9-8a66-6806e17ed199",
+            "815c8892-8c67-4691-a4d0-da0911c14196",
+            "7c73fc15-d480-4dcb-b135-62abead581b7",
+            "14924d2c-4b63-44e8-8586-bac74b4cd308",
+            "1d4dd587-0b0f-4b9d-bc77-f932baa2da2b",
+            "83368b94-cdb9-421b-9b70-2d47cb23cacb",
+            "35a3d988-7cd8-4e4f-9631-d01a74d62aef",
+            "4c563964-037e-461c-a36c-033a37ba0bbf",
+            "4f94a46a-fdc7-48f3-99cc-558cc8540954",
+            "9c1b86ef-32a4-445b-b049-fc0653b8e874",
+            "1ffba2d0-89d0-4585-b269-798d9eb3bc15",
+            "9dbd5426-578c-4767-9df8-0cbec7c3b5dc",
+            "f9280449-7f9a-4bbc-a81f-a6fc260ea7af",
+            "0a9a7a2d-47da-4c18-8ec2-1aeae043480a",
+            "c8570126-fbe7-43e4-b662-3e96831fd880",
+            "785915dc-0014-47b6-ae4d-990955037460"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-traffic-collapse"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 521.84375,
+          "width": 800,
+          "height": 346.15625
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-mobile-answer",
+      "index": 2,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The timeline has a gap",
+      "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+      "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+      "question": "Back to explanation",
+      "time": "2022-01-15T05:35:00Z",
+      "lens": "OBSERVED",
+      "records": [
+        "traffic-collapse",
+        "bgp-spike"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "b309b698-ba01-4eaa-a9a5-a283c88eda86",
+            "d2edc250-f4a3-4a1e-ad87-2be557aa3d10",
+            "15dc86bc-d713-431c-b6a5-eb018e21d463",
+            "9ada8251-9db6-4508-9c45-25643c8e2227",
+            "832394b7-1e76-41c4-b99a-aa0e6ce103fd",
+            "c47bb2f2-132a-4817-853a-dd9c99204714",
+            "b0299652-0f3e-4520-8aff-e9e52393322d",
+            "d223ce0e-c1eb-46ce-9075-2b7ff656419b",
+            "73158f56-fc23-4ffc-b8d8-2b56f8c172c3",
+            "54058228-6867-4f57-8dec-e2548a963702",
+            "d364a620-04f3-476b-8713-1bd34d294c03",
+            "d4ab851f-f35d-4af3-805f-dd9f6fdc0e33",
+            "1f1780eb-2690-4f26-9966-3d605a8b6663",
+            "07b23bb3-cfa0-4230-a11d-5a326d295a31",
+            "fc3ed89c-5035-4eb5-8e60-d7169497825b",
+            "9662acc7-9295-4cf2-a10d-77d890a15cbc",
+            "d8bf30ca-5e8f-41d0-afd2-52cc6c42a639",
+            "af5fccec-6d1f-468f-9a19-de6894d560d3",
+            "011b625c-55e2-4756-8e12-3fdbad49dfed",
+            "2e4971c8-8f48-4d45-bbb4-9cf66d79789a",
+            "f9420b37-f29b-4882-a100-e18ce4888329",
+            "7e81965c-8349-4aa4-87c1-bf694ede2c98",
+            "83280494-7c88-48bb-828c-4cf4258909ea",
+            "0fa48383-e6b6-417a-bdaa-4759291fd128",
+            "323706eb-cdc4-48bb-afea-22e5b10651c2",
+            "670765f2-620f-48b9-acba-d117a6f6c06b",
+            "2b73fe89-4336-4b91-9e1e-ee9dbc6744bd",
+            "f216c1d0-f534-49ff-8356-de5ee78a4790",
+            "0f5ac59c-3931-443d-8f01-024c4812c899",
+            "1e6cf6c1-ca0b-467f-94b0-effd13dae394",
+            "4a706fb1-f77e-4761-adef-2b9c4869359b",
+            "26426759-4db4-4c58-b26e-89a37f8394eb",
+            "c7497c9d-4492-4dbe-98f4-495be5ede435",
+            "76acc3a3-1a9f-4062-bc9c-334bc693ad85",
+            "02e36a04-a349-4d3c-bf89-e07034c983aa",
+            "5e76b5e6-c83a-4c81-b607-2d639af88999",
+            "11cee892-b1da-4e5f-ac73-bc70ed6f864f",
+            "3021ee98-3911-4b6e-a526-267423f9ca3b",
+            "10f29078-0bcf-4009-8da3-d1a6c3b75dab",
+            "1c27fe42-c5e3-464b-96ab-8f081f593cdf",
+            "954e812f-0ab6-4d3f-8105-7b3eea2d639b",
+            "05d058e8-f649-468b-97e7-5d94d9dc1fcd",
+            "534019ad-57bd-4d1d-a415-016da1eb8475",
+            "e6e79fd6-3bc9-41c9-a716-8b49607baac6",
+            "4195eae8-d57a-46d7-97c0-291ce56789e4",
+            "e04bf951-2d07-4627-8a91-5ee5982a1b44",
+            "d83b62ed-af53-4ab4-b068-6963f4f887f0",
+            "151be354-4a67-4a75-861d-079633ba8c00",
+            "1ca1069e-5914-4aa0-9431-7d0fd1acc978",
+            "28058682-b7c1-46c6-8f09-4d2a2957e3c1",
+            "d40d825d-a341-4d25-82bc-52d6211aea7b",
+            "93c1e816-7b4a-4727-a89a-61bc3bc2a3ab",
+            "3f8aaa1d-e385-4fa5-9e03-64f4d07d94c4",
+            "c1b54e23-6281-4be9-a4e8-c82aae6326ec"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-traffic-collapse"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 230.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 464.890625,
+          "width": 366,
+          "height": 367.109375
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-laptop-chapter",
+      "index": 0,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "One cable across an ocean",
+      "body": "Tonga’s international submarine cable connected the country to Fiji and onward to global networks. ITU described it as Tonga’s only international cable. Follow that long connection: a failure offshore could interrupt communications across the islands, far beyond the place where the cable was damaged.",
+      "takeaway": "A distant physical connection supported everyday digital life.",
+      "question": "Why this cable mattered",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "de3f349d-1d89-4bd0-94d4-54dd06f4ecab",
+            "068fba3b-0374-40f7-bb7c-1fc1bc5d981a",
+            "23340761-1c58-4cab-b859-77d71997141d",
+            "5165bd02-c8f3-4751-9089-69cdf825bd9f",
+            "f0279139-ac61-43ad-bc50-1cb344811d84",
+            "7c69a245-aaf2-4082-b070-284043aa8853",
+            "5b91cfe8-703c-48fd-a302-27a815599ae1",
+            "db34dc26-3114-41e7-9caf-15c92b5078fd",
+            "8194ba58-6c42-42ca-bb06-17864d87268c",
+            "69ea63b0-a9b0-485a-9097-0b1c804c0c7b",
+            "8e9c30bf-5c8c-4d71-b45f-037dd4f00842",
+            "a46cefaa-429b-4b54-bcd4-f705b3d2804a",
+            "06949837-9989-4725-b957-780f7d0e753c",
+            "4a790510-7e70-4e10-8896-c824c9d13a36",
+            "5756d614-127f-48f0-ad7f-757565a4102d",
+            "0f80012e-3183-4d3f-94f7-aa57151767dd",
+            "114d0a97-6ba7-4541-891d-724fd1c3caba",
+            "c93161af-e942-4a4c-a892-30ad66a69d44",
+            "0e812c9d-0ef3-4747-82c9-b179195be42f",
+            "0d6d81eb-7796-4adf-b826-4a65101d89e9",
+            "c2a61efd-2b52-47ad-b1b4-62e3b5dcda29",
+            "d5330f6e-5b21-4cf2-8e99-c7f5c7dbf8f6",
+            "8dda66fe-40ec-41f9-b250-8e595fb6b7b9",
+            "80b1601b-a32a-4cd2-9f02-611211f60dde",
+            "51a7d46e-c8b8-4e9c-b82d-dd2ff2f7c8ee",
+            "7a260608-a9e9-4558-b98b-819b885f7dc2",
+            "13a7992a-3310-42de-88f6-7907a969745a",
+            "f99175ee-49fc-4e52-8099-97428f5b5e8f",
+            "25ad605b-385d-4b96-8e26-4e492b3879c9",
+            "b971b83b-ad83-4a87-9cdd-b10112daf8db",
+            "1333c08f-fe4e-42ef-b057-f8a9fe920e3c",
+            "054ed06d-be00-473c-9e27-ab6ba2536497",
+            "2db0eb6f-8280-40a2-a97a-3289c7b9ad00",
+            "205a3e5b-3adb-441c-8d7d-8a818eb281c0",
+            "14ad79a3-6a1b-4140-956d-0e803bc072e3",
+            "994c17ce-7b17-4c66-a5b4-b0773fbfbdf0",
+            "1cf1aea2-1545-4a16-9195-4b874c1c20b2",
+            "6ed7036d-39b7-47ee-9d0c-209e825add94",
+            "49f65d64-0966-4c34-89c8-570f6646aea9",
+            "9623ddb7-ac3b-4bcb-9260-8253f8ab2265",
+            "e127daf1-fc3b-4004-b5fe-d5a01cf3b663",
+            "d8d90dd9-618b-48ab-9f25-5fe9c0645f5f",
+            "65b5fdd7-92c0-4d71-aaeb-b882d8c463a9",
+            "18fa69f8-ecac-4b2c-a03a-ef78a6c36184",
+            "dcd24ea7-1f60-479c-8b11-8ba5c8da7bf1",
+            "2a566f2f-a878-4098-a69c-69a2bcfbdeb6",
+            "2e2e7606-7b2c-4fea-aeb1-e0821c7a188c",
+            "83b1492b-f2ae-47b8-b0cb-af6a4480a70e",
+            "3a5402d7-6fb1-452a-a32c-402b26dc1b91",
+            "20503db5-2eb0-40d7-b39a-516c8c4bf7bf",
+            "2a203904-47fd-4385-b630-48583d416797",
+            "565c78cd-c2e8-4b5d-8704-868c9b8f039d",
+            "d531df88-2f90-4823-9825-1b6a105435b3",
+            "948d9818-9fda-4060-82c4-5a38d057903b"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 655.671875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 54.625,
+          "y": 344.28125,
+          "width": 532.734375,
+          "height": 391.71875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "targeted-laptop-answer",
+      "index": 2,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The timeline has a gap",
+      "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+      "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+      "question": "Back to explanation",
+      "time": "2022-01-15T05:35:00Z",
+      "lens": "OBSERVED",
+      "records": [
+        "traffic-collapse",
+        "bgp-spike"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "de3f349d-1d89-4bd0-94d4-54dd06f4ecab",
+            "068fba3b-0374-40f7-bb7c-1fc1bc5d981a",
+            "23340761-1c58-4cab-b859-77d71997141d",
+            "5165bd02-c8f3-4751-9089-69cdf825bd9f",
+            "f0279139-ac61-43ad-bc50-1cb344811d84",
+            "7c69a245-aaf2-4082-b070-284043aa8853",
+            "5b91cfe8-703c-48fd-a302-27a815599ae1",
+            "db34dc26-3114-41e7-9caf-15c92b5078fd",
+            "8194ba58-6c42-42ca-bb06-17864d87268c",
+            "69ea63b0-a9b0-485a-9097-0b1c804c0c7b",
+            "8e9c30bf-5c8c-4d71-b45f-037dd4f00842",
+            "a46cefaa-429b-4b54-bcd4-f705b3d2804a",
+            "06949837-9989-4725-b957-780f7d0e753c",
+            "4a790510-7e70-4e10-8896-c824c9d13a36",
+            "5756d614-127f-48f0-ad7f-757565a4102d",
+            "0f80012e-3183-4d3f-94f7-aa57151767dd",
+            "114d0a97-6ba7-4541-891d-724fd1c3caba",
+            "c93161af-e942-4a4c-a892-30ad66a69d44",
+            "0e812c9d-0ef3-4747-82c9-b179195be42f",
+            "0d6d81eb-7796-4adf-b826-4a65101d89e9",
+            "c2a61efd-2b52-47ad-b1b4-62e3b5dcda29",
+            "d5330f6e-5b21-4cf2-8e99-c7f5c7dbf8f6",
+            "8dda66fe-40ec-41f9-b250-8e595fb6b7b9",
+            "80b1601b-a32a-4cd2-9f02-611211f60dde",
+            "51a7d46e-c8b8-4e9c-b82d-dd2ff2f7c8ee",
+            "7a260608-a9e9-4558-b98b-819b885f7dc2",
+            "13a7992a-3310-42de-88f6-7907a969745a",
+            "f99175ee-49fc-4e52-8099-97428f5b5e8f",
+            "25ad605b-385d-4b96-8e26-4e492b3879c9",
+            "b971b83b-ad83-4a87-9cdd-b10112daf8db",
+            "1333c08f-fe4e-42ef-b057-f8a9fe920e3c",
+            "054ed06d-be00-473c-9e27-ab6ba2536497",
+            "2db0eb6f-8280-40a2-a97a-3289c7b9ad00",
+            "205a3e5b-3adb-441c-8d7d-8a818eb281c0",
+            "14ad79a3-6a1b-4140-956d-0e803bc072e3",
+            "994c17ce-7b17-4c66-a5b4-b0773fbfbdf0",
+            "1cf1aea2-1545-4a16-9195-4b874c1c20b2",
+            "6ed7036d-39b7-47ee-9d0c-209e825add94",
+            "49f65d64-0966-4c34-89c8-570f6646aea9",
+            "9623ddb7-ac3b-4bcb-9260-8253f8ab2265",
+            "e127daf1-fc3b-4004-b5fe-d5a01cf3b663",
+            "d8d90dd9-618b-48ab-9f25-5fe9c0645f5f",
+            "65b5fdd7-92c0-4d71-aaeb-b882d8c463a9",
+            "18fa69f8-ecac-4b2c-a03a-ef78a6c36184",
+            "dcd24ea7-1f60-479c-8b11-8ba5c8da7bf1",
+            "2a566f2f-a878-4098-a69c-69a2bcfbdeb6",
+            "2e2e7606-7b2c-4fea-aeb1-e0821c7a188c",
+            "83b1492b-f2ae-47b8-b0cb-af6a4480a70e",
+            "3a5402d7-6fb1-452a-a32c-402b26dc1b91",
+            "20503db5-2eb0-40d7-b39a-516c8c4bf7bf",
+            "2a203904-47fd-4385-b630-48583d416797",
+            "565c78cd-c2e8-4b5d-8704-868c9b8f039d",
+            "d531df88-2f90-4823-9825-1b6a105435b3",
+            "948d9818-9fda-4060-82c4-5a38d057903b"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-traffic-collapse"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 655.671875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 54.625,
+          "y": 383.53125,
+          "width": 532.734375,
+          "height": 352.46875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)"
+  ],
+  "visualAcceptance": "PENDING: inspect images and assess comprehension in STORY-ACCEPTANCE.md"
+}

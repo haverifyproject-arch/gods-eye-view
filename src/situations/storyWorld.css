@@ -1,0 +1,226 @@
+.reality-story-world {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  --story-ink: #effcff;
+  --story-cyan: #75edff;
+  --story-amber: #ffc57b;
+}
+.reality-story-world[hidden] {
+  display: none;
+}
+.reality-story-tethers {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.reality-story-stage {
+  position: absolute;
+  left: 48%;
+  top: 100px;
+  width: min(46%, 620px);
+  color: var(--story-ink);
+  filter: drop-shadow(0 2px 8px #00151b);
+}
+.reality-story-stage > svg {
+  width: 100%;
+  overflow: visible;
+}
+.reality-story-stage text {
+  font-family: 'Inter', system-ui, sans-serif;
+  fill: var(--story-ink);
+  paint-order: stroke;
+  stroke: #02121c;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.reality-story-stage .story-overline {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 2px;
+}
+.reality-story-stage .story-place {
+  font-size: 22px;
+  font-weight: 700;
+}
+.reality-story-stage .story-detail {
+  font-size: 17px;
+  fill: #c5dfe6;
+}
+.reality-story-stage .story-time {
+  font-size: 31px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+.reality-story-stage .story-link-label {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.reality-story-stage .story-warning {
+  font-size: 16px;
+  font-weight: 650;
+  fill: var(--story-amber);
+}
+.reality-story-stage .story-observed {
+  fill: var(--story-cyan);
+  stroke: #02121c;
+}
+.reality-story-stage .story-reported {
+  fill: var(--story-amber);
+}
+.story-link {
+  fill: none;
+  stroke: #9db8c3;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.story-link.story-observed {
+  stroke: var(--story-cyan);
+}
+.story-reference {
+  stroke-dasharray: 12 5;
+}
+.story-muted {
+  stroke: #83959d;
+  stroke-width: 3;
+  stroke-dasharray: 4 8;
+  opacity: 0.75;
+}
+.story-node {
+  fill: #75edff;
+  stroke: #072632;
+  stroke-width: 4;
+}
+.story-node.story-reported {
+  fill: #ffc57b;
+}
+.story-halo {
+  fill: #032733a8;
+  stroke: #88dbe17a;
+  stroke-width: 1;
+}
+.story-chevron {
+  fill: none;
+  stroke: #c5fbff;
+  stroke-width: 2;
+}
+.story-time-rule {
+  stroke: #829ea9;
+  stroke-width: 2;
+}
+.story-gap {
+  fill: none;
+  stroke: #ffc57b;
+  stroke-width: 2;
+}
+.story-break {
+  fill: none;
+  stroke: #ffc57b;
+  stroke-width: 3;
+}
+.story-fallback {
+  fill: none;
+  stroke: #ffc57b;
+  stroke-width: 3;
+  stroke-dasharray: 4 8;
+}
+.story-unresolved {
+  fill: none;
+  stroke: #ffc57b;
+  stroke-width: 2;
+  stroke-dasharray: 4 7;
+}
+.story-unknown-node {
+  fill: #07202c;
+  stroke: #ffc57b;
+  stroke-width: 2;
+}
+.story-geographic-tether {
+  stroke: #8bd5e18c;
+  fill: none;
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+}
+.story-geographic-anchor {
+  fill: #baf9ff;
+  stroke: #05313c;
+  stroke-width: 2;
+}
+.reality-story-sources {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 6px;
+}
+.reality-story-sources button {
+  pointer-events: auto;
+  border: 0;
+  border-bottom: 1px solid #82cdd578;
+  border-radius: 0;
+  background: #041b2499;
+  padding: 8px 4px;
+  color: #c7f7ff;
+  font:
+    500 12px system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+.reality-story-sources button:hover {
+  color: white;
+  border-color: white;
+}
+.reality-story-sources button:focus-visible {
+  outline: 2px solid #9ef4ff;
+  outline-offset: 3px;
+}
+.reality-story-geography {
+  color: #b9ccd6;
+  text-align: center;
+  font:
+    10px/1.5 system-ui,
+    sans-serif;
+  max-width: 570px;
+  margin: 10px auto 0;
+}
+@media (max-width: 700px) {
+  .reality-story-stage {
+    left: 18px;
+    top: 145px;
+    width: calc(100% - 36px);
+  }
+  .reality-story-stage .story-overline {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .reality-story-stage .story-detail {
+    font-size: 19px;
+  }
+  .reality-story-stage .story-warning {
+    font-size: 17px;
+  }
+  .reality-story-sources {
+    gap: 2px 12px;
+    margin-top: 8px;
+  }
+  .reality-story-sources button {
+    font-size: 11px;
+    padding: 9px 3px;
+  }
+  .reality-story-geography {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+}
+@media (max-height: 650px) and (min-width: 701px) {
+  .reality-story-stage {
+    top: 100px;
+    width: min(46%, 510px);
+    left: 51%;
+  }
+  .reality-story-geography {
+    margin-top: 4px;
+  }
+}

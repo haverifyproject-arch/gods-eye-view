@@ -126,12 +126,28 @@ export function createIngestion({ state, parts, source }) {
 
       const cableEntities = state._cableDataSource.entities.values;
       const landingEntities = state._landingDataSource.entities.values;
+      const cablesById = new Map(
+        cableFeatures.map((feature) => [String(feature.id), feature]),
+      );
+      const landingsById = new Map(
+        landingFeatures.map((feature) => [String(feature.id), feature]),
+      );
+      // Cesium expands MultiLineString into multiple carriers. Array position
+      // is not feature identity after that expansion; preserve provider IDs.
+      const featureFor = (entity, index, features, byId) => {
+        const property = entity.properties?.id;
+        const id =
+          typeof property?.getValue === 'function'
+            ? property.getValue()
+            : property;
+        return byId.get(String(id)) || features[index];
+      };
       state._pickByEntity = new WeakMap();
       state._referenceRecords = [];
       state._surfaceRecords = [];
 
       cableEntities.forEach((entity, index) => {
-        const feature = cableFeatures[index];
+        const feature = featureFor(entity, index, cableFeatures, cablesById);
         const reference = featureReference(feature);
         if (!reference) return;
 
@@ -140,6 +156,7 @@ export function createIngestion({ state, parts, source }) {
           kind: 'cable',
           reference,
           label: featureLabel(feature),
+          featureId: feature.id,
         });
         state._surfaceRecords.push({
           entity,
@@ -155,7 +172,12 @@ export function createIngestion({ state, parts, source }) {
       });
 
       landingEntities.forEach((entity, index) => {
-        const feature = landingFeatures[index];
+        const feature = featureFor(
+          entity,
+          index,
+          landingFeatures,
+          landingsById,
+        );
         const reference = featureReference(feature);
         if (!reference) return;
 
@@ -164,6 +186,7 @@ export function createIngestion({ state, parts, source }) {
           kind: 'landing-point',
           reference,
           label: featureLabel(feature),
+          featureId: feature.id,
         });
         state._surfaceRecords.push({
           entity,

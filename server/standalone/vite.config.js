@@ -24,7 +24,6 @@ export default defineConfig(({ command, mode }) => {
   config.build.rollupOptions = {
     input: {
       main: fileURLToPath(new URL('../../index.html', import.meta.url)),
-      cyber: fileURLToPath(new URL('../../cyber.html', import.meta.url)),
     },
   };
   return config;

@@ -1,0 +1,189 @@
+.story-mode .reality-top {
+  display: none;
+}
+.story-mode .reality-bottom {
+  display: none;
+}
+.story-mode .reality-world-evidence {
+  display: none;
+}
+#reality-story {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.story-heading {
+  position: absolute;
+  top: 30px;
+  left: 4vw;
+  right: 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8ce8e2;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+}
+.story-caption {
+  position: absolute;
+  left: 4vw;
+  bottom: 32px;
+  width: min(800px, 86vw);
+  padding: 26px 30px 16px;
+  background: linear-gradient(110deg, #03151cf5, #03151ce8);
+  border-left: 3px solid #83e8df;
+  pointer-events: auto;
+}
+#story-progress {
+  color: #87d9d5;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+#story-title {
+  font-size: clamp(25px, 3vw, 43px);
+  line-height: 1.12;
+  margin: 12px 0;
+  letter-spacing: -0.035em;
+}
+#story-body {
+  max-width: 730px;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+#story-takeaway {
+  color: #a5efe4;
+  font-size: 14px;
+  font-weight: 650;
+  margin: 10px 0;
+}
+#story-answer {
+  padding: 10px 14px;
+  border-left: 2px solid #ffd18b;
+  color: #ffdca5;
+  line-height: 1.5;
+  font-size: 14px;
+}
+.story-questions,
+.story-navigation {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+#reality-mode #story-start,
+#reality-mode #story-next {
+  background: #9ae9df;
+  color: #05202b;
+  border-color: #bafbf1;
+  font-weight: 700;
+  padding: 11px 18px;
+}
+#reality-mode #story-question {
+  border-color: #dbb574;
+  color: #ffe0ad;
+}
+#story-position {
+  color: #8bb0bc;
+  font-size: 11px;
+}
+.story-credit {
+  display: block;
+  font-size: 9px;
+  color: #91aeb6;
+  margin-top: 16px;
+}
+.story-credit a {
+  color: inherit;
+}
+#reality-story [hidden] {
+  display: none !important;
+}
+.story-exploring .story-caption {
+  display: none;
+}
+.story-exploring .story-heading span {
+  display: none;
+}
+.story-exploring .story-heading {
+  justify-content: flex-end;
+  top: 75px;
+}
+#reality-story[data-phase='intro'] .story-caption {
+  max-width: 600px;
+}
+.story-mode #reality-evidence {
+  z-index: 30;
+  top: 90px;
+  max-height: calc(100vh - 160px);
+}
+@media (min-width: 701px) and (max-height: 780px) {
+  .story-caption {
+    width: 39vw;
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 18px;
+  }
+  #story-title {
+    font-size: 29px;
+  }
+  #story-body {
+    font-size: 15px;
+  }
+}
+@media (max-width: 650px) {
+  .story-heading {
+    top: 17px;
+    left: 16px;
+    right: 16px;
+    font-size: 8px;
+    letter-spacing: 0.07em;
+  }
+  .story-heading button {
+    font-size: 10px !important;
+  }
+  .story-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    padding: 16px;
+    max-height: 49vh;
+    overflow-y: auto;
+  }
+  #story-title {
+    font-size: 26px;
+    margin: 8px 0;
+  }
+  #story-body {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  #story-progress {
+    font-size: 9px;
+  }
+  #story-takeaway {
+    font-size: 12px;
+  }
+  .story-questions,
+  .story-navigation {
+    gap: 5px;
+    margin-top: 10px;
+  }
+  #reality-story button {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+  .story-credit {
+    font-size: 8px;
+    margin-top: 12px;
+  }
+  .story-mode #reality-evidence {
+    top: 70px;
+    right: 12px;
+    max-height: 70vh;
+  }
+}

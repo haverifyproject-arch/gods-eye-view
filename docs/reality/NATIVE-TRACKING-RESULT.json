@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-25",
+  "scope": "Native Internet Health and Debug This integration; upstream tracking regression",
+  "command": "node scripts/track-regression.mjs --url http://127.0.0.1:4173 --offline-imagery",
+  "runtime": "Node 24.14.0; headless Chromium with SwiftShader",
+  "sourceFrozen": true,
+  "server": "Vite development server with provider network access; production static QA is recorded separately",
+  "result": {
+    "passed": 109,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "consoleErrors": 0,
+    "http5xxResponses": 0
+  },
+  "fixtures": {
+    "aircraft": "Upstream deterministic flight and military payloads",
+    "imageryTiles": 18,
+    "imageryScope": "Known Esri and OpenStreetMap image tile requests only; bundled NaturalEarthII texture",
+    "terrain": "Real provider terrain retained; floor and corridor assertions unchanged"
+  },
+  "localLog": "output/native-final-tracking.log",
+  "priorInterruptedAttempt": {
+    "localLog": "output/native-tracking-hmr-interrupted.log",
+    "reason": "Vite hot reload during source editing destroyed the browser execution context. This incomplete attempt is not an invariant failure or accepted full run."
+  }
+}

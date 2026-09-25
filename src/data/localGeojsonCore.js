@@ -438,6 +438,66 @@ export function createLocalGeoJsonLayer(
    * @type {Array<object>|null}
    */
   let _cachedFeatures = null;
+  const _debugControllers = new Set();
+  const parseFeatures = (text) =>
+    text
+      .split('\n')
+      .filter((line) => line.trim())
+      .map((line) => JSON.parse(line));
+  const debugRecords = ({ limit = 5000 } = {}) => {
+    if (_destroyed || !_cachedFeatures) return [];
+    const maximum = Math.min(
+      5000,
+      Math.max(0, Number.isFinite(limit) ? Math.floor(limit) : 5000),
+    );
+    const records = [];
+    for (
+      let index = 0;
+      index < _cachedFeatures.length && records.length < maximum;
+      index++
+    ) {
+      const feature = _cachedFeatures[index];
+      if (feature.geometry?.type !== 'Point') continue;
+      const [lon, lat] = feature.geometry.coordinates || [];
+      if (
+        !Number.isFinite(lon) ||
+        !Number.isFinite(lat) ||
+        Math.abs(lon) > 180 ||
+        Math.abs(lat) > 90
+      )
+        continue;
+      records.push({
+        ...mapAnalystRecord(
+          {
+            id:
+              feature.id ??
+              feature.properties?.id ??
+              feature.properties?.['@id'] ??
+              `${id}-${index}`,
+            lat,
+            lon,
+            properties: feature.properties || {},
+          },
+          id,
+        ),
+        layerId: id,
+        source: id === 'local-datacenters' ? 'OpenStreetMap' : source,
+        sourceUrl:
+          id === 'local-datacenters'
+            ? 'https://www.openstreetmap.org/copyright'
+            : null,
+        sourceDate: null,
+        evidenceState: 'CURRENT_REFERENCE',
+        rights:
+          id === 'local-datacenters'
+            ? 'OpenStreetMap contributors · ODbL 1.0; extraction date unknown'
+            : 'See native dataset provenance',
+        limitation:
+          'Listed facility context only; no affected-network or service dependency established.',
+      });
+    }
+    return records;
+  };
   /**
    * Globe-LOD active set: the record ids allowed to carry a live stem right
    * now. This bounds geometry refreshes and ground-sample work to the
@@ -611,6 +671,46 @@ export function createLocalGeoJsonLayer(
      * @param {number} [maxCount=2000] Maximum records to return (truncation).
      * @returns {Array<Object>} See mapAnalystRecord for the record shape.
      */
+    getDebugRecords: debugRecords,
+
+    async loadDebugRecords({ signal, limit = 5000 } = {}) {
+      signal?.throwIfAborted();
+      if (_destroyed) throw new DOMException('Layer destroyed', 'AbortError');
+      if (!_cachedFeatures) {
+        const controller = new AbortController();
+        const abort = () => controller.abort();
+        signal?.addEventListener('abort', abort, { once: true });
+        _debugControllers.add(controller);
+        try {
+          const response = await fetch(url, { signal: controller.signal });
+          controller.signal.throwIfAborted();
+          if (_destroyed)
+            throw new DOMException('Layer destroyed', 'AbortError');
+          if (!response.ok) {
+            await response.body?.cancel().catch(() => {});
+            throw new Error(`HTTP ${response.status ?? '?'}`);
+          }
+          const text = await response.text();
+          controller.signal.throwIfAborted();
+          if (_destroyed)
+            throw new DOMException('Layer destroyed', 'AbortError');
+          const features = parseFeatures(text);
+          if (
+            !features.every(
+              (feature) => feature?.type === 'Feature' && feature.geometry,
+            )
+          )
+            throw new TypeError('Invalid local reference features');
+          _cachedFeatures = features;
+        } finally {
+          signal?.removeEventListener('abort', abort);
+          _debugControllers.delete(controller);
+        }
+      }
+      signal?.throwIfAborted();
+      return debugRecords({ limit });
+    },
+
     getAnalystRecords(maxCount = 2000) {
       if (!_enabled || !_stemRecords.length) return [];
       const limit = Number.isFinite(maxCount)
@@ -681,11 +781,7 @@ export function createLocalGeoJsonLayer(
                 }
                 const text = await response.text();
                 if (_destroyed) return;
-                const lines = text
-                  .split('\n')
-                  .filter((l) => l.trim().length > 0);
-
-                features = lines.map((line) => JSON.parse(line));
+                features = parseFeatures(text);
                 _cachedFeatures = features;
               }
 
@@ -1154,6 +1250,8 @@ export function createLocalGeoJsonLayer(
     destroy: (viewer) => {
       if (_destroyed) return;
       _destroyed = true;
+      for (const controller of _debugControllers) controller.abort();
+      _debugControllers.clear();
       _loadController?.abort();
       // Defensively disable first so listeners and selection state are
       // torn down even if destroy is called while the layer is enabled.

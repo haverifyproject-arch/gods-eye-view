@@ -21,6 +21,41 @@ import {
 import { MAP_STACKS } from '../mapStackController.js';
 import { GEV_REALTIME_TOOLS } from '../../server/providers/openai/tools.js';
 
+test('world debugging delegates native selection actions and refuses stale or unavailable operations', async () => {
+  const { viewer, styleManager } = createVoiceNavigationHarness();
+  const calls = [];
+  const unavailable = createGevActionRunner({ viewer, styleManager });
+  assert.equal(
+    (await unavailable('debug_world', { action: 'follow' })).ok,
+    false,
+  );
+  const debugWorld = {
+    run: async (...args) => {
+      calls.push(args);
+      return { ok: true };
+    },
+  };
+  const runner = createGevActionRunner({ viewer, styleManager, debugWorld });
+  assert.equal(
+    (
+      await runner(
+        'debug_world',
+        { action: 'follow' },
+        { isCurrent: () => false },
+      )
+    ).cancelled,
+    true,
+  );
+  assert.equal(calls.length, 0);
+  const controller = new AbortController();
+  const options = { signal: controller.signal };
+  assert.equal(
+    (await runner('debug_world', { action: 'observed' }, options)).ok,
+    true,
+  );
+  assert.deepEqual(calls[0], [{ action: 'observed' }, options]);
+});
+
 test('every live basemap is reachable by its own id — no enum value without a voice alias', () => {
   // B1 regression: a stack added to MAP_STACKS (and the set_map_stack enum)
   // without a matching STACK_ALIASES entry resolves to null and throws

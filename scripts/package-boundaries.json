@@ -1261,6 +1261,15 @@
       "./standalone/catalog"
     ],
     "modules": [
+      "src/ui/worldDebug.js",
+      "src/reality/worldDebug.js",
+      "src/reality/investigation.js",
+      "src/reality/signalEvidence.js",
+      "src/reality/debugRelations.js",
+      "src/app/layers/internetHealth.js",
+      "src/layers/internetHealth/index.js",
+      "src/layers/internetHealth/model.js",
+      "src/layers/internetHealth/source.js",
       "src/cyberSonarScene.js",
       "src/cyberSonar.js",
       "src/hudLayouts.js",
@@ -1973,6 +1982,10 @@
   "application-layer-construction": {
     "exports": ["./application/layers"],
     "modules": [
+      "src/app/layers/internetHealth.js",
+      "src/layers/internetHealth/index.js",
+      "src/layers/internetHealth/model.js",
+      "src/layers/internetHealth/source.js",
       "src/cyberSonar.js",
       "src/data/bhoteKoshiEvent.js",
       "src/ui/imagerySplit.js",
@@ -2713,6 +2726,8 @@
   "reference-sources": {
     "exports": ["./sources/reference", "./layers/submarine-cables/source"],
     "modules": [
+      "src/layers/internetHealth/model.js",
+      "src/layers/internetHealth/source.js",
       "src/sources/reference.js",
       "src/layers/earthquakes/source.js",
       "src/layers/earthquakes/records.js",

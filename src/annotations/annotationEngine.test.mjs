@@ -73,6 +73,56 @@ function fakeRenderer() {
   };
 }
 
+test('owned annotations never deduplicate or clear unrelated whiteboard marks', async (t) => {
+  installAnimationFrameStubs(t);
+  const { renderer } = fakeRenderer();
+  const engine = createAnnotationEngine({ viewer: {}, renderer });
+  const spec = { type: 'pin', manual: true, longitude: 12, latitude: 44, label: 'Same place' };
+  const ordinary = await engine.annotate(spec, { autoFrame: false });
+  const owned = await engine.annotate(spec, { owner: 'reality-debug', autoFrame: false });
+  assert.notEqual(ordinary.ids[0], owned.ids[0]);
+  assert.equal(engine.count(), 2);
+  const again = await engine.annotate(spec, { owner: 'reality-debug', autoFrame: false });
+  assert.equal(again.ids[0], owned.ids[0]);
+  await engine.annotate({ ...spec, label: 'Replacement' }, { owner: 'reality-debug', clearPrevious: true, autoFrame: false });
+  assert.equal(engine.count(), 2);
+  assert.equal(engine.removeOwned('reality-debug'), 1);
+  assert.deepEqual(engine.list().map((item) => item.id), ordinary.ids);
+  assert.equal(engine.removeOwned(''), 0);
+  engine.clear();
+});
+
+test('owned visibility removes pickable renderer state and restores only requested marks', async (t) => {
+  installAnimationFrameStubs(t);
+  const { renderer, calls } = fakeRenderer();
+  const engine = createAnnotationEngine({ viewer: {}, renderer });
+  const result = await engine.annotate({ type: 'pin', manual: true, longitude: 12, latitude: 44 }, { owner: 'reality-debug', autoFrame: false });
+  assert.equal(engine.setVisible(result.ids, false), 1);
+  assert.equal(calls.remove, 1);
+  assert.equal(engine.list()[0].hidden, true);
+  assert.equal(engine.setVisible(result.ids, false), 0);
+  assert.equal(engine.setVisible(result.ids, true), 1);
+  assert.equal(calls.add, 2);
+  assert.equal(engine.list()[0].hidden, false);
+  assert.equal(engine.remove(result.ids), 1);
+  assert.equal(engine.count(), 0);
+});
+
+test('clearing one owner cancels its pending resolution without cancelling another owner', async (t) => {
+  installAnimationFrameStubs(t);
+  const { renderer } = fakeRenderer();
+  const pending = new Map();
+  const engine = createAnnotationEngine({ viewer: {}, renderer, resolveTarget: ({ target }) => new Promise((resolve) => pending.set(target, resolve)) });
+  const first = engine.annotate({ type: 'pin', target: 'debug pending' }, { owner: 'reality-debug', autoFrame: false });
+  const other = engine.annotate({ type: 'pin', target: 'ordinary pending' }, { autoFrame: false });
+  engine.removeOwned('reality-debug');
+  for (const resolve of pending.values()) resolve({ lon: 12, lat: 44, height: 0, source: 'fixture' });
+  assert.equal((await first).drawn, 0);
+  assert.equal((await other).drawn, 1);
+  assert.equal(engine.count(), 1);
+  engine.clear();
+});
+
 async function flushMicrotasks(rounds = 20) {
   for (let i = 0; i < rounds; i += 1) await Promise.resolve();
 }

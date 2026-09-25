@@ -119,10 +119,20 @@ export function normalizeTargetKey(target) {
 export function createAnnotationEngine({
   placeSearch = defaultGeospatial,
   viewer,
-  renderer,
+  renderer: rendererBackend,
   outlineRetryDelaysMs = OUTLINE_RETRY_DELAYS_MS,
   resolveTarget = resolveAnnotationTarget,
 }) {
+  // Hidden marks retain evidence/state but have no renderer objects or pick targets.
+  const renderer = {
+    ...rendererBackend,
+    add: (anno) => {
+      if (!anno.hidden) rendererBackend.add(anno);
+    },
+    update: (anno) => {
+      if (!anno.hidden) rendererBackend.update(anno);
+    },
+  };
   /** @type {Map<string, object>} live annotations keyed by id */
   const annotations = new Map();
   let destroyed = false;
@@ -187,7 +197,8 @@ export function createAnnotationEngine({
   // live colors, camera-scaled rings, route-flow uniforms in the renderer),
   // so the scene must render continuously while any mark exists. (perf wave 2)
   function syncAnnotationHold() {
-    if (annotations.size > 0) holdContinuousRender('annotations');
+    if ([...annotations.values()].some((anno) => !anno.hidden))
+      holdContinuousRender('annotations');
     else releaseContinuousRender('annotations');
   }
 
@@ -269,11 +280,19 @@ export function createAnnotationEngine({
         error: 'destroyed',
       };
     const list = Array.isArray(requests) ? requests : [requests];
-    if (opts.clearPrevious) clear(); // bumps generation + aborts older pending work
+    const owner =
+      typeof opts.owner === 'string' && opts.owner.trim()
+        ? opts.owner.trim()
+        : null;
+    if (opts.clearPrevious) {
+      if (owner) removeOwned(owner);
+      else clear();
+    }
 
     const persist = opts.persist !== false;
     // Per-call cancellation: bumped/aborted by any later clear() or destroy().
     const controller = new AbortController();
+    controller.owner = owner;
     retainController(controller);
     const myGen = generation;
     const superseded = () => myGen !== generation || controller.signal.aborted;
@@ -307,6 +326,9 @@ export function createAnnotationEngine({
             continue;
           }
           const anno = buildAnnotation(spec, resolved, persist);
+          anno.owner = owner;
+          anno.onSelect =
+            typeof spec.onSelect === 'function' ? spec.onSelect : null;
           // De-dup: the voice model re-narrates the same places across turns, and
           // annotations now accumulate by default — so without this, "Presidio" / "Marina"
           // pile up into duplicate stacked labels. A live mark that is semantically the SAME
@@ -315,6 +337,8 @@ export function createAnnotationEngine({
           // stacked. De-dup runs BEFORE the cap so a re-narration still refreshes when full.
           const dup = findDuplicate(anno);
           if (dup) {
+            anno.hidden = dup.hidden;
+            dup.onSelect = anno.onSelect;
             const labelChanged =
               String(dup.label || '')
                 .trim()
@@ -464,7 +488,7 @@ export function createAnnotationEngine({
       ensureTicking();
     }
     if (opts.flyTo && firstAnchor) frameAnnotation(firstAnchor);
-    else if (ids.length) ensureMarksVisible(ids);
+    else if (ids.length && opts.autoFrame !== false) ensureMarksVisible(ids);
 
     const drawn = results.filter((r) => r.ok).length;
     return {
@@ -699,6 +723,7 @@ export function createAnnotationEngine({
           if (
             other.id === anno.id ||
             other.type !== 'area' ||
+            other.owner !== anno.owner ||
             other.pendingOutline
           )
             continue;
@@ -795,6 +820,7 @@ export function createAnnotationEngine({
       return true;
     };
     for (const ex of annotations.values()) {
+      if (ex.owner !== anno.owner) continue;
       if (ex.type !== anno.type || !ex.anchor) continue;
       // Identity is GEOMETRY, not label: "Marina" and "Marina District" resolve to the SAME
       // polygon/anchor and must collapse to one mark (the caller replaces label/color in place
@@ -865,6 +891,17 @@ export function createAnnotationEngine({
       label,
       createdAt: now,
       ttlMs: persist ? null : Number(spec?.ttlMs) || DEFAULT_TTL_MS,
+      evidenceState: [
+        'OBSERVED',
+        'REPORTED',
+        'DERIVED',
+        'RECONSTRUCTED',
+        'INFERRED',
+        'CURRENT_REFERENCE',
+        'UNKNOWN',
+      ].includes(spec?.evidenceState)
+        ? spec.evidenceState
+        : null,
       alpha: 0, // animate in
       bornAt: now,
       expiring: false,
@@ -936,6 +973,59 @@ export function createAnnotationEngine({
       // no ring exists yet.
       viewport: resolved.viewport || null,
     };
+  }
+
+  function remove(ids) {
+    let removed = 0;
+    for (const id of new Set(Array.isArray(ids) ? ids : [ids])) {
+      const anno = annotations.get(id);
+      if (!anno) continue;
+      renderer.remove(anno);
+      annotations.delete(id);
+      removed++;
+    }
+    renderer.sync(annotations);
+    syncAnnotationHold();
+    viewer.scene?.requestRender?.();
+    return removed;
+  }
+
+  function removeOwned(owner) {
+    if (typeof owner !== 'string' || !owner.trim()) return 0;
+    for (const controller of activeControllers) {
+      if (controller.owner === owner) controller.abort();
+    }
+    return remove(
+      [...annotations.values()]
+        .filter((anno) => anno.owner === owner)
+        .map((anno) => anno.id),
+    );
+  }
+
+  function setVisible(ids, visible) {
+    let changed = 0;
+    for (const id of new Set(Array.isArray(ids) ? ids : [ids])) {
+      const anno = annotations.get(id);
+      if (!anno || !!anno.hidden === !visible) continue;
+      if (visible) {
+        anno.hidden = false;
+        try {
+          renderer.add(anno);
+        } catch (error) {
+          anno.hidden = true;
+          rollbackRendererState(anno);
+          throw error;
+        }
+      } else {
+        renderer.remove(anno);
+        anno.hidden = true;
+      }
+      changed++;
+    }
+    renderer.sync(annotations);
+    syncAnnotationHold();
+    viewer.scene?.requestRender?.();
+    return changed;
   }
 
   function clear() {
@@ -1075,6 +1165,9 @@ export function createAnnotationEngine({
   const engine = {
     annotate,
     clear,
+    remove,
+    removeOwned,
+    setVisible,
     destroy() {
       if (destroyed) return;
       destroyed = true;
