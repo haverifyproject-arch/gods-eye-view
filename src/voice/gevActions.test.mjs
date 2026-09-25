@@ -21,6 +21,21 @@ import {
 import { MAP_STACKS } from '../mapStackController.js';
 import { GEV_REALTIME_TOOLS } from '../../server/providers/openai/tools.js';
 
+test('situation voice delegates to active actions and refuses stale or unavailable missions', async () => {
+  const { viewer, styleManager } = createVoiceNavigationHarness();
+  let actions = null;
+  const calls = [];
+  const runner = createGevActionRunner({ viewer, styleManager, getSituationActions: () => actions });
+  assert.equal((await runner('operate_situation', { action: 'follow' })).ok, false);
+  actions = { run: async (...args) => { calls.push(args); return { ok: true }; } };
+  assert.equal((await runner('operate_situation', { action: 'follow' }, { isCurrent: () => false })).cancelled, true);
+  assert.equal(calls.length, 0);
+  const controller = new AbortController();
+  const options = { signal: controller.signal };
+  assert.equal((await runner('operate_situation', { action: 'lens', lens: 'OBSERVED' }, options)).ok, true);
+  assert.deepEqual(calls[0], ['lens', { lens: 'OBSERVED' }, options]);
+});
+
 test('every live basemap is reachable by its own id — no enum value without a voice alias', () => {
   // B1 regression: a stack added to MAP_STACKS (and the set_map_stack enum)
   // without a matching STACK_ALIASES entry resolves to null and throws

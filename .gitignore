@@ -13,6 +13,7 @@ dist
 screenshots/
 qa-shots/
 output/
+artifacts/
 .gev-logs/
 .gev-cache/
 .DS_Store

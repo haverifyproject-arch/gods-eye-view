@@ -6,6 +6,7 @@ import { createStandaloneScene } from './scene.js';
 import { createStandaloneControls } from './controls.js';
 import { createStandaloneData } from './data.js';
 import { createStandaloneTools } from './tools.js';
+import { createRealityMode } from './realityMode.js';
 
 // The existing controls and layer catalog contain page-scoped state.
 let constructed = false;
@@ -17,6 +18,7 @@ export function createStandaloneApplication({
   geospatial = {},
   voice = {},
   allowQaRegistration = false,
+  situation = null,
 }) {
   if (constructed)
     throw new Error('The standalone application already owns this page');
@@ -62,10 +64,22 @@ export function createStandaloneApplication({
         loaderStatus,
         placeSearch,
         catalog,
+        skipInitialFlight: situation === 'tonga',
       }),
     createData: (context) =>
       createStandaloneData({ ...context, allowQaRegistration, catalog }),
-    createTools: (context) =>
-      createStandaloneTools({ ...context, loadingScreen, placeSearch, voice }),
+    createTools: async (context) => {
+      let mode;
+      const tools = createStandaloneTools({
+        ...context,
+        loadingScreen,
+        placeSearch,
+        voice: { ...voice, getSituationActions: () => mode?.actions },
+      });
+      mode = createRealityMode({ ...context, tools });
+      context.defer(() => mode.destroy());
+      if (situation === 'tonga') await mode.open();
+      return { ...tools, realityMode: mode };
+    },
   });
 }

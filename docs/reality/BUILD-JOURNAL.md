@@ -1,13 +1,35 @@
-# Build journal
+# Reality Debugger build journal
 
-## Resumed full build — 24 September2026
+## 24 September 2026 — integration and acceptance
 
-DONE: native architecture and Tonga sources investigated; local baseline build and 5,034 ordinary tests plus 14 allocation tests passed (10 skipped). Full product contract now in repository. GitHub authenticated with admin access to haverifyproject-arch/gods-eye-view. Scope instructions updated; prior prototype preserved.
+### DONE
 
-CURRENT: branch feat/reality-debugger pushed to GitHub (foundation commit43738bb). User signed in to cloud; its GitHub connection exposes QuantumQuestion repositories, not haverifyproject-arch/gods-eye-view. Correct repository authorization requested and pending. Meanwhile the lightweight, renderer-independent Situation model, runtime and shared action dispatcher have been implemented locally; all20 focused validation/state/cancellation tests pass. Import-direction check passes (823modules). Attributed Tonga cable reference subset extracted. World mode and mission remain to build. NO CLOUD BUILD JOB HAS BEEN SUBMITTED.
+- Cloud build delivered commit 5a44fca668d4fa91042df0a00b441dbb03988e56 as a patch; integrated into the existing native application. Cloud task: 6ab59bac-62fc-83ea-9ea6-6ef484551337.
+- Parallel architecture, research and UX/validation review reconciled locally. Implementation reuses the native viewer, camera motion, navigation ownership and voice dispatcher.
+- Validated Situation runtime, immutable context, evidence filtering, chronology, cancellation, source registry and Tonga mission. 31 focused model/runtime/data tests passed before final integration.
+- Source audit corrected recovery precision, observation intervals, context anchors, unknown break geography and unresolved domestic recovery.
+- Native lifecycle ownership and optional voice delegation integrated; focused voice tests and import/package boundaries passed.
+- Added source-backed offline Natural Earth Fiji/Tonga geography, world-anchored selectable evidence, current-reference cable traversal and interruptible approximately 90-second walkthrough.
+- First screenshot exposed unavailable map tiles, label overlap and excessive control height. Corrected before final visual run; no acceptance claimed from compilation alone.
 
-NEXT: submit the complete implementation brief to the matching cloud environment; build validated Situation runtime, Tonga data, native world mode, temporal/evidence navigation, cable traversal, source inspection, shared actions and polished walkthrough. Run browser QA and upstream checks in cloud; prepare Vercel-compatible production behavior.
+### CURRENT
 
-BLOCKERS: cloud build submission needs repository access under the correct GitHub account. Local GitHub CLI authentication is already valid, but it does not grant the separate cloud connector access. Main product is not implemented; never mistake the old cyber.html page for Reality Debugger.
+Full upstream suite with bounded concurrency, then production build/static delivery checks. Nine-state visual acceptance and mobile/interaction checks follow sequentially to avoid overloading the owner's computer.
 
-DECISIONS: retain one native viewer; no dashboard redesign; no false precise failure geography; preserve observed03:00UTC degradation preceding reported04:14main explosion. Vercel is the owner's preferred host. Avoid expensive local test/browser loops when cloud compute is available.
+### NEXT
+
+Inspect every required screenshot; fix visual or interaction failures; run native tracking regression and final formatting/boundaries. Preserve source and validation results in GitHub. Vercel is the intended deployment target; no deployment is claimed yet.
+
+### BLOCKERS
+
+Cloud Chrome could not launch, so visual acceptance runs locally. Cloud automatic approval rejected its GitHub push as export to an unverified remote; retrieved its delivered patch without retrying the rejected operation. External map requests failed in the sandboxed first browser run; the mission now carries its own attributed geographic context.
+
+### DECISIONS
+
+- One exceptional Tonga mission; preserve the archived cyber prototype.
+- World and source-backed evidence drive interaction; no permanent evidence sidebar.
+- Current cable routes and land are geographic reference, not historical observations.
+- The 37 km graphic is an illustrative scale: bearing and distance convention are unknown.
+- Cloudflare summaries are qualitative and vantage-limited. No fabricated samples, scores, vessel tracks or exact breaks.
+- Static mission works without AI credentials or Vite proxies; voice is optional.
+- Preserve Bilawal Sidhu's MIT upstream credit; TeleGeography CC BY-NC-SA and Natural Earth public-domain data separately attributed.

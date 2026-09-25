@@ -1,12 +1,12 @@
 <div align="center">
 
-# Cyber Situation Room — Colonial Pipeline
+# Reality Debugger — The Tonga connection
 
-An evidence-led cyber-physical investigation workspace built on **God's Eye View by Bilawal Sidhu and contributors**. The original upstream application remains intact at `/`; open **[/cyber.html](http://127.0.0.1:4173/cyber.html)** for the May 2021 Colonial Pipeline scenario in the United States. Kyivstar remains available in the case selector.
+A spatial, temporal investigation of Tonga's January 2022 eruption and connectivity disruption, built as a native mode of **God's Eye View by Bilawal Sidhu and contributors**. Open **[the Tonga mission](http://127.0.0.1:4173/?situation=tonga)** or choose **Explore Reality Debugger** from the original globe.
 
-Run `./Start-Cyber.ps1` on this Windows checkout (uses its project-local Node 24.14 runtime), or use a supported Node version and `npm ci && npm run dev`. No API keys are needed for the curated scenario. See [milestone and validation notes](docs/cyber/MILESTONE.md), [project charter](docs/cyber/CHARTER.md), [architecture](docs/cyber/ARCHITECTURE.md), and [source/rights register](docs/cyber/SOURCES.md).
+Run `npm ci` and `npm run dev` with Node 24.14+ (24.x) or 26.x. The core mission needs no API keys. Follow the real reference cable toward Fiji, move through the outage and recovery, filter observations from reports, and inspect the provenance of world annotations. See [product contract](docs/reality/MASTER-CONTRACT.md), [sources](docs/reality/SOURCES.md), [build journal](docs/reality/BUILD-JOURNAL.md) and [visual acceptance](docs/reality/UX-VALIDATION.md).
 
-The original contribution is the canonical evidence model, provenance validation, Colonial Pipeline and Kyivstar research bundles, linked investigation panel, semantic relationship graph and historical timeline. Globe/viewer foundations remain upstream work. Country geography is reference context; the scenario does not invent outage footprints, traffic samples, facility locations or attribution.
+Original contributions: the validated Situation model and runtime, evidence/uncertainty semantics, Tonga research, native mission lifecycle, spatial evidence annotations, temporal comparisons, shared text/voice actions and acceptance harness. Viewer, navigation, camera animation and voice foundations remain upstream work (MIT). TeleGeography reference geometry retains its separate CC BY-NC-SA license; Natural Earth geography is public domain. The previous cyber prototype remains archived in the repository and is not the active product.
 
 ---
 
@@ -571,3 +571,11 @@ One heads-up from the inside: build in this space for a week and you learn that 
 **🌐 God's Eye View. No place left behind.**
 
 </div>
+
+## Reality Debugger · Tonga 2022
+
+Launch the native mission from the globe's **Explore Reality Debugger · Tonga 2022** button or open `/?situation=tonga`. The one viewer and native camera remain in use. A bundled source-backed Situation model drives the time scrubber, evidence lenses, contextual source inspection, text commands, and an interruptible walkthrough. Try “follow cable,” “observed only,” “why did Tonga go dark,” “what don't we know,” and “show recovery.” The main experience requires no API key or voice backend.
+
+The cable geometry is a generalized **current reference**, not a 2022 route survey. The subset in `public/reality/tonga-cables.geojson` retains © TeleGeography, CC BY-NC-SA 3.0, separately from the MIT code. Cloudflare observations describe traffic at its vantage, not a national census. Its reported decline after ~03:00 UTC January 15 precedes NASA JPL's 04:14 UTC main eruption marker; the initial decline's cause is unresolved. The ITU's approximate 37 km fault distance is shown only as an illustrative scale: bearing and radial-versus-along-cable convention are unknown. Fallback access is shown when documented on February 10; its exact activation time is unknown.
+
+Run `npm ci`, `npm run dev`, and visit the local URL. For production, `npm run build` produces `dist`; `vercel.json` specifies the static Vite deployment. Existing live layers and optional voice rely on separately configured services; the mission itself reads only its bundled GeoJSON and locally compiled records. Run `node --test src/situations/*.test.mjs` for the portable evidence/runtime checks and `node scripts/qa-reality.mjs` for nine screenshot captures on an environment that permits headless Chrome/WebGL.

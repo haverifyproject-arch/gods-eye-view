@@ -901,6 +901,53 @@ const schemas = [
   },
 ];
 
+schemas.push({
+  name: 'operate_situation',
+  parameters: {
+    type: 'object',
+    additionalProperties: false,
+    required: ['action'],
+    properties: {
+      action: {
+        type: 'string',
+        enum: [
+          'context',
+          'go',
+          'follow',
+          'trace',
+          'replay',
+          'compare',
+          'annotate',
+          'time',
+          'lens',
+          'select',
+          'visibility',
+          'evidence',
+          'reset',
+          'pause',
+        ],
+      },
+      target: { type: 'string' },
+      id: { type: 'string' },
+      time: { type: 'string' },
+      lens: {
+        type: 'string',
+        enum: [
+          'ALL',
+          'OBSERVED',
+          'REPORTED',
+          'RECONSTRUCTION',
+          'INFERRED',
+          'CURRENT_REFERENCE',
+          'UNKNOWN',
+          'NO_INFERENCE',
+        ],
+      },
+      hidden: { type: 'boolean' },
+    },
+  },
+});
+
 function freeze(value) {
   if (value && typeof value === 'object') {
     Object.values(value).forEach(freeze);

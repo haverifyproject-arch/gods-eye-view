@@ -12,6 +12,7 @@ export function createApplicationControls({
   catalog,
   placeSearch,
   defer,
+  skipInitialFlight = false,
 }) {
   // Initialize the style manager (post-processing, HUD, locations, share links)
   const styleManager = new Controls(viewer, {
@@ -40,12 +41,21 @@ export function createApplicationControls({
   defer(() => cockpitCloudEffects?.destroy());
 
   // If no share link state, do default fly-to Austin
-  if (!styleManager.hasShareState) {
+  let cancelInitialFlight = () => {};
+  if (!styleManager.hasShareState && !skipInitialFlight) {
     loaderStatus.textContent = 'Flying to Austin, TX...';
-    defer(flyToAustin(viewer));
+    cancelInitialFlight = flyToAustin(viewer);
+    defer(cancelInitialFlight);
   } else {
-    loaderStatus.textContent = 'Restoring shared view...';
+    loaderStatus.textContent = skipInitialFlight
+      ? 'Preparing situation...'
+      : 'Restoring shared view...';
   }
 
-  return { styleManager, weatherEffects, cockpitCloudEffects };
+  return {
+    styleManager,
+    weatherEffects,
+    cockpitCloudEffects,
+    cancelInitialFlight,
+  };
 }

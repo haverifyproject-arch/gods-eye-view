@@ -326,6 +326,7 @@ const viewTargetCache = new WeakMap();
 
 /** Create application actions over the supplied scene and services. */
 export function createGevActionRunner({
+  getSituationActions = () => null,
   viewer,
   styleManager,
   dataManager,
@@ -348,6 +349,19 @@ export function createGevActionRunner({
     const current = () =>
       !runOptions.signal?.aborted &&
       (typeof runOptions.isCurrent !== 'function' || runOptions.isCurrent());
+
+    if (name === 'operate_situation') {
+      if (!current()) return { ok: false, action: name, cancelled: true };
+      const situationActions = getSituationActions();
+      if (!situationActions)
+        return {
+          ok: false,
+          action: name,
+          error: 'Open a Reality Debugger mission first',
+        };
+      const { action, ...parameters } = args;
+      return situationActions.run(action, parameters, runOptions);
+    }
 
     // Navigation tools interrupt any continuous camera motion (spec §1.1) —
     // checked FIRST because each handler returns.

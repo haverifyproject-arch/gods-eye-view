@@ -1,4 +1,8 @@
 export const ACTION_DESCRIPTIONS = {
+  operate_situation: {
+    description:
+      'Operate the active Reality Debugger mission through shared world actions. Read context first for valid record IDs. Evidence returns actual source provenance. GO targets pacific, tonga, volcano or fiji. FOLLOW traverses the cable. Lens and time materially filter the world. Only report success when the client action completes; unavailable means the mission must be opened first.',
+  },
   fly_to_location: {
     description:
       "Fly the God's Eye View camera to a known city, geocoded country/region/city/landmark, or explicit WGS84 coordinate. Countries/cities frame the whole place; landmarks/buildings use close framing.",
