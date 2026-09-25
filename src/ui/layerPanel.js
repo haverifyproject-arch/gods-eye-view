@@ -46,7 +46,13 @@ const PANEL_GROUPS = [
   },
   {
     label: 'Events',
-    ids: ['rocket-launches', 'earthquakes', 'local-firms', 'fire-perimeters'],
+    ids: [
+      'internet-health',
+      'rocket-launches',
+      'earthquakes',
+      'local-firms',
+      'fire-perimeters',
+    ],
   },
   {
     label: 'Weather',

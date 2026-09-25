@@ -1,5 +1,40 @@
 # Reality Debugger build journal
 
+## 25 September 2026 — native extension corrective reset (CURRENT)
+
+### DONE
+
+- Read the owner's final corrective contract, preserved at `NATIVE-CORRECTIVE-CONTRACT.md`. It supersedes every historical mission/story direction below.
+- Audited changes against upstream; categorized reusable code and disabled story-only composition. Legacy situation/story URLs now open normal GEV while preserving camera hash.
+- Native-reset production build passes. Ten browser checks confirm normal globe, free camera, live USGS layer interaction and semantic shared-URL preservation.
+- Verified public IODA API with actual current responses and CORS. Selected runtime acquisition with provenance and no bundled measurement archive. Natural Earth supplies public-domain country reference geometry.
+
+### CURRENT
+
+Native Internet Health, shared selection/action integration, bounded cable/facility context, evidence-filtered native annotations and interruptible infrastructure following are implemented and validated. The live production browser run passed 12 checks, the targeted follow/source/current-view/earthquake run passed 10, and the final source/provenance run passed nine. The last production build passed in 11.33 seconds. Reviewed artifacts and the edited 85.2-second interaction recording are in `validation/native`; see `NATIVE-ACCEPTANCE.md` for A–N evidence and limits. Delivery uses existing PR #1; the normal production preview runs at port 4180.
+
+- 223 focused integration tests passed. Full discovered suite: 5,118 tests, 5,103 passed, 10 skipped and five new earthquake headless-compatibility failures. Those five were fixed; exact regression/ownership rerun passed 17/17. This is not a claim of a pristine full rerun after the fixes.
+- Serialized allocation gates passed 14/14; minimal-diff first-run/radio/voice regression rerun passed 128/128.
+- Root relationship/session tests passed 18/18, including repeated Clear, superseded Another, voice cancellation, source follow-up/selection invalidation, antimeridian geometry, relevant multipart route selection, ownership and conservative inference eligibility.
+- Native annotation tests verify static subdued references, dashed conditional inference, filtering, selectable provenance and preservation of unrelated whiteboard marks.
+- Upstream tracking passed 109/109 with real terrain, clean console and no HTTP 5xx. Eighteen known imagery requests used the existing offline-imagery fixture. This was a development-server regression; plain static production behavior was validated separately. The first tracking attempt was interrupted by a development hot reload, preserved separately, then rerun from the beginning against frozen source. See `NATIVE-TRACKING-RESULT.json`.
+- Import/package boundaries passed. The full formatting scan's one active-file finding was formatted after the final edits. A final two-line provenance follow-up correction followed tracking and is covered by focused unit and source-browser checks rather than another unrelated tracking run.
+
+### NEXT
+
+Review the delivered native workflow. Public Vercel deployment remains separate; it is not claimed by this implementation or acceptance run.
+
+### BLOCKERS
+
+No owner input required. PeeringDB public access works but its acceptable-use terms do not clearly grant portfolio redistribution; the implementation uses existing attributed cable and OSM facility references instead. No affected ASN membership is invented. Public deployment is not yet performed.
+
+### DECISIONS
+
+- Native GEV remains the product; disabled historical files are preserved for reference only.
+- Country anomaly observations do not establish nationwide blackouts, affected ASNs, causes or recovery.
+- Unknown relationships are never drawn; current reference infrastructure is not event-time evidence.
+- The implementation owns only temporary investigation marks and never clears unrelated native whiteboard work.
+
 ## 25 September 2026 — explanatory product rebuild
 
 ### DONE
@@ -68,3 +103,9 @@ No owner input is required. Cloud Chrome could not launch, so visual acceptance 
 - Static mission works without AI credentials or Vite proxies; voice is optional.
 - Production validation uses `scripts/serve-reality-static.mjs` on port 4180. Missing APIs are deliberately not rewritten to HTML. The browser recorded 404/405 responses without exact resource URLs; the core mission passed without unhandled exceptions. Optional backend services are not supplied by static hosting. Development preview is on port 4173.
 - Preserve Bilawal Sidhu's MIT upstream credit; TeleGeography CC BY-NC-SA and Natural Earth public-domain data separately attributed.
+
+## Native final provenance validation — 2026-09-25
+
+DONE: final production build passed in 11.33 seconds. Source-only live browser checks passed 9/9 with zero exceptions: desktop/mobile publisher and full explanation visible; collapsed exact-provenance disclosure; native selection invalidates old inspection; Sources follow-up preserves the actual inspected relationship. Refreshed accepted screenshots and source-report.json are in docs/reality/validation/native. No runtime edits followed this run.
+
+CURRENT: integration owner is completing Git delivery. NEXT: deliver PR and artifacts. BLOCKERS: none from this focused validation. DECISION: no live inference was fabricated for acceptance; conditional inference rendering remains separately covered by deterministic tests.

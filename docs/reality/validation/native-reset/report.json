@@ -1,0 +1,160 @@
+{
+  "provenance": {
+    "baseURL": "http://127.0.0.1:4180",
+    "startedAt": "2026-09-25T14:43:48.775Z",
+    "serverMode": "plain-static-production",
+    "revision": "947fe51afb9b14d4cd386e784d8fdf30fd1b5d0f"
+  },
+  "checks": [
+    {
+      "name": "Retired query entry cannot mount mission or story",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:4180/?welcome=0&qa_preserve=yes#v=2&lat=44.0000&lon=12.0000&alt=5000000&heading=360&pitch=-90&roll=0&style=normal&bloom=0&sharpen=0&bi=100&bv=2&si=49&hud=tactical&hv=0&dm=OFF&dd=50&da=elastic&kf=16&ko=5&cr=0&sc=1&scf=35&map=esri-imagery&l=&lo=f.e.1_k.o.n&ui=c.c.1_c.p.0_l.c.1_l.p.0_d.c.1_v.c.1_i.c.0_r.c.1_s.c.1_g.c.1_p.c.1_m.c.0",
+        "hash": "#v=2&lat=44.0000&lon=12.0000&alt=5000000&heading=360&pitch=-90&roll=0&style=normal&bloom=0&sharpen=0&bi=100&bv=2&si=49&hud=tactical&hv=0&dm=OFF&dd=50&da=elastic&kf=16&ko=5&cr=0&sc=1&scf=35&map=esri-imagery&l=&lo=f.e.1_k.o.n&ui=c.c.1_c.p.0_l.c.1_l.p.0_d.c.1_v.c.1_i.c.0_r.c.1_s.c.1_g.c.1_p.c.1_m.c.0",
+        "retired": [],
+        "bodyActive": false,
+        "nativePanel": true,
+        "canvasCount": 1,
+        "globalMission": false,
+        "layers": [
+          "bhote-koshi-2026",
+          "bhote-koshi-locator",
+          "flights",
+          "military",
+          "local-adsb",
+          "earthquakes",
+          "fire-perimeters",
+          "alpr-cameras",
+          "satellites",
+          "rocket-launches",
+          "traffic",
+          "cctv",
+          "radio",
+          "transit",
+          "bikeshare",
+          "directions",
+          "recent-imagery",
+          "ais-live-vessels",
+          "military-installations",
+          "military-awareness",
+          "wind",
+          "weather-radar",
+          "weather-satellite",
+          "weather-lightning",
+          "weather-cyclones",
+          "local-datacenters",
+          "local-dams",
+          "telegeography-submarine-cables",
+          "local-firms"
+        ]
+      }
+    },
+    {
+      "name": "Only retired query parameters are removed",
+      "passed": true
+    },
+    {
+      "name": "Native shared camera hash survives reset",
+      "passed": true,
+      "detail": "#v=2&lat=44.0000&lon=12.0000&alt=5000000&heading=360&pitch=-90&roll=0&style=normal&bloom=0&sharpen=0&bi=100&bv=2&si=49&hud=tactical&hv=0&dm=OFF&dd=50&da=elastic&kf=16&ko=5&cr=0&sc=1&scf=35&map=esri-imagery&l=&lo=f.e.1_k.o.n&ui=c.c.1_c.p.0_l.c.1_l.p.0_d.c.1_v.c.1_i.c.0_r.c.1_s.c.1_g.c.1_p.c.1_m.c.0"
+    },
+    {
+      "name": "Native controls and single viewer remain",
+      "passed": true,
+      "detail": [
+        "bhote-koshi-2026",
+        "bhote-koshi-locator",
+        "flights",
+        "military",
+        "local-adsb",
+        "earthquakes",
+        "fire-perimeters",
+        "alpr-cameras",
+        "satellites",
+        "rocket-launches",
+        "traffic",
+        "cctv",
+        "radio",
+        "transit",
+        "bikeshare",
+        "directions",
+        "recent-imagery",
+        "ais-live-vessels",
+        "military-installations",
+        "military-awareness",
+        "wind",
+        "weather-radar",
+        "weather-satellite",
+        "weather-lightning",
+        "weather-cyclones",
+        "local-datacenters",
+        "local-dams",
+        "telegeography-submarine-cables",
+        "local-firms"
+      ]
+    },
+    {
+      "name": "Shared camera restored instead of historical destination",
+      "passed": true,
+      "detail": [
+        0.2094395102393195,
+        0.7679448708775048,
+        5000000.000000001
+      ]
+    },
+    {
+      "name": "Unscripted pointer navigation moves the native camera",
+      "passed": true,
+      "detail": [
+        0.12495152229050734,
+        0.7904484727159656,
+        3727689.204992134
+      ]
+    },
+    {
+      "name": "Existing earthquake layer independently enables",
+      "passed": true
+    },
+    {
+      "name": "Native current context is not a historical mission selection",
+      "passed": true,
+      "detail": {
+        "keys": [],
+        "selected": null,
+        "activeLayers": [
+          "earthquakes"
+        ]
+      }
+    },
+    {
+      "name": "Existing earthquake layer independently disables",
+      "passed": true
+    },
+    {
+      "name": "No unhandled application exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)"
+  ],
+  "providerResponses": [
+    {
+      "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+      "status": 200
+    }
+  ],
+  "visualAcceptance": "PENDING: inspect native-reset.png",
+  "nativeContext": {
+    "keys": [],
+    "selected": null,
+    "activeLayers": [
+      "earthquakes"
+    ]
+  }
+}

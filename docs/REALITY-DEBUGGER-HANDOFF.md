@@ -1,5 +1,7 @@
 # Reality Debugger — handoff
 
+**SUPERSEDING UPDATE — 25 September 2026:** Read `docs/reality/NATIVE-CORRECTIVE-CONTRACT.md` and the top of `docs/reality/BUILD-JOURNAL.md`. The owner rejected historical missions and walkthroughs. Current work extends normal God's Eye View with a native Internet Health layer and generic Debug This action. The Tonga scope and implementation status below are archived history, not active requirements. Integration seams are documented in `docs/reality/NATIVE-INTEGRATION.md`; source findings in `docs/reality/INTERNET-SOURCES.md`.
+
 Status: **RESUMED by the user's explicit request: "just start the full build." Cloud-first development, GitHub source control, Vercel deployment. See docs/reality/BUILD-JOURNAL.md for current execution state.**
 
 **Current update (24 September 2026):** The cloud implementation is integrated and reviewed by parallel architecture, research and UX agents. Native Tonga mode lives in `src/situations/world.js`, with lifecycle in `src/standalone/realityMode.js`. The validated mission, source registry, offline geography, shared text/voice actions and visual harness exist. The build journal is authoritative for checks in progress. Baseline notes below are historical, not current implementation status.

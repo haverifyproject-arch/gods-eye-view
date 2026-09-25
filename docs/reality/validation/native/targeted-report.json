@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "name": "Cable follow uses infrastructure altitude above80km",
+      "passed": true,
+      "detail": {
+        "height": 119999.99999999482,
+        "holds": [
+          "annotations",
+          "camera-verb"
+        ]
+      }
+    },
+    {
+      "name": "Follow owns native camera motion",
+      "passed": true,
+      "detail": {
+        "height": 119999.99999999482,
+        "holds": [
+          "annotations",
+          "camera-verb"
+        ]
+      }
+    },
+    {
+      "name": "Manual pointer input releases native follow ownership",
+      "passed": true
+    },
+    {
+      "name": "Clear releases owned native follow",
+      "passed": true
+    },
+    {
+      "name": "Compact source link visible without scrolling",
+      "passed": true
+    },
+    {
+      "name": "Unselected region debug uses current camera rather than fixed country",
+      "passed": true
+    },
+    {
+      "name": "Actual native quake pointer selection publishes shared context",
+      "passed": true,
+      "detail": {
+        "x": 719.9241458104048,
+        "y": 458.4205122440779,
+        "id": "earthquake:us6000txkc"
+      }
+    },
+    {
+      "name": "Debug accepts selected native earthquake context",
+      "passed": true
+    },
+    {
+      "name": "Return from physical selection to a live outage",
+      "passed": true
+    },
+    {
+      "name": "No unhandled exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}

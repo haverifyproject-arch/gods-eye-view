@@ -661,7 +661,7 @@ test('the voice TOOL SCHEMA matches the pinned release — the mission mapping i
   // Canonical serialization pins every tool name, description, property and
   // ordering while allowing source formatting. Derived from the unchanged
   // release schema before formatting (the previous source-byte pin passed).
-  const legacyTools = structuredClone(GEV_REALTIME_TOOLS).filter((tool) => !['set_cyber_sonar', 'operate_situation'].includes(tool.name));
+  const legacyTools = JSON.parse(JSON.stringify(GEV_REALTIME_TOOLS), (key, item) => key === 'enum' && Array.isArray(item) ? item.filter((entry) => entry !== 'internet-health' && !(item[0] === 'local-datacenters' && entry === 'earthquakes')) : item).filter((tool) => !['set_cyber_sonar', 'debug_world'].includes(tool.name));
   const hudLayout = legacyTools.find((tool) => tool.name === 'set_hud').parameters.properties.layout;
   assert.deepEqual(hudLayout.enum, ['tactical', 'operator', 'minimal', 'cyber']);
   // Cyber deliberately adds one layout; first-run missions still change no tools.

@@ -2,6 +2,7 @@ import {
   cableClassificationTypeForScene,
   cableClassificationTypeForStack,
 } from './surface.js';
+import { cableDebugRecords } from './geometry.js';
 
 export function createLifecycle({ state, parts, source, mapStackEventTarget }) {
   return {
@@ -11,6 +12,41 @@ export function createLifecycle({ state, parts, source, mapStackEventTarget }) {
     source: source.label,
     updateInterval: 0,
     statsRefreshInterval: 500,
+
+    getDebugRecords(options = {}) {
+      return cableDebugRecords(
+        state._cachedCableJson,
+        state._cachedLandingJson,
+        options,
+      );
+    },
+
+    async loadDebugRecords({ signal, ...options } = {}) {
+      signal?.throwIfAborted();
+      const generation = state._debugGeneration;
+      if (!state._cachedCableJson || !state._cachedLandingJson) {
+        const { cables, landingPoints } = await source.fetch(signal);
+        signal?.throwIfAborted();
+        if (generation !== state._debugGeneration)
+          throw new DOMException('Cable layer was destroyed', 'AbortError');
+        if (
+          !Array.isArray(cables?.features) ||
+          !Array.isArray(landingPoints?.features)
+        )
+          throw new TypeError('Invalid cable reference collections');
+        state._cachedCableJson = cables;
+        state._cachedLandingJson = landingPoints;
+      }
+      return cableDebugRecords(
+        state._cachedCableJson,
+        state._cachedLandingJson,
+        options,
+      );
+    },
+
+    selectById(id) {
+      return parts.interaction.selectById(id);
+    },
 
     init(viewer) {
       state._viewer = viewer;
@@ -91,6 +127,7 @@ export function createLifecycle({ state, parts, source, mapStackEventTarget }) {
     },
 
     destroy(viewer) {
+      state._debugGeneration++;
       if (state._abort) state._abort.abort();
       parts.rendering.releaseDataSources(viewer || state._viewer);
       state._cachedCableJson = null;

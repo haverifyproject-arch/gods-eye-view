@@ -10,6 +10,7 @@ export function createSubmarineCableLayer({
   screenSpaceEventHandlerFactory,
   mapStackEventTarget = null,
   sweepClock = defaultSweepClock,
+  contextServices = {},
 }) {
   if (!source?.fetch || !source.label)
     throw new TypeError(
@@ -23,6 +24,7 @@ export function createSubmarineCableLayer({
     source,
     screenSpaceEventHandlerFactory,
     mapStackEventTarget,
+    contextServices,
   };
   parts.rendering = createRendering(context);
   parts.ingestion = createIngestion(context);

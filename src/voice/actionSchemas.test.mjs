@@ -14,15 +14,26 @@ const stable = (value) =>
             .map(([key, child]) => [key, stable(child)]),
         )
       : value;
+const beforeInternet = (value) =>
+  JSON.parse(JSON.stringify(value), (key, item) =>
+    key === 'enum' && Array.isArray(item)
+      ? item.filter(
+          (entry) =>
+            entry !== 'internet-health' &&
+            !(item[0] === 'local-datacenters' && entry === 'earthquakes'),
+        )
+      : item,
+  );
 
 test('the complete Realtime tool payload pins the additive analyst, satellite, Local ADS-B and Cyber release', () => {
   const digest = createHash('sha256')
     .update(
       JSON.stringify(
         stable(
-          GEV_REALTIME_TOOLS.filter(
-            (tool) =>
-              !['set_cyber_sonar', 'operate_situation'].includes(tool.name),
+          beforeInternet(
+            GEV_REALTIME_TOOLS.filter(
+              (tool) => !['set_cyber_sonar', 'debug_world'].includes(tool.name),
+            ),
           ),
         ),
       ),
@@ -37,13 +48,16 @@ test('the complete Realtime tool payload pins the additive analyst, satellite, L
 });
 
 test('Reality Debugger offers its shared operation with provenance and cancellation guidance', () => {
-  const tool = GEV_REALTIME_TOOLS.find(
-    ({ name }) => name === 'operate_situation',
-  );
+  const tool = GEV_REALTIME_TOOLS.find(({ name }) => name === 'debug_world');
   assert.ok(tool);
   assert.deepEqual(tool.parameters.required, ['action']);
-  assert.ok(tool.parameters.properties.action.enum.includes('evidence'));
-  assert.ok(tool.parameters.properties.action.enum.includes('pause'));
+  assert.ok(tool.parameters.properties.action.enum.includes('sources'));
+  assert.ok(tool.parameters.properties.action.enum.includes('clear'));
+  assert.ok(
+    GEV_REALTIME_TOOLS.find(
+      ({ name }) => name === 'set_layer_visibility',
+    ).parameters.properties.layerId.enum.includes('internet-health'),
+  );
   assert.match(
     tool.description,
     /Only report success when the client action completes/,
@@ -103,9 +117,9 @@ test('metadata cannot add tools, fields, types or enum values', () => {
 });
 
 test('all legacy action arguments are byte-identical after removing the deliberate additions', () => {
-  const legacy = structuredClone(GEV_ACTION_SCHEMAS).filter(
+  const legacy = beforeInternet(GEV_ACTION_SCHEMAS).filter(
     (tool) =>
-      !['next_satellite_pass', 'set_cyber_sonar', 'operate_situation'].includes(
+      !['next_satellite_pass', 'set_cyber_sonar', 'debug_world'].includes(
         tool.name,
       ),
   );

@@ -192,6 +192,10 @@ const LAYER_ALIASES = new Map([
   ['military', 'military'],
   ['military flights', 'military'],
   ['earthquakes', 'earthquakes'],
+  ['internet-health', 'internet-health'],
+  ['internet health', 'internet-health'],
+  ['internet outages', 'internet-health'],
+  ['connectivity', 'internet-health'],
   ['quakes', 'earthquakes'],
   ['satellites', 'satellites'],
   ['space mission', 'rocket-launches'],
@@ -326,7 +330,7 @@ const viewTargetCache = new WeakMap();
 
 /** Create application actions over the supplied scene and services. */
 export function createGevActionRunner({
-  getSituationActions = () => null,
+  debugWorld = null,
   viewer,
   styleManager,
   dataManager,
@@ -350,17 +354,15 @@ export function createGevActionRunner({
       !runOptions.signal?.aborted &&
       (typeof runOptions.isCurrent !== 'function' || runOptions.isCurrent());
 
-    if (name === 'operate_situation') {
+    if (name === 'debug_world') {
       if (!current()) return { ok: false, action: name, cancelled: true };
-      const situationActions = getSituationActions();
-      if (!situationActions)
+      if (typeof debugWorld?.run !== 'function')
         return {
           ok: false,
           action: name,
-          error: 'Open a Reality Debugger mission first',
+          error: 'World debugging is unavailable in this application',
         };
-      const { action, ...parameters } = args;
-      return situationActions.run(action, parameters, runOptions);
+      return debugWorld.run(args, runOptions);
     }
 
     // Navigation tools interrupt any continuous camera motion (spec §1.1) —
@@ -4193,6 +4195,7 @@ function cleanText(value) {
 }
 
 function layerTitle(layerId) {
+  if (layerId === 'internet-health') return 'Internet connectivity observation';
   if (layerId === 'local-datacenters') return 'Datacenter';
   if (layerId === 'local-dams') return 'Dam';
   if (layerId === 'telegeography-submarine-cables') return 'Submarine Cable';
@@ -4270,6 +4273,19 @@ function analystProviders(
       });
     },
     getRecordCoverage(layerKey, rows) {
+      if (layerKey === 'internet-health') {
+        const stats =
+          dataManager.layers.get(layerKey)?.module?.getStats?.() || {};
+        return {
+          basis: 'bounded-country-detections',
+          recordsExamined: rows.length,
+          loadedCount: stats.count ?? null,
+          sourceTruncated: Boolean(
+            stats.sourceLimited || stats.count > rows.length,
+          ),
+          note: 'IODA rolling-window country detections, not all outages or confirmed nationwide blackouts. Location is an administrative label anchor, not an affected network or measurement location.',
+        };
+      }
       if (!['satellites', 'local-datacenters', 'local-dams'].includes(layerKey))
         return null;
       const module = dataManager.layers.get(layerKey)?.module;

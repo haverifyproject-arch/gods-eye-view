@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "name": "desktop publisher and explanation visible without scrolling",
+      "passed": true,
+      "detail": {
+        "publisherVisible": true,
+        "explanationVisible": true,
+        "explanation": "Country-level IODA anomaly. The outline is geographic reference, not a measured outage footprint. Recovery and affected ASNs are not established.",
+        "collapsed": true,
+        "metadata": "Source detailsIODA / Georgia TechThis data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved. · Event/observation: 2026-09-24T15:32:22.000Z – 2026-09-25T15:32:22.000Z · Retrieved: 2026-09-25T15:32:22.837Z",
+        "provenance": [
+          {
+            "label": "IODA / Georgia Tech",
+            "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790263942&until=1790350342&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+            "retrievedAt": "2026-09-25T15:32:22.837Z",
+            "time": "2026-09-24T15:32:22.000Z – 2026-09-25T15:32:22.000Z",
+            "detail": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved."
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop details collapsed by default",
+      "passed": true
+    },
+    {
+      "name": "desktop full provenance preserved in expandable details",
+      "passed": true
+    },
+    {
+      "name": "mobile publisher and explanation visible without scrolling",
+      "passed": true,
+      "detail": {
+        "publisherVisible": true,
+        "explanationVisible": true,
+        "explanation": "Country-level IODA anomaly. The outline is geographic reference, not a measured outage footprint. Recovery and affected ASNs are not established.",
+        "collapsed": true,
+        "metadata": "Source detailsIODA / Georgia TechThis data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved. · Event/observation: 2026-09-24T15:32:22.000Z – 2026-09-25T15:32:22.000Z · Retrieved: 2026-09-25T15:32:22.837Z",
+        "provenance": [
+          {
+            "label": "IODA / Georgia Tech",
+            "url": "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/events?from=1790263942&until=1790350342&entityType=country&limit=100&orderBy=score%2Fdesc&format=ioda&ignoreMethods=gtr.*",
+            "retrievedAt": "2026-09-25T15:32:22.837Z",
+            "time": "2026-09-24T15:32:22.000Z – 2026-09-25T15:32:22.000Z",
+            "detail": "This data is Copyright (c) 2021-2025 Georgia Tech Research Corporation. All Rights Reserved."
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile details collapsed by default",
+      "passed": true
+    },
+    {
+      "name": "mobile full provenance preserved in expandable details",
+      "passed": true
+    },
+    {
+      "name": "Native selection change clears previously inspected source",
+      "passed": true
+    },
+    {
+      "name": "Sources follow-up preserves the inspected world relationship",
+      "passed": true,
+      "detail": "reference:telegeography-submarine-cables:cable:senegal-horn-of-africa-regional-express-share-cable"
+    },
+    {
+      "name": "No unhandled exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}

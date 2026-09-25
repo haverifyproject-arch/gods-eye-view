@@ -146,6 +146,28 @@ export function createScreenAnnotationRenderer(
   function add(anno) {
     const c = color(anno);
     const group = svgEl('g', { class: 'gev-anno', opacity: '0' });
+    if (typeof anno.onSelect === 'function') {
+      group.style.pointerEvents = 'auto';
+      group.style.cursor = 'pointer';
+      group.setAttribute('role', 'button');
+      group.setAttribute('tabindex', '0');
+      group.setAttribute(
+        'aria-label',
+        anno.label || 'Inspect annotation evidence',
+      );
+      group.addEventListener('pointerdown', (event) => event.stopPropagation());
+      group.addEventListener('click', (event) => {
+        event.stopPropagation();
+        anno.onSelect?.(anno.id);
+      });
+      group.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          event.stopPropagation();
+          anno.onSelect?.(anno.id);
+        }
+      });
+    }
     const parts = {};
 
     if (anno.type === 'area' && anno.ring && anno.ring.length >= 3) {
@@ -454,7 +476,13 @@ export function createScreenAnnotationRenderer(
         group.style.display = 'none';
         continue;
       }
-      group.setAttribute('opacity', String(anno.alpha ?? 1));
+      group.setAttribute(
+        'opacity',
+        String(
+          (anno.alpha ?? 1) *
+            (anno.evidenceState === 'CURRENT_REFERENCE' ? 0.65 : 1),
+        ),
+      );
 
       if (anno.type === 'area' && parts.poly) {
         const pts = [];
@@ -642,7 +670,11 @@ export function createScreenAnnotationRenderer(
       if (rec._trackedFade !== 1) {
         group.setAttribute(
           'opacity',
-          String((anno.alpha ?? 1) * rec._trackedFade),
+          String(
+            (anno.alpha ?? 1) *
+              rec._trackedFade *
+              (anno.evidenceState === 'CURRENT_REFERENCE' ? 0.65 : 1),
+          ),
         );
       }
     }

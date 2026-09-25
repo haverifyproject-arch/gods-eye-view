@@ -21,19 +21,39 @@ import {
 import { MAP_STACKS } from '../mapStackController.js';
 import { GEV_REALTIME_TOOLS } from '../../server/providers/openai/tools.js';
 
-test('situation voice delegates to active actions and refuses stale or unavailable missions', async () => {
+test('world debugging delegates native selection actions and refuses stale or unavailable operations', async () => {
   const { viewer, styleManager } = createVoiceNavigationHarness();
-  let actions = null;
   const calls = [];
-  const runner = createGevActionRunner({ viewer, styleManager, getSituationActions: () => actions });
-  assert.equal((await runner('operate_situation', { action: 'follow' })).ok, false);
-  actions = { run: async (...args) => { calls.push(args); return { ok: true }; } };
-  assert.equal((await runner('operate_situation', { action: 'follow' }, { isCurrent: () => false })).cancelled, true);
+  const unavailable = createGevActionRunner({ viewer, styleManager });
+  assert.equal(
+    (await unavailable('debug_world', { action: 'follow' })).ok,
+    false,
+  );
+  const debugWorld = {
+    run: async (...args) => {
+      calls.push(args);
+      return { ok: true };
+    },
+  };
+  const runner = createGevActionRunner({ viewer, styleManager, debugWorld });
+  assert.equal(
+    (
+      await runner(
+        'debug_world',
+        { action: 'follow' },
+        { isCurrent: () => false },
+      )
+    ).cancelled,
+    true,
+  );
   assert.equal(calls.length, 0);
   const controller = new AbortController();
   const options = { signal: controller.signal };
-  assert.equal((await runner('operate_situation', { action: 'lens', lens: 'OBSERVED' }, options)).ok, true);
-  assert.deepEqual(calls[0], ['lens', { lens: 'OBSERVED' }, options]);
+  assert.equal(
+    (await runner('debug_world', { action: 'observed' }, options)).ok,
+    true,
+  );
+  assert.deepEqual(calls[0], [{ action: 'observed' }, options]);
 });
 
 test('every live basemap is reachable by its own id — no enum value without a voice alias', () => {

@@ -29,6 +29,11 @@ import { pointInRing } from './naturalEarthRegions.js';
 
 /** Layers the engine understands, with the fields queries may reference. */
 export const ANALYST_LAYERS = {
+  'internet-health': {
+    numeric: ['observationCount'],
+    text: ['name', 'countryCode', 'status', 'evidenceState', 'spatialScope'],
+    flags: [],
+  },
   flights: {
     numeric: ['altitudeM', 'speedMps', 'verticalRateMps'],
     text: [

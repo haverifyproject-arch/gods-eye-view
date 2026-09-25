@@ -77,3 +77,47 @@ export function normalizeFeatures(json, kind) {
     };
   });
 }
+
+/** Bounded reference records; geometry proximity does not invent network membership. */
+export function cableDebugRecords(
+  cables,
+  landings,
+  { limit = 3000, kind, ids } = {},
+) {
+  const maximum = Math.min(
+    3000,
+    Math.max(0, Number.isFinite(limit) ? Math.floor(limit) : 3000),
+  );
+  const wanted = Array.isArray(ids) ? new Set(ids) : null;
+  const records = [];
+  for (const [collection, recordKind] of [
+    [cables, 'cable'],
+    [landings, 'landing-point'],
+  ]) {
+    if (kind && kind !== recordKind) continue;
+    for (const feature of collection?.features || []) {
+      if (records.length >= maximum) return records;
+      const referenceId = String(feature.properties?.id || feature.id || '');
+      if (!referenceId || !feature.geometry) continue;
+      const id = `telegeography-submarine-cables:${recordKind}:${referenceId}`;
+      if (wanted && !wanted.has(id) && !wanted.has(referenceId)) continue;
+      records.push({
+        id,
+        referenceId,
+        kind: recordKind,
+        label: featureLabel(feature),
+        status: 'CURRENT_REFERENCE',
+        geometry: structuredClone(feature.geometry),
+        reference: featureReference(feature),
+        source: 'TeleGeography',
+        sourceUrl: 'https://www.submarinecablemap.com/',
+        snapshotDate: '2026-05-24',
+        rights: '© TeleGeography — CC BY-NC-SA 3.0; not MIT',
+        associations: [],
+        limitation:
+          'Generalized current route/reference point. This bundle supplies no cable-to-landing membership or event-time dependency.',
+      });
+    }
+  }
+  return records;
+}

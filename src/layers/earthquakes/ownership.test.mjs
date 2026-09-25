@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { createEarthquakesLayer } from './index.js';
 import { createUsgsEarthquakeSource } from './source.js';
-function harness(source) {
+function harness(source, options = {}) {
   const sources = [];
   const events = [];
   const viewer = {
+    scene: { canvas: {}, requestRender() {} },
     dataSources: {
       add(value) {
         sources.push(value);
@@ -16,6 +17,7 @@ function harness(source) {
     },
   };
   const layer = createEarthquakesLayer({
+    ...options,
     source,
     overlayHost: {
       setEntries(...args) {
@@ -39,6 +41,60 @@ const row = {
   place: 'Fixture',
   time: 1000,
 };
+test('earthquake clicks publish native context without navigation and expire on disable', async () => {
+  const stored = new Map();
+  let selected = null,
+    click,
+    destroyed = 0;
+  const context = {
+    registerEntityContext(entity, record) {
+      stored.set(record.id, { ...record, entity });
+    },
+    selectEntityContext(entity) {
+      selected = entity.id;
+    },
+    getSelectedEntityContext() {
+      return stored.get(selected);
+    },
+    clearSelectedEntityContextForLayer() {
+      selected = null;
+    },
+    removeEntityContextsForLayer(_id, { retainIds } = {}) {
+      for (const id of stored.keys())
+        if (!retainIds?.has(id)) stored.delete(id);
+    },
+  };
+  const h = harness(
+    { getSnapshot: async () => [row] },
+    {
+      context,
+      screenSpaceEventHandlerFactory: () => ({
+        setInputAction(fn) {
+          click = fn;
+        },
+        destroy() {
+          destroyed++;
+        },
+      }),
+    },
+  );
+  await h.layer.update();
+  h.viewer.scene.pick = () => ({ id: h.sources[0].entities.values[0] });
+  click({ position: {} });
+  assert.equal(selected, 'earthquake:event-a');
+  assert.equal(stored.get(selected).latitude, 20);
+  assert.equal(stored.get(selected).properties.evidenceState, 'OBSERVED');
+  const old = h.viewer.selectedEntity;
+  await h.layer.update();
+  assert.notEqual(h.viewer.selectedEntity, old);
+  assert.equal(stored.get(selected).entity, h.viewer.selectedEntity);
+  h.layer.disable();
+  assert.equal(h.viewer.selectedEntity, undefined);
+  assert.equal(stored.size, 0);
+  h.layer.destroy();
+  h.layer.destroy();
+  assert.equal(destroyed, 1);
+});
 test('late refresh cannot publish after disable, re-enable, or destroy', async () => {
   for (const action of ['disable', 'destroy']) {
     let resolve, signal;

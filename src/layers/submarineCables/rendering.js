@@ -11,7 +11,7 @@ import {
   cableReferencePriority,
 } from './overlay.js';
 
-export function createRendering({ state }) {
+export function createRendering({ state, parts }) {
   function resetPublishSignature() {
     state._lastPublishedIds.length = 0;
     state._lastPublishedPriorities.length = 0;
@@ -30,6 +30,7 @@ export function createRendering({ state }) {
    */
 
   function releaseDataSources(viewer) {
+    parts?.interaction?.clearContexts();
     const sources = [
       state._cableDataSource,
       state._landingDataSource,
@@ -180,8 +181,11 @@ export function createRendering({ state }) {
       },
     });
 
-    entity.__gevTeleGeography = info;
-    state._pickByEntity.set(entity, info);
+    if (parts?.interaction) parts.interaction.registerPickEntity(entity, info);
+    else {
+      entity.__gevTeleGeography = info;
+      state._pickByEntity.set(entity, info);
+    }
     const record = {
       id: entity.id,
       entity,

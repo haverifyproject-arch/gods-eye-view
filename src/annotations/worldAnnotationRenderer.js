@@ -74,7 +74,11 @@ export function createWorldAnnotationRenderer(viewer) {
   // A live color that follows the annotation's fade alpha and an optional pulse.
   function liveColor(anno, base, { alpha = 0.9, pulse = false } = {}) {
     return new Cesium.CallbackProperty(() => {
-      const a = (anno.alpha ?? 1) * alpha * (pulse ? pulseFactor() : 1);
+      const a =
+        (anno.alpha ?? 1) *
+        alpha *
+        (anno.evidenceState === 'CURRENT_REFERENCE' ? 0.45 : 1) *
+        (pulse ? pulseFactor() : 1);
       return base.withAlpha(Math.max(0, Math.min(1, a)));
     }, false);
   }
@@ -219,10 +223,19 @@ export function createWorldAnnotationRenderer(viewer) {
         dataSource.entities.add({
           polyline: {
             positions,
-            width: 9,
-            material: new FlowMaterialProperty(
-              PALETTE[anno.color] || PALETTE.primary,
-            ),
+            width: anno.evidenceState === 'CURRENT_REFERENCE' ? 4 : 9,
+            // Evidence geometry must not imply measured traffic through animated flow.
+            material:
+              anno.evidenceState === 'CURRENT_REFERENCE'
+                ? new Cesium.ColorMaterialProperty(liveColor(anno, base))
+                : anno.evidenceState === 'INFERRED'
+                  ? new Cesium.PolylineDashMaterialProperty({
+                      color: liveColor(anno, base),
+                      dashLength: 20,
+                    })
+                  : new FlowMaterialProperty(
+                      PALETTE[anno.color] || PALETTE.primary,
+                    ),
             clampToGround: true,
             classificationType: CLASSIFY,
           },

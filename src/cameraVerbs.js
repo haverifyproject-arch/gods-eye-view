@@ -591,19 +591,37 @@ export function createRouteFlight({
   pts,
   cumM,
   speed = 'normal',
+  profile = 'street',
+  durationSec = 30,
+  cruiseHeightM = 120000,
   floorFn = null,
   warmFn = null,
   probeFn = null,
   cameraHeightM = Number.NaN,
   reducedMotion = false,
 }) {
+  const infrastructure = profile === 'infrastructure';
+  if (infrastructure) {
+    ({ pts, cumM } = densifyInfrastructureRoute(pts));
+    // This is a cartographic overhead flight, not terrain-following transport.
+    // The ellipsoid baseline only shapes the camera; it is not measured terrain.
+    floorFn = () => 0;
+    warmFn = null;
+    probeFn = null;
+    reducedMotion = true;
+  }
   const totalM = cumM[cumM.length - 1];
   const cruiseMps = ROUTE_M_S[speed] || ROUTE_M_S.normal;
   // The 0.5 s floor keeps a degenerate route from being an instant teleport (it
   // also divides the profile). It is the one case where the speed word is not
   // the mean: routes under 10 m (slow) / 20 m (normal) / 45 m (fast) fly slower
   // than asked. Those are shorter than the camera is tall — nothing to see.
-  const durationS = Math.max(0.5, totalM / cruiseMps);
+  const durationS = infrastructure
+    ? Math.max(
+        20,
+        Math.min(60, Number.isFinite(durationSec) ? durationSec : 30),
+      )
+    : Math.max(0.5, totalM / cruiseMps);
   const pathHeightM = Cesium.Cartographic.fromCartesian(
     pts[0],
     Cesium.Ellipsoid.WGS84,
@@ -614,6 +632,16 @@ export function createRouteFlight({
     mode: 'continuous',
     direction: 'forward',
     speed,
+    profile: infrastructure ? 'infrastructure' : 'street',
+    cruiseHeightM: infrastructure
+      ? Math.max(
+          80000,
+          Math.min(
+            200000,
+            Number.isFinite(cruiseHeightM) ? cruiseHeightM : 120000,
+          ),
+        )
+      : null,
     pts,
     cumM,
     totalM,
@@ -660,6 +688,35 @@ export function createRouteFlight({
   warmRouteCorridor(state, 0, ROUTE_WARM_START_M);
   acquireCorridorFloor(state, true);
   return state;
+}
+
+/** Follow each supplied route segment along WGS84, never across an Earth chord. */
+export function densifyInfrastructureRoute(input) {
+  const pts = [];
+  for (let index = 0; index < input.length; index++) {
+    const end = Cesium.Cartographic.fromCartesian(input[index]);
+    if (!index) {
+      pts.push(Cesium.Cartesian3.fromRadians(end.longitude, end.latitude, 0));
+      continue;
+    }
+    const start = Cesium.Cartographic.fromCartesian(input[index - 1]);
+    const geodesic = new Cesium.EllipsoidGeodesic(start, end);
+    const steps = Math.max(1, Math.ceil(geodesic.surfaceDistance / 20000));
+    if (!Number.isFinite(steps) || pts.length + steps > 4096)
+      throw new RangeError('Infrastructure route exceeds bounded path budget');
+    for (let step = 1; step <= steps; step++) {
+      const point = geodesic.interpolateUsingFraction(step / steps);
+      pts.push(
+        Cesium.Cartesian3.fromRadians(point.longitude, point.latitude, 0),
+      );
+    }
+  }
+  const cumM = [0];
+  for (let index = 1; index < pts.length; index++)
+    cumM.push(
+      cumM[index - 1] + Cesium.Cartesian3.distance(pts[index - 1], pts[index]),
+    );
+  return { pts, cumM };
 }
 
 /**
@@ -806,7 +863,9 @@ export function advanceRouteFlight(state, dt) {
   const heading = state.headingDir;
 
   // Locked pitch: heading gives the azimuth, the pitch never wanders.
-  const pitch = Cesium.Math.toRadians(ROUTE_PITCH_DEG);
+  const pitch = Cesium.Math.toRadians(
+    state.profile === 'infrastructure' ? -65 : ROUTE_PITCH_DEG,
+  );
   const direction = Cesium.Cartesian3.normalize(
     Cesium.Cartesian3.add(
       Cesium.Cartesian3.multiplyByScalar(heading, Math.cos(pitch), _frameDir),
@@ -925,6 +984,7 @@ export function advanceRouteFlight(state, dt) {
       state.appliedHeightM - ROUTE_MAX_DESCENT_MPS * step,
     );
   }
+  if (state.profile === 'infrastructure') heightM = state.cruiseHeightM;
   state.appliedHeightM = heightM;
   const eye = Cesium.Cartesian3.fromRadians(
     carto.longitude,
@@ -1525,6 +1585,9 @@ export function flyRoute(
         pts,
         cumM,
         speed,
+        profile: args.profile,
+        durationSec: args.durationSec,
+        cruiseHeightM: args.cruiseHeightM,
         floorFn,
         warmFn,
         probeFn: (cells) => probeMeshFloorM(_viewer?.scene, cells),
@@ -1538,6 +1601,7 @@ export function flyRoute(
       action: 'fly_route',
       label: route.label || null,
       speed,
+      profile: _active.profile,
       distanceM: Math.round(_active.totalM),
       durationS: Math.round(_active.durationS),
       waypoints: pts.length,
