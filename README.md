@@ -6,7 +6,11 @@ A spatial, temporal investigation of Tonga's January 2022 eruption and connectiv
 
 Run `npm ci` and `npm run dev` with Node 24.14+ (24.x) or 26.x. The core mission needs no API keys. Follow the real reference cable toward Fiji, move through the outage and recovery, filter observations from reports, and inspect the provenance of world annotations. See [product contract](docs/reality/MASTER-CONTRACT.md), [sources](docs/reality/SOURCES.md), [build journal](docs/reality/BUILD-JOURNAL.md) and [visual acceptance](docs/reality/UX-VALIDATION.md).
 
+On this prepared Windows checkout, run `./Start-Reality.ps1` to use the project-local Node runtime and open the Tonga mission directly.
+
 Original contributions: the validated Situation model and runtime, evidence/uncertainty semantics, Tonga research, native mission lifecycle, spatial evidence annotations, temporal comparisons, shared text/voice actions and acceptance harness. Viewer, navigation, camera animation and voice foundations remain upstream work (MIT). TeleGeography reference geometry retains its separate CC BY-NC-SA license; Natural Earth geography is public domain. The previous cyber prototype remains archived in the repository and is not the active product.
+
+![Reality Debugger: source-backed cable faults and traffic observations anchored to Tonga](docs/reality/validation/outage.png)
 
 ---
 

@@ -2,6 +2,8 @@
 
 One mission connects Tonga's January 2022 eruption, reported cable faults, observed network collapse, documented emergency fallback and partial service recovery. It is a retrospective evidence reconstruction, not a live incident monitor.
 
+Cable lines use a small cartographic display offset above the globe to remain legible. This is a rendering convention, not a measurement of seabed depth or cable elevation. The underlying reference coordinates remain unchanged.
+
 ## Sequence
 
 1. Approach Tonga and identify the volcanic area. Its approximate marker comes from a published seismic catalog estimate.

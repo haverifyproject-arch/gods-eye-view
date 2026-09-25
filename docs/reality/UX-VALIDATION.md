@@ -58,3 +58,30 @@ Inspected `artifacts/reality/01-start.png`: native single-viewer assertion and P
 After geographic fallback and initial UI fixes, all automated assertions passed, including all nine desktop captures, two mobile captures, text-command evidence/recovery changes, actual camera travel, invalid destination failure, pointer interruption, native camera handoff interruption, subsequent action recovery and removal of both owned data sources on exit. No unhandled page exceptions occurred. The uninterrupted normal-motion walkthrough completed in **92.195 seconds**. `artifacts/reality/report-realtime.json` preserves this run.
 
 Every image was opened and inspected. Pacific context, regional approach, Fiji endpoint, observed-only removal, uncertainty qualifications and recovery distinction are legible. Follow-up fixes remain required before final visual acceptance: regional cable occasionally missing during render, Tongatapu label beneath outage/recovery annotations, source popup incorrectly behind an annotation, mobile annotation clipping and excess mobile control height. Those findings were sent to the implementation owner for correction and recapture. Do not confuse the passing behavioral assertions with acceptance of those visual defects.
+
+## Final inspection after corrections
+
+All nine required desktop views and both mobile views were recaptured and opened. The reported faults, traffic observations and recovery facts now have clear geographic anchors without overlapping the Tonga label. The contextual source popup paints above annotations and remains readable; mobile controls use horizontal rows and out-of-view world annotations are hidden. The Fiji endpoint and final outage screenshots both show the cable. The final outage caption preserves `05:30` minute precision. No remaining blocking defect was identified in these reviewed states.
+
+The harness now waits for a rendered frame, `viewer.dataSourceDisplay.ready` (bounded to 15 seconds), and a final rendered frame before capture. This prevents photographing a transient Cesium geometry rebuild as if it were the completed scene. The application also keeps cable width stable across state changes. External imagery may still load progressively; bundled geographic outlines preserve context when external imagery is unavailable. This is an honest loading limitation, not a claim of photographic offline imagery.
+
+Validation evidence is deliberately retained separately:
+
+- `report-realtime.json`: 24 passing assertions, including the measured 92.195-second walkthrough and both interruption paths.
+- `report.json`: final broad recapture; 22 passing assertions and one pointer assertion failure after the test changed reduced-motion preference immediately before starting motion. That test also used a location that could be covered by a world annotation, so it did not reliably establish a canvas gesture during active motion.
+- `report-targeted.json`: seven passing checks after fixing the harness to await the actual media-query change and confirm that the pointer hits the canvas. Actual pointer cancellation passed; minute precision also passed.
+- `report-outage.json`: three passing checks and the final ready-aware outage capture, opened and visually accepted with the cable visible.
+
+Do not erase the intermediate failed run. Its cause and successful focused retest are part of the audit trail. Native tracking validation is owned by the architecture agent and is recorded separately.
+
+## Annotation and relationship acceptance
+
+The source popup offers **Pin to world** only for a currently visible record with source evidence and declared geographic context. Pins use the record's point, distance-locus center, or explicit `anchorId`; unsupported records cannot receive invented coordinates. Pinning moves the camera to that context, stages a selectable source-backed annotation, and preserves its geographic limitation. Removing the annotation or resetting the mission clears it; evidence/time filtering hides unsupported content and exiting cleans up its DOM and render listener.
+
+Relationship connectors come from visible normalized relationship records, not a hard-coded arrow. They are individually selectable and expose status and `ASSOCIATED_WITH` semantics. A relationship with no declared geographic anchor disables pinning with an explanation. The final production harness tests these controls, real trace traversal and before/after comparison in addition to the original views.
+
+## Production acceptance — complete
+
+The final Vite production build was served by a plain static file server at `http://127.0.0.1:4180`, with no Vite development proxy middleware. **All 35 browser assertions passed.** All 13 resulting images were opened and inspected: nine contract states, two mobile layouts, actual relationship trace and a source-backed pinned annotation. The reviewed screenshots and report are preserved in [validation/production](validation/production/report.json), with URL, server mode, Git revision and working-tree provenance. Camera movement, filtering, comparison, source inspection, annotation removal/reset, cancellation and exit cleanup worked against the production assets.
+
+The screenshot review found no remaining blocking visual issue in these states. Labels, cables, contextual provenance and pinned geographic caveats are readable; mobile content remains within the viewport. External geographic imagery loads progressively and can show temporary tile seams, while bundled outlines maintain geographic context. The console recorded 404 and 405 resource responses during the static run, which remain in the report; this is **not** a claim of a clean browser console. There were no unhandled page exceptions, and the core static mission completed independently of optional backend services. Exact failed resource URLs were not captured by this run, so those responses are not assigned conclusively to a particular provider.

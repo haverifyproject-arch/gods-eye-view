@@ -1,10 +1,28 @@
 import puppeteer from 'puppeteer';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const output = path.resolve(process.env.QA_OUTPUT_DIR || 'artifacts/reality');
 await mkdir(output, { recursive: true });
-const report = { checks: [], captures: [], pageErrors: [], consoleErrors: [] };
+const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
+const report = {
+  provenance: {
+    baseURL,
+    serverMode: process.env.QA_SERVER_MODE || 'unspecified',
+    startedAt: new Date().toISOString(),
+    revision: execFileSync('git', ['rev-parse', 'HEAD'], {
+      encoding: 'utf8',
+    }).trim(),
+    workingTree: execFileSync('git', ['status', '--porcelain'], {
+      encoding: 'utf8',
+    }).trim(),
+  },
+  checks: [],
+  captures: [],
+  pageErrors: [],
+  consoleErrors: [],
+};
 const check = (name, passed, detail) => {
   report.checks.push({ name, passed: !!passed, detail });
   console.log(`${passed ? 'PASS' : 'FAIL'} ${name}`);
@@ -88,10 +106,10 @@ try {
   await page.emulateMediaFeatures([
     { name: 'prefers-reduced-motion', value: 'reduce' },
   ]);
-  await page.goto(
-    `${process.env.QA_BASE_URL || 'http://127.0.0.1:4173'}/?situation=tonga`,
-    { waitUntil: 'domcontentloaded', timeout: 90000 },
-  );
+  await page.goto(`${baseURL}/?situation=tonga`, {
+    waitUntil: 'domcontentloaded',
+    timeout: 90000,
+  });
   await page.waitForFunction(
     () => window.__realityDebugger && window.__godsEyeView,
     { timeout: 90000 },
@@ -110,7 +128,11 @@ try {
     await action('go', { target: 'tonga' });
     await action('time', { time: '2022-01-15T05:30:00Z' });
     await capture('04-outage');
-    check('No unhandled application exceptions', report.pageErrors.length === 0, report.pageErrors);
+    check(
+      'No unhandled application exceptions',
+      report.pageErrors.length === 0,
+      report.pageErrors,
+    );
   }
   if (process.env.QA_TARGETED === '1') {
     await action('time', { time: '2022-01-15T04:14:00Z' });
@@ -121,7 +143,9 @@ try {
     await capture('04-outage');
     check(
       'Timeline preserves minute precision',
-      await page.$eval('#reality-time-label', (node) => /05:30/.test(node.textContent)),
+      await page.$eval('#reality-time-label', (node) =>
+        /05:30/.test(node.textContent),
+      ),
     );
     await page.evaluate(() => {
       window.__qaMediaChanged = new Promise((resolve) => {
@@ -158,7 +182,11 @@ try {
       report.pageErrors,
     );
   }
-  if (process.env.QA_START_ONLY !== '1' && process.env.QA_TARGETED !== '1' && process.env.QA_OUTAGE_ONLY !== '1') {
+  if (
+    process.env.QA_START_ONLY !== '1' &&
+    process.env.QA_TARGETED !== '1' &&
+    process.env.QA_OUTAGE_ONLY !== '1'
+  ) {
     check(
       'Invalid destination reports failure',
       !(await action('go', { target: 'does-not-exist' })).ok,
@@ -255,6 +283,79 @@ try {
     await action('go', { target: 'volcano' });
     await capture('11-mobile-approach');
     await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
+    const trace = await action('trace');
+    check(
+      'Trace traverses actual visible relationship records',
+      trace.ok &&
+        trace.result.relationships.some(
+          (edge) => edge.id === 'damage-connection',
+        ),
+    );
+    await settle();
+    check(
+      'World connector is an interrogable association',
+      await page.$eval(
+        '[data-relationship="damage-connection"]',
+        (node) =>
+          node.tagName === 'BUTTON' &&
+          node.getAttribute('aria-label').includes('ASSOCIATED_WITH'),
+      ),
+    );
+    await capture('12-trace');
+    check(
+      'Relationship without declared geography cannot be pinned',
+      await page.$eval('#reality-pin-evidence', (node) => node.disabled),
+    );
+    await action('lens', { lens: 'OBSERVED' });
+    check(
+      'Trace respects evidence filtering',
+      !(await action('trace', { id: 'traffic-collapse' })).ok,
+    );
+    await action('lens', { lens: 'ALL' });
+    check('Before/after comparison succeeds', (await action('compare')).ok);
+    check(
+      'Comparison ends at observed outage time',
+      (await state()).time === '2022-01-15T05:30:00Z',
+    );
+    await page.evaluate(() =>
+      window.__realityDebugger.inspect('traffic-collapse'),
+    );
+    await page.click('#reality-pin-evidence');
+    await page.waitForSelector('[data-remove-annotation="traffic-collapse"]');
+    await settle();
+    check(
+      'Source action stages an annotation in the world',
+      await page.$eval(
+        '.reality-world-evidence',
+        (node) =>
+          !node.hidden &&
+          node.textContent.includes('Pinned') &&
+          node.textContent.includes('Cloudflare'),
+      ),
+    );
+    check(
+      'Pin closes temporary source popup',
+      await page.$eval('#reality-evidence', (node) => node.hidden),
+    );
+    await capture('13-annotation');
+    await page.click('[data-remove-annotation="traffic-collapse"]');
+    check(
+      'User can remove world annotation',
+      !(await page.$('[data-remove-annotation]')),
+    );
+    check(
+      'Explicit annotation succeeds',
+      (await action('annotate', { id: 'traffic-collapse' })).ok,
+    );
+    await action('reset');
+    check(
+      'Reset removes staged annotation',
+      !(await page.$('[data-remove-annotation]')),
+    );
+    check(
+      'Annotation cannot invent an unsupported anchor',
+      !(await action('annotate', { id: 'international-cable' })).ok,
+    );
     await page.evaluate(() => {
       window.__qaMediaChanged = new Promise((resolve) => {
         matchMedia('(prefers-reduced-motion: reduce)').addEventListener(
@@ -342,7 +443,14 @@ try {
   report.visualAcceptance =
     'PENDING: open and inspect all nine required screenshots';
   await writeFile(
-    path.join(output, process.env.QA_OUTAGE_ONLY === '1' ? 'report-outage.json' : process.env.QA_TARGETED === '1' ? 'report-targeted.json' : 'report.json'),
+    path.join(
+      output,
+      process.env.QA_OUTAGE_ONLY === '1'
+        ? 'report-outage.json'
+        : process.env.QA_TARGETED === '1'
+          ? 'report-targeted.json'
+          : 'report.json',
+    ),
     JSON.stringify(report, null, 2),
   );
   await browser.close();

@@ -328,6 +328,18 @@ export async function mountTongaWorld({
     $('#reality-close-evidence').onclick = () => {
       evidence.hidden = true;
     };
+    const pinButton = document.createElement('button');
+    pinButton.id = 'reality-pin-evidence';
+    pinButton.textContent = 'Pin to world';
+    pinButton.disabled = !worldEvidence.canAnnotate(id);
+    pinButton.title = pinButton.disabled
+      ? 'Pinning requires a visible source-backed record with declared geographic context'
+      : 'Keep this source-backed annotation anchored in the world';
+    pinButton.onclick = () => {
+      execute('annotate', { id });
+      evidence.hidden = true;
+    };
+    evidence.append(pinButton);
   };
   const worldEvidence = createWorldEvidence({ viewer, root, runtime, inspect });
   const followRoute = async (signal) => {
@@ -366,15 +378,28 @@ export async function mountTongaWorld({
       );
       return { ok: true };
     },
-    async trace(_args, { signal }) {
-      runtime.setLens('ALL');
-      if (!(await move(POS.tonga, signal, 3)))
+    async trace({ id } = {}, { signal }) {
+      // The narrated outage command chooses a time; explicit record traces respect the current lens/time.
+      if (!id) {
+        runtime.setLens('ALL');
+        setStage(3);
+        id = 'damage-connection';
+      }
+      const result = runtime.trace({ id });
+      if (!result.relationships.length)
+        return {
+          ok: false,
+          error:
+            'No documented connection is visible for this record at this time and evidence lens.',
+        };
+      const anchor = result.records.map(coordinatesFor).find(Boolean);
+      if (!(await move(anchor ? [...anchor, 175000] : POS.tonga, signal, 3)))
         return { ok: false, cancelled: true };
-      setStage(
-        3,
-        'Reported cable faults coincide with near-zero Cloudflare traffic. The measured decline began before the main 04:14 eruption; its initial cause is unresolved.',
+      inspect(result.relationships[0].id);
+      narrative(
+        `${result.relationships.map((edge) => edge.label).join('. ')}. These source-backed associations do not establish a causal chain. Select a connection to inspect its evidence.`,
       );
-      return { ok: true };
+      return { ok: true, result };
     },
     async replay(_args, { signal }) {
       actionsPlaying = true;
@@ -456,6 +481,7 @@ export async function mountTongaWorld({
       }
     },
     async compare(_args, { signal }) {
+      runtime.setLens('ALL');
       if (!(await move(POS.tonga, signal, 2)))
         return { ok: false, cancelled: true };
       setStage(
@@ -470,14 +496,33 @@ export async function mountTongaWorld({
       );
       return { ok: true };
     },
-    async annotate({ id = 'fault-unknown' }) {
-      inspect(id);
-      return { ok: true };
+    async annotate({ id, clear = false }, { signal }) {
+      if (clear) {
+        worldEvidence.clearAnnotation();
+        return { ok: true, result: { cleared: true } };
+      }
+      const context = runtime.getContext();
+      const target =
+        id ||
+        context.selectedId ||
+        context.records.find((record) => record.anchorId || record.geometry)
+          ?.id;
+      const result = worldEvidence.annotate(target);
+      if (!(await move([...result.coordinates, 690000], signal, 2)))
+        return { ok: false, cancelled: true };
+      narrative(
+        'Source-backed annotation pinned to its declared geographic context. Select it for evidence, or remove it in the world.',
+      );
+      return { ok: true, result };
     },
   });
   const update = (snapshot) => {
     const ids = new Set(snapshot.records.map((r) => r.id));
-    if (snapshot.selectedId && !ids.has(snapshot.selectedId))
+    if (
+      snapshot.selectedId &&
+      !ids.has(snapshot.selectedId) &&
+      !snapshot.relationships.some((edge) => edge.id === snapshot.selectedId)
+    )
       evidence.hidden = true;
     // Keep one label per approximate context anchor at a time. Earlier records remain inspectable.
     const superseded = new Set();
@@ -610,6 +655,11 @@ export async function mountTongaWorld({
     narrative(tongaSituation.timeline[Number(e.target.value)].label);
   });
   const textActions = [
+    [
+      /remove annotation|clear annotation|unpin/i,
+      () => execute('annotate', { clear: true }),
+    ],
+    [/^pin\b|^annotate\b/i, () => execute('annotate')],
     [
       /show.*outage|what broke|failure chain|why.*dark/i,
       () => execute('trace'),

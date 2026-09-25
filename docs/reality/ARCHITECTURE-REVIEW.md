@@ -2,6 +2,14 @@
 
 Reviewed 24 September 2026 against the current source, master contract and handoff. This is an implementation review, not a completion claim.
 
+## Delivery verification addendum
+
+The native lifecycle, injected startup-flight suppression, shared voice operation and owned launcher styles described below are now implemented. Review recommendations below describe the starting architecture; deployment and mission files added afterward supersede statements about previously absent files.
+
+Initial elevated-browser tracking run: **104 passed, 5 failed, 0 skipped** (`output/reality-tracking-final.log`), superseded by the complete passing rerun below. Three failures were corridor terrain-floor warming assertions with null lookup results; the other two were the clean-console and no-HTTP-5xx gates. They shared ten HTTP 502 responses from the local `/api/terrain/heights` route. The same exact corridor point `-97.80000,30.30000` independently returned local HTTP 502 with `terrain heights fetch failed and no cache available for every point`, while an elevated direct request to the public Re:Earth endpoint returned HTTP 200 with a valid elevation/geoid/ellipsoid record. This established a local server/proxy execution-environment limitation, not a remote provider outage. The terrain proxy and tracking implementation files were unchanged by this work. Elevating the browser alone does not elevate the already-running development server.
+
+The development server was subsequently restarted with network access after verifying its exact project process. The same local terrain endpoint then returned HTTP 200 with valid measurements. A complete corrected-server rerun passed **109 of 109 assertions, with zero failures or skips** (`output/reality-tracking-corrected-server.log`). This used the harness's existing `--offline-imagery` option for 18 background image tiles; terrain requests, models and every tracking assertion remained unchanged. The console and HTTP-error gates both passed. The earlier failed run is preserved separately as `output/reality-tracking-local-proxy-failed.log`. No baseline equivalence is claimed: the new complete passing run establishes the result directly.
+
 ## Native composition
 
 Keep `/` as the upstream entry and select the mission with `?situation=tonga`. `src/main.js` creates one `createStandaloneApplication`; its `start()` resolves `{ scene, controls, data, tools }`. Reuse `scene.viewer`, `controls.styleManager`, `data.dataManager`, `tools.sceneDirector` and `tools.annotations`. Do not create a second viewer or copy the old Cyber application.

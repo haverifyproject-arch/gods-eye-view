@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-24",
+  "command": "node scripts/track-regression.mjs --offline-imagery",
+  "server": "http://localhost:4173",
+  "exitCode": 0,
+  "passed": 109,
+  "failed": 0,
+  "skipped": 0,
+  "bundledBackgroundImageTilesServed": 18,
+  "terrain": "Real terrain requests through the network-enabled local proxy; no terrain fixtures or assertion changes",
+  "log": "output/reality-tracking-corrected-server.log",
+  "earlierAttempt": {
+    "passed": 104,
+    "failed": 5,
+    "log": "output/reality-tracking-local-proxy-failed.log",
+    "diagnosis": "The earlier development server could not fetch terrain; its proxy returned HTTP502 while an elevated direct provider request returned HTTP200. Restarting the verified project server with network access restored the local endpoint. The complete rerun passed every assertion."
+  }
+}

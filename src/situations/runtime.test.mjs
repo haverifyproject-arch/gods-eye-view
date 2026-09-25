@@ -155,3 +155,106 @@ test('cancellation settles even if a presentation adapter does not finish', asyn
   await actions.run('lens', { lens: 'OBSERVED' });
   assert.equal((await run).cancelled, true);
 });
+
+function graphFixture() {
+  const input = fixture();
+  const base = input.entities[0];
+  for (const id of ['middle', 'end', 'isolated'])
+    input.entities.push({ ...base, id, label: id });
+  input.relationships = [
+    {
+      ...base,
+      id: 'first',
+      from: 'entity',
+      to: 'middle',
+      type: 'ASSOCIATED_WITH',
+    },
+    {
+      ...base,
+      id: 'second',
+      from: 'middle',
+      to: 'end',
+      type: 'ASSOCIATED_WITH',
+    },
+    {
+      ...base,
+      id: 'cycle',
+      from: 'end',
+      to: 'entity',
+      type: 'ASSOCIATED_WITH',
+    },
+  ];
+  return input;
+}
+
+test('trace traverses a visible component without inventing direction or including isolated records', () => {
+  const runtime = createSituationRuntime(graphFixture());
+  const before = runtime.getContext();
+  const traced = runtime.trace({ id: 'end' });
+  assert.deepEqual(
+    traced.records.map((record) => record.id),
+    ['entity', 'middle', 'end'],
+  );
+  assert.deepEqual(
+    traced.relationships.map((edge) => edge.id),
+    ['first', 'second', 'cycle'],
+  );
+  assert.equal(traced.relationships[0].from, 'entity');
+  assert.equal(traced.relationships[0].to, 'middle');
+  assert.equal(traced.relationships[0].type, 'ASSOCIATED_WITH');
+  assert.deepEqual(runtime.getContext(), before);
+  assert.throws(() => traced.relationships.push({}));
+  assert.equal(
+    runtime.inspect(traced.relationships[0].id).sources[0].id,
+    'source',
+  );
+  assert.deepEqual(runtime.trace({ id: 'first' }).records, traced.records);
+});
+
+test('trace honors filtered, hidden and temporally absent endpoints and relationships', () => {
+  const input = graphFixture();
+  input.relationships = input.relationships.slice(0, 2);
+  input.relationships[1].validTime = {
+    ...input.timeRange,
+    start: '2022-02-01T00:00:00Z',
+  };
+  const runtime = createSituationRuntime(input);
+  assert.deepEqual(
+    runtime.trace({ id: 'entity' }).relationships.map((edge) => edge.id),
+    ['first'],
+  );
+  assert.deepEqual(runtime.trace({ id: 'second' }).records, []);
+  runtime.setTime('2022-02-02T00:00:00Z');
+  assert.equal(runtime.trace({ id: 'entity' }).relationships.length, 2);
+  runtime.setHidden('first', true);
+  assert.equal(runtime.trace({ id: 'entity' }).relationships.length, 0);
+  runtime.setHidden('first', false);
+  runtime.setHidden('middle', true);
+  assert.equal(runtime.trace({ id: 'entity' }).relationships.length, 0);
+  assert.deepEqual(runtime.trace({ id: 'middle' }).records, []);
+  runtime.setHidden('middle', false);
+  runtime.setLens('OBSERVED');
+  assert.deepEqual(runtime.trace({ id: 'entity' }).relationships, []);
+  assert.deepEqual(runtime.trace({ id: 'entity' }).records, []);
+});
+
+test('trace defaults to selection and rejects missing, unknown or disposed requests', () => {
+  const runtime = createSituationRuntime(graphFixture());
+  assert.throws(() => runtime.trace(), /Select/);
+  assert.throws(() => runtime.trace({ id: 'invented' }), /Select/);
+  runtime.select('first');
+  assert.equal(runtime.trace().relationships.length, 3);
+  runtime.destroy();
+  assert.throws(() => runtime.trace({ id: 'entity' }), /disposed/);
+});
+
+test('reset explicitly notifies presentations to discard transient annotations', () => {
+  const runtime = createSituationRuntime(fixture());
+  const events = [];
+  runtime.subscribe((snapshot, event) => events.push({ snapshot, event }));
+  runtime.setLens('REPORTED');
+  runtime.reset();
+  assert.equal(events[0].event, undefined);
+  assert.equal(events[1].event, 'reset');
+  assert.equal(events[1].snapshot.lens, 'ALL');
+});

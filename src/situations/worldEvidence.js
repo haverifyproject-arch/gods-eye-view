@@ -1,8 +1,11 @@
 import * as Cesium from 'cesium';
+import { resolveAnnotation } from './annotation.js';
 
 /** Screen-sized annotations tethered to geographic context, never invented fault geometry. */
 export function createWorldEvidence({ viewer, root, runtime, inspect }) {
-  const anchor = Cesium.Cartesian3.fromDegrees(-175.2, -21.13);
+  const defaultAnchor = Cesium.Cartesian3.fromDegrees(-175.2, -21.13);
+  let anchor = defaultAnchor;
+  let pinned = null;
   const occluder = new Cesium.EllipsoidalOccluder(
     Cesium.Ellipsoid.WGS84,
     viewer.camera.positionWC,
@@ -28,9 +31,38 @@ export function createWorldEvidence({ viewer, root, runtime, inspect }) {
     node.addEventListener('click', () => inspect(id));
     return node;
   };
-  const update = (snapshot) => {
+  const update = (snapshot, event) => {
+    if (event === 'reset') pinned = null;
     element.replaceChildren();
     const ids = new Set(snapshot.records.map((record) => record.id));
+    anchor = defaultAnchor;
+    if (pinned && ids.has(pinned.id)) {
+      anchor = Cesium.Cartesian3.fromDegrees(...pinned.coordinates);
+      element.append(
+        button(
+          pinned.id,
+          pinned.status,
+          `Pinned · ${pinned.label}`,
+          pinned.publishers.join(' · '),
+        ),
+      );
+      const caption = document.createElement('p');
+      caption.className = 'reality-world-caption';
+      caption.textContent = pinned.basis;
+      element.append(caption);
+      const remove = document.createElement('button');
+      remove.textContent = 'Remove annotation ×';
+      remove.style.pointerEvents = 'auto';
+      remove.dataset.removeAnnotation = pinned.id;
+      remove.addEventListener('click', () => {
+        pinned = null;
+        update(runtime.getContext());
+        viewer.scene.requestRender();
+      });
+      element.append(remove);
+      hasContent = true;
+      return;
+    }
     const recovered = ids.has('traffic-return');
     const measured = recovered
       ? 'traffic-return'
@@ -59,12 +91,18 @@ export function createWorldEvidence({ viewer, root, runtime, inspect }) {
             : 'Exact break coordinates unavailable',
         ),
       );
-    if (measured && reported) {
-      const link = document.createElement('span');
+    const association = snapshot.relationships.find(
+      (edge) => edge.from === reported && edge.to === measured,
+    );
+    if (measured && reported && association) {
+      const link = document.createElement('button');
       link.className = 'reality-world-link';
       link.textContent = '···';
-      link.title =
-        'Association reported by sources; not a surveyed physical connection';
+      link.style.pointerEvents = 'auto';
+      link.dataset.relationship = association.id;
+      link.title = `${association.status} · ${association.type} · source association, not established causation`;
+      link.setAttribute('aria-label', link.title);
+      link.addEventListener('click', () => inspect(association.id));
       row.append(link);
     }
     if (measured)
@@ -156,7 +194,31 @@ export function createWorldEvidence({ viewer, root, runtime, inspect }) {
   update(runtime.getContext());
   const removeRender = viewer.scene.postRender.addEventListener(project);
   return {
+    canAnnotate(id) {
+      try {
+        resolveAnnotation(runtime, id);
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    annotate(id) {
+      pinned = resolveAnnotation(runtime, id);
+      update(runtime.getContext());
+      viewer.scene.requestRender();
+      return {
+        id: pinned.id,
+        coordinates: [...pinned.coordinates],
+        basis: pinned.basis,
+      };
+    },
+    clearAnnotation() {
+      pinned = null;
+      update(runtime.getContext());
+      viewer.scene.requestRender();
+    },
     destroy() {
+      pinned = null;
       unsubscribe();
       removeRender();
       element.remove();

@@ -1,0 +1,786 @@
+{
+  "checks": [
+    {
+      "name": "Mission uses one native canvas",
+      "passed": true
+    },
+    {
+      "name": "Pacific opening is wide",
+      "passed": true,
+      "detail": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ]
+    },
+    {
+      "name": "Invalid destination reports failure",
+      "passed": true
+    },
+    {
+      "name": "Volcano approach succeeds",
+      "passed": true
+    },
+    {
+      "name": "Approach moves native camera",
+      "passed": true
+    },
+    {
+      "name": "Cable traversal succeeds",
+      "passed": true
+    },
+    {
+      "name": "Cable traversal ends near Fiji",
+      "passed": true
+    },
+    {
+      "name": "Outage changes rendered world",
+      "passed": true
+    },
+    {
+      "name": "Text command sets observed lens",
+      "passed": true
+    },
+    {
+      "name": "Observed excludes other evidence states",
+      "passed": true
+    },
+    {
+      "name": "Observed materially removes geometry",
+      "passed": true
+    },
+    {
+      "name": "All evidence restores geometry",
+      "passed": true
+    },
+    {
+      "name": "Unknown lens applied",
+      "passed": true
+    },
+    {
+      "name": "Recovery is temporally distinct",
+      "passed": true
+    },
+    {
+      "name": "Recovery changes world",
+      "passed": true
+    },
+    {
+      "name": "Source includes publisher and dates",
+      "passed": true
+    },
+    {
+      "name": "Source has secure attribution link",
+      "passed": true
+    },
+    {
+      "name": "Mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Pointer cancels motion honestly",
+      "passed": false,
+      "detail": {
+        "ok": true,
+        "action": "follow"
+      }
+    },
+    {
+      "name": "Native camera handoff cancels mission motion",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "action": "follow",
+        "cancelled": true
+      }
+    },
+    {
+      "name": "Action after interruption succeeds",
+      "passed": true
+    },
+    {
+      "name": "Exit cleans geometry and preserves viewer",
+      "passed": true
+    },
+    {
+      "name": "No unhandled application exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "01-start",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        }
+      ],
+      "rendered": [
+        "reality-volcano",
+        "reality-tonga",
+        "reality-fiji",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ]
+    },
+    {
+      "name": "02-approach",
+      "time": "2022-01-15T04:14:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "traffic-decline",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-main-eruption",
+        "reality-traffic-decline",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74"
+      ],
+      "camera": [
+        -3.061132975072854,
+        -0.3586651612848346,
+        174999.9999999654
+      ]
+    },
+    {
+      "name": "03-follow",
+      "time": "2022-01-15T04:14:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "traffic-decline",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-main-eruption",
+        "reality-traffic-decline",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74"
+      ],
+      "camera": [
+        3.1143209734747583,
+        -0.3163201739737041,
+        519999.9999998731
+      ]
+    },
+    {
+      "name": "04-outage",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "traffic-collapse",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-main-eruption",
+        "reality-traffic-collapse",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "05-observed",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "OBSERVED",
+      "records": [
+        {
+          "id": "traffic-collapse",
+          "status": "OBSERVED"
+        }
+      ],
+      "rendered": [
+        "reality-traffic-collapse"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "06-full",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "traffic-collapse",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-main-eruption",
+        "reality-traffic-collapse",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "07-unknown",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "UNKNOWN",
+      "records": [
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "08-recovery",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "airport",
+          "status": "REPORTED"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "emergency-access",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-repaired",
+          "status": "REPORTED"
+        },
+        {
+          "id": "bgp-spike",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "airs-acquisition",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "traffic-return",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "domestic-recovery-unknown",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-airport",
+        "reality-main-eruption",
+        "reality-traffic-return",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "09-source",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "airport",
+          "status": "REPORTED"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "emergency-access",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-repaired",
+          "status": "REPORTED"
+        },
+        {
+          "id": "bgp-spike",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "airs-acquisition",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "traffic-return",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "domestic-recovery-unknown",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-airport",
+        "reality-main-eruption",
+        "reality-traffic-return",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "10-mobile-source",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "airport",
+          "status": "REPORTED"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "emergency-access",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-repaired",
+          "status": "REPORTED"
+        },
+        {
+          "id": "bgp-spike",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "airs-acquisition",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "traffic-return",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "domestic-recovery-unknown",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-airport",
+        "reality-main-eruption",
+        "reality-traffic-return",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ]
+    },
+    {
+      "name": "11-mobile-approach",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        {
+          "id": "volcano",
+          "status": "REPORTED"
+        },
+        {
+          "id": "tonga",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "fiji",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "international-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "domestic-cable",
+          "status": "CURRENT_REFERENCE"
+        },
+        {
+          "id": "airport",
+          "status": "REPORTED"
+        },
+        {
+          "id": "fault-unknown",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "main-eruption",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-damage",
+          "status": "REPORTED"
+        },
+        {
+          "id": "emergency-access",
+          "status": "REPORTED"
+        },
+        {
+          "id": "cable-repaired",
+          "status": "REPORTED"
+        },
+        {
+          "id": "bgp-spike",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "airs-acquisition",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "traffic-return",
+          "status": "OBSERVED"
+        },
+        {
+          "id": "chronology-gap",
+          "status": "UNKNOWN"
+        },
+        {
+          "id": "domestic-recovery-unknown",
+          "status": "UNKNOWN"
+        }
+      ],
+      "rendered": [
+        "reality-fiji",
+        "reality-airport",
+        "reality-main-eruption",
+        "reality-traffic-return",
+        "reality-tonga-domestic-cable-extension-tdce-0",
+        "reality-tonga-domestic-cable-extension-tdce-1",
+        "reality-tonga-cable-2",
+        "reality-tonga-cable-3",
+        "038672f3-784b-4044-b2c8-12cebdfeee74",
+        "reality-fault-unknown"
+      ],
+      "camera": [
+        -3.061132975072854,
+        -0.3586651612848346,
+        174999.9999999654
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "visualAcceptance": "PENDING: open and inspect all nine required screenshots"
+}
