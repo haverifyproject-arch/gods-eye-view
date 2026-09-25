@@ -1,0 +1,2760 @@
+{
+  "provenance": {
+    "startedAt": "2026-09-25T13:39:33.601Z",
+    "baseURL": "http://127.0.0.1:4180",
+    "serverMode": "plain-static-production",
+    "revision": "9433a83ed96d59b4cfa6b390b3cb62976ee6b2d9",
+    "workingTree": "M docs/reality/BUILD-JOURNAL.md\n M scripts/qa-reality.mjs\n M src/situations/tonga.js\n M src/situations/world.js\n?? docs/reality/STORY-ACCEPTANCE.md\n?? docs/reality/STORY-REVIEW.md\n?? scripts/qa-reality-story.mjs\n?? src/situations/story.js\n?? src/situations/story.test.mjs\n?? src/situations/storyPlayer.css\n?? src/situations/storyPlayer.js\n?? src/situations/storyWorld.css\n?? src/situations/storyWorld.js"
+  },
+  "checks": [
+    {
+      "name": "00-opening: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 477.65625,
+          "width": 600,
+          "height": 390.34375
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "00-opening: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Opening presents an Explain action",
+      "passed": true,
+      "detail": {
+        "index": -1,
+        "playing": false,
+        "exploring": false,
+        "phase": "intro",
+        "title": "How Tonga lost its connection",
+        "body": "An eruption. A damaged cable. Weeks without normal internet access. Follow the connection that made Tonga vulnerable, the evidence of its failure, and the work that brought service back.",
+        "takeaway": "A guided explanation in about two minutes. Pause and inspect any claim.",
+        "question": "",
+        "time": "2022-01-14T00:00:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "international-dependency"
+        ],
+        "camera": [
+          3.12413936106985,
+          -0.3403392041388942,
+          2799999.999999971
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-volcano",
+              "reality-tonga",
+              "reality-fiji",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "01-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "01-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter 1 exposes explanation, takeaway and question",
+      "passed": true,
+      "detail": {
+        "index": 0,
+        "playing": false,
+        "exploring": false,
+        "phase": "chapter",
+        "title": "One cable across an ocean",
+        "body": "Tonga’s international submarine cable connected the country to Fiji and onward to global networks. ITU described it as Tonga’s only international cable. Follow that long connection: a failure offshore could interrupt communications across the islands, far beyond the place where the cable was damaged.",
+        "takeaway": "A distant physical connection supported everyday digital life.",
+        "question": "Why this cable mattered",
+        "time": "2022-01-14T00:00:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "international-dependency"
+        ],
+        "camera": [
+          3.12413936106985,
+          -0.3403392041388942,
+          2799999.999999971
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-volcano",
+              "reality-tonga",
+              "reality-fiji",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "02-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "02-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter 2 exposes explanation, takeaway and question",
+      "passed": true,
+      "detail": {
+        "index": 1,
+        "playing": false,
+        "exploring": false,
+        "phase": "chapter",
+        "title": "The connection falls silent",
+        "body": "Hunga Tonga–Hunga Haʻapai erupted. Cable faults were reported, and by about 05:30 UTC Cloudflare saw almost no traffic from Tonga’s two main internet providers. The network collapse is visible in those measurements; the exact underwater break locations are not established by this account.",
+        "takeaway": "Reported cable damage accompanied an observed network collapse.",
+        "question": "Show the outage evidence",
+        "time": "2022-01-15T05:30:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "fault-unknown",
+          "main-eruption",
+          "cable-damage",
+          "traffic-collapse",
+          "international-dependency",
+          "chronology-gap"
+        ],
+        "camera": [
+          -3.061132975072854,
+          -0.3586651612848346,
+          174999.9999999654
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-fiji",
+              "reality-main-eruption",
+              "reality-traffic-collapse",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chapter 2 materially changes the world",
+      "passed": true
+    },
+    {
+      "name": "Back returns to the preceding chapter",
+      "passed": true
+    },
+    {
+      "name": "Evidence pauses progression without losing chapter",
+      "passed": true
+    },
+    {
+      "name": "Playback resumes from inspected chapter",
+      "passed": true
+    },
+    {
+      "name": "03-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 502.8125,
+          "width": 800,
+          "height": 365.1875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "03-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter 3 exposes explanation, takeaway and question",
+      "passed": true,
+      "detail": {
+        "index": 2,
+        "playing": false,
+        "exploring": false,
+        "phase": "chapter",
+        "title": "The timeline has a gap",
+        "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+        "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+        "question": "Compare the source accounts",
+        "time": "2022-01-15T05:35:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "fault-unknown",
+          "main-eruption",
+          "cable-damage",
+          "traffic-collapse",
+          "bgp-spike",
+          "international-dependency",
+          "chronology-gap"
+        ],
+        "camera": [
+          -3.0569441848680685,
+          -0.3647738136668149,
+          689999.9999997164
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-fiji",
+              "reality-main-eruption",
+              "reality-traffic-collapse",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chapter 3 materially changes the world",
+      "passed": true
+    },
+    {
+      "name": "06-question-answer: diagram and explanation do not overlap",
+      "passed": false,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 430.8125,
+          "width": 800,
+          "height": 437.1875
+        },
+        "overlap": true,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "06-question-answer: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter question answers in place and pauses the explanation",
+      "passed": true
+    },
+    {
+      "name": "Question operates the evidence world",
+      "passed": true
+    },
+    {
+      "name": "04-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "04-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter 4 exposes explanation, takeaway and question",
+      "passed": true,
+      "detail": {
+        "index": 3,
+        "playing": false,
+        "exploring": false,
+        "phase": "chapter",
+        "title": "A lifeline while repairs continued",
+        "body": "Satellite assistance gave essential services another way to communicate. ITU documented a weather-service terminal at Fuaʻamotu Airport realigned to reach an Intelsat satellite. Temporary bandwidth, equipment and satellite phones supported the response while the damaged submarine connection still needed repair.",
+        "takeaway": "Emergency access supported essential services; it did not mean full recovery.",
+        "question": "Read the emergency response",
+        "time": "2022-02-10T00:00:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "airport",
+          "fault-unknown",
+          "main-eruption",
+          "cable-damage",
+          "emergency-access",
+          "traffic-collapse",
+          "bgp-spike",
+          "airs-acquisition",
+          "international-dependency",
+          "chronology-gap"
+        ],
+        "camera": [
+          -3.057816849494065,
+          -0.36878807094640187,
+          174999.9999999638
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-fiji",
+              "reality-airport",
+              "reality-main-eruption",
+              "reality-traffic-collapse",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chapter 4 materially changes the world",
+      "passed": true
+    },
+    {
+      "name": "05-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "05-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Chapter 5 exposes explanation, takeaway and question",
+      "passed": true,
+      "detail": {
+        "index": 4,
+        "playing": false,
+        "exploring": false,
+        "phase": "chapter",
+        "title": "Back online was not everyone",
+        "body": "Cloudflare saw traffic climb toward earlier levels shortly after midnight on February 22. Digicel announced restored service on Tongatapu and Eua after cable repairs. But the domestic cable to outer islands still needed work. The main link’s return was a milestone, not the end for everyone.",
+        "takeaway": "The international connection returned before domestic recovery was complete.",
+        "question": "Check what recovered",
+        "time": "2022-02-22T02:13:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "airport",
+          "fault-unknown",
+          "main-eruption",
+          "cable-damage",
+          "emergency-access",
+          "cable-repaired",
+          "bgp-spike",
+          "airs-acquisition",
+          "traffic-return",
+          "international-dependency",
+          "chronology-gap",
+          "domestic-recovery-unknown"
+        ],
+        "camera": [
+          -3.0569441848680685,
+          -0.3647738136668149,
+          689999.9999997164
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-fiji",
+              "reality-airport",
+              "reality-main-eruption",
+              "reality-traffic-return",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chapter 5 materially changes the world",
+      "passed": true
+    },
+    {
+      "name": "Chapters tell distinct steps",
+      "passed": true
+    },
+    {
+      "name": "07-conclusion: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 511.46875,
+          "width": 800,
+          "height": 356.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "07-conclusion: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "End supplies a conclusion",
+      "passed": true,
+      "detail": {
+        "index": 5,
+        "playing": false,
+        "exploring": false,
+        "phase": "conclusion",
+        "title": "What this crisis reveals",
+        "body": "Tonga’s connection depended on infrastructure far beyond the shoreline. Emergency satellite access supported essential services while cable repairs restored the main link. Restoring the main link did not establish recovery for every island—and the evidence still leaves gaps.",
+        "takeaway": "A repaired international link did not establish recovery for every island.",
+        "question": "",
+        "time": "2022-02-22T02:13:00Z",
+        "lens": "ALL",
+        "records": [
+          "volcano",
+          "tonga",
+          "fiji",
+          "international-cable",
+          "domestic-cable",
+          "airport",
+          "fault-unknown",
+          "main-eruption",
+          "cable-damage",
+          "emergency-access",
+          "cable-repaired",
+          "bgp-spike",
+          "airs-acquisition",
+          "traffic-return",
+          "international-dependency",
+          "chronology-gap",
+          "domestic-recovery-unknown"
+        ],
+        "camera": [
+          -3.0569441848680685,
+          -0.3647738136668149,
+          689999.9999997164
+        ],
+        "sources": [
+          {
+            "name": "gev-annotations",
+            "entities": []
+          },
+          {
+            "name": "gev-draw-preview",
+            "entities": []
+          },
+          {
+            "name": "gev-recent-imagery-box-preview",
+            "entities": []
+          },
+          {
+            "name": "Reality Debugger · geographic reference",
+            "entities": [
+              "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+              "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+              "9e18f18c-3387-4a55-b854-365b518e523f",
+              "99f773f4-0f0d-439c-87ce-a414edf176a8",
+              "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+              "01798671-33d2-4b98-a670-3d9bab27b1a2",
+              "b46c839c-5cd0-480c-919a-127de9059052",
+              "d101570d-33d8-46e5-b086-98ae8ab71539",
+              "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+              "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+              "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+              "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+              "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+              "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+              "1075847a-09bb-483d-aa00-8a605d6ed015",
+              "73edfc55-368e-421d-94eb-c5185813e8b8",
+              "d46d70c8-1b3f-420b-999c-566533c60e15",
+              "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+              "c4d620fa-5493-489f-89c0-5138575bcb96",
+              "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+              "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+              "29f62639-45f1-43de-b717-6a9da2951612",
+              "9cd37072-3050-4bbc-b107-d57a362ee074",
+              "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+              "19a3ea60-0852-4783-a296-6d5d98a8050a",
+              "1067430b-1776-48a7-ba15-625986f8fc9a",
+              "3e698933-a19c-4320-8404-69ec2b426dd9",
+              "90e89479-b45e-4839-95f0-c268453cd3d9",
+              "70ac30f6-6180-496d-9f90-eb509454432c",
+              "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+              "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+              "efc748d3-ab59-4294-9e56-618f6c69ef86",
+              "0d562cd1-7da0-4793-ac79-488915c50001",
+              "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+              "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+              "3bd55a22-819a-452a-bba4-8a094b451370",
+              "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+              "25ea73c7-7903-4ded-97d0-41292536ed24",
+              "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+              "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+              "57bc66ec-e905-483f-8d46-9b84641a8124",
+              "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+              "af9e50d3-cb15-4edf-9131-744707382a6d",
+              "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+              "467a58cf-7e28-46c1-bb07-68303c1612a0",
+              "d971410d-5b27-4e33-965a-5307e40d7485",
+              "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+              "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+              "9c5fa71a-90ab-488c-a288-7aed04575f15",
+              "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+              "e0d8f332-678b-4a73-b90b-0636123e8567",
+              "c32cef16-742e-4456-8568-148eaf4a7c62",
+              "65becd40-6724-4c96-8840-d339dd80308a",
+              "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+            ]
+          },
+          {
+            "name": "Reality Debugger · Tonga",
+            "entities": [
+              "reality-fiji",
+              "reality-airport",
+              "reality-main-eruption",
+              "reality-traffic-return",
+              "reality-tonga-domestic-cable-extension-tdce-0",
+              "reality-tonga-domestic-cable-extension-tdce-1",
+              "reality-tonga-cable-2",
+              "reality-tonga-cable-3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "08-mobile-opening: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 266.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 500.59375,
+          "width": 366,
+          "height": 331.40625
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "08-mobile-opening: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Mobile Explain is reachable",
+      "passed": true
+    },
+    {
+      "name": "09-mobile-chapter: diagram and explanation do not overlap",
+      "passed": true,
+      "detail": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 266.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 426.8125,
+          "width": 366,
+          "height": 405.1875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "09-mobile-chapter: explanation fits viewport",
+      "passed": true
+    },
+    {
+      "name": "Mobile chapter navigation is reachable",
+      "passed": true
+    },
+    {
+      "name": "Mobile evidence can be dismissed",
+      "passed": true
+    },
+    {
+      "name": "Mobile has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "Uninterrupted explanation finishes in 60–120 seconds",
+      "passed": false,
+      "detail": 129.504
+    },
+    {
+      "name": "No unhandled application exception",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "00-opening",
+      "index": -1,
+      "playing": false,
+      "exploring": false,
+      "phase": "intro",
+      "title": "How Tonga lost its connection",
+      "body": "An eruption. A damaged cable. Weeks without normal internet access. Follow the connection that made Tonga vulnerable, the evidence of its failure, and the work that brought service back.",
+      "takeaway": "A guided explanation in about two minutes. Pause and inspect any claim.",
+      "question": "",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 477.65625,
+          "width": 600,
+          "height": 390.34375
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "01-chapter",
+      "index": 0,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "One cable across an ocean",
+      "body": "Tonga’s international submarine cable connected the country to Fiji and onward to global networks. ITU described it as Tonga’s only international cable. Follow that long connection: a failure offshore could interrupt communications across the islands, far beyond the place where the cable was damaged.",
+      "takeaway": "A distant physical connection supported everyday digital life.",
+      "question": "Why this cable mattered",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "02-chapter",
+      "index": 1,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The connection falls silent",
+      "body": "Hunga Tonga–Hunga Haʻapai erupted. Cable faults were reported, and by about 05:30 UTC Cloudflare saw almost no traffic from Tonga’s two main internet providers. The network collapse is visible in those measurements; the exact underwater break locations are not established by this account.",
+      "takeaway": "Reported cable damage accompanied an observed network collapse.",
+      "question": "Show the outage evidence",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "traffic-collapse",
+        "international-dependency",
+        "chronology-gap"
+      ],
+      "camera": [
+        -3.061132975072854,
+        -0.3586651612848346,
+        174999.9999999654
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-main-eruption",
+            "reality-traffic-collapse",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "06-evidence-paused",
+      "index": 1,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The connection falls silent",
+      "body": "Hunga Tonga–Hunga Haʻapai erupted. Cable faults were reported, and by about 05:30 UTC Cloudflare saw almost no traffic from Tonga’s two main internet providers. The network collapse is visible in those measurements; the exact underwater break locations are not established by this account.",
+      "takeaway": "Reported cable damage accompanied an observed network collapse.",
+      "question": "Show the outage evidence",
+      "time": "2022-01-15T05:30:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "traffic-collapse",
+        "international-dependency",
+        "chronology-gap"
+      ],
+      "camera": [
+        -3.061132975072854,
+        -0.3586651612848346,
+        174999.9999999654
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-main-eruption",
+            "reality-traffic-collapse",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "03-chapter",
+      "index": 2,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The timeline has a gap",
+      "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+      "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+      "question": "Compare the source accounts",
+      "time": "2022-01-15T05:35:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "traffic-collapse",
+        "bgp-spike",
+        "international-dependency",
+        "chronology-gap"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-main-eruption",
+            "reality-traffic-collapse",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 502.8125,
+          "width": 800,
+          "height": 365.1875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "06-question-answer",
+      "index": 2,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "The timeline has a gap",
+      "body": "Traffic was already declining around 03:00 UTC. NASA places the main explosion at 04:14; near-zero traffic followed by 05:30. That ordering matters. These sources show a major disruption, but they do not explain why the first decline began before the main explosion.",
+      "takeaway": "The first decline predates the main explosion. Its cause remains unresolved.",
+      "question": "Compare the source accounts",
+      "time": "2022-01-15T05:35:00Z",
+      "lens": "OBSERVED",
+      "records": [
+        "traffic-collapse",
+        "bgp-spike"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-traffic-collapse"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 430.8125,
+          "width": 800,
+          "height": 437.1875
+        },
+        "overlap": true,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "04-chapter",
+      "index": 3,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "A lifeline while repairs continued",
+      "body": "Satellite assistance gave essential services another way to communicate. ITU documented a weather-service terminal at Fuaʻamotu Airport realigned to reach an Intelsat satellite. Temporary bandwidth, equipment and satellite phones supported the response while the damaged submarine connection still needed repair.",
+      "takeaway": "Emergency access supported essential services; it did not mean full recovery.",
+      "question": "Read the emergency response",
+      "time": "2022-02-10T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "airport",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "emergency-access",
+        "traffic-collapse",
+        "bgp-spike",
+        "airs-acquisition",
+        "international-dependency",
+        "chronology-gap"
+      ],
+      "camera": [
+        -3.057816849494065,
+        -0.36878807094640187,
+        174999.9999999638
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-airport",
+            "reality-main-eruption",
+            "reality-traffic-collapse",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "05-chapter",
+      "index": 4,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "Back online was not everyone",
+      "body": "Cloudflare saw traffic climb toward earlier levels shortly after midnight on February 22. Digicel announced restored service on Tongatapu and Eua after cable repairs. But the domestic cable to outer islands still needed work. The main link’s return was a milestone, not the end for everyone.",
+      "takeaway": "The international connection returned before domestic recovery was complete.",
+      "question": "Check what recovered",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "airport",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "emergency-access",
+        "cable-repaired",
+        "bgp-spike",
+        "airs-acquisition",
+        "traffic-return",
+        "international-dependency",
+        "chronology-gap",
+        "domestic-recovery-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-airport",
+            "reality-main-eruption",
+            "reality-traffic-return",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 476.46875,
+          "width": 800,
+          "height": 391.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "07-conclusion",
+      "index": 5,
+      "playing": false,
+      "exploring": false,
+      "phase": "conclusion",
+      "title": "What this crisis reveals",
+      "body": "Tonga’s connection depended on infrastructure far beyond the shoreline. Emergency satellite access supported essential services while cable repairs restored the main link. Restoring the main link did not establish recovery for every island—and the evidence still leaves gaps.",
+      "takeaway": "A repaired international link did not establish recovery for every island.",
+      "question": "",
+      "time": "2022-02-22T02:13:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "airport",
+        "fault-unknown",
+        "main-eruption",
+        "cable-damage",
+        "emergency-access",
+        "cable-repaired",
+        "bgp-spike",
+        "airs-acquisition",
+        "traffic-return",
+        "international-dependency",
+        "chronology-gap",
+        "domestic-recovery-unknown"
+      ],
+      "camera": [
+        -3.0569441848680685,
+        -0.3647738136668149,
+        689999.9999997164
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "d0177d16-d832-4c0f-8c37-e35f7cd71ebd",
+            "b954780d-ecc4-4779-a133-a5fe6a70ae3a",
+            "9e18f18c-3387-4a55-b854-365b518e523f",
+            "99f773f4-0f0d-439c-87ce-a414edf176a8",
+            "2d2b1e34-c616-43e0-acd8-ac006e841e23",
+            "01798671-33d2-4b98-a670-3d9bab27b1a2",
+            "b46c839c-5cd0-480c-919a-127de9059052",
+            "d101570d-33d8-46e5-b086-98ae8ab71539",
+            "c8eac7f4-273f-46e3-bcc5-686bea97d2a3",
+            "22031c6d-1014-4cd4-bc5c-639d09f530c8",
+            "709a4c1f-e800-487e-b3ad-cdb9fff88c5d",
+            "e205b907-a1c7-49d9-a818-b65c44b1b6f1",
+            "9c4bb8a2-5893-41f6-9ce6-fa2cd7b37bbe",
+            "48a705f8-c926-4ca7-b39b-f80e7e2127c3",
+            "1075847a-09bb-483d-aa00-8a605d6ed015",
+            "73edfc55-368e-421d-94eb-c5185813e8b8",
+            "d46d70c8-1b3f-420b-999c-566533c60e15",
+            "f73e10ea-5e4e-4573-ab7e-2ebba607d1da",
+            "c4d620fa-5493-489f-89c0-5138575bcb96",
+            "441be2be-93bd-4821-8bb1-8f47e73b55fb",
+            "7bf6e346-cbf3-43b9-a1fd-cf5ef728b244",
+            "29f62639-45f1-43de-b717-6a9da2951612",
+            "9cd37072-3050-4bbc-b107-d57a362ee074",
+            "d987071c-308c-4bde-84c9-6fb1e916f8d5",
+            "19a3ea60-0852-4783-a296-6d5d98a8050a",
+            "1067430b-1776-48a7-ba15-625986f8fc9a",
+            "3e698933-a19c-4320-8404-69ec2b426dd9",
+            "90e89479-b45e-4839-95f0-c268453cd3d9",
+            "70ac30f6-6180-496d-9f90-eb509454432c",
+            "b3bd5546-a07d-4d42-99f3-ec9c3473bba3",
+            "9ace77c2-0e55-4ccb-8d62-a4b0ae4d7c1c",
+            "efc748d3-ab59-4294-9e56-618f6c69ef86",
+            "0d562cd1-7da0-4793-ac79-488915c50001",
+            "bb712817-10d3-4ccd-bcd7-e4e3ecc8bd36",
+            "ade28546-7cf7-4c4d-8cba-caadf41a0541",
+            "3bd55a22-819a-452a-bba4-8a094b451370",
+            "5b3d8de9-eb08-4b63-b195-53ee3754a80a",
+            "25ea73c7-7903-4ded-97d0-41292536ed24",
+            "bd6055f1-e62f-4cca-817e-9ad5520855dc",
+            "7c8d22c8-de07-4faa-bc8c-62a5984d7ea7",
+            "57bc66ec-e905-483f-8d46-9b84641a8124",
+            "9614c6ed-5c73-4ad1-95c5-1393f7fc5eb5",
+            "af9e50d3-cb15-4edf-9131-744707382a6d",
+            "01c7852d-daa9-4dfe-93a1-da1b135326ff",
+            "467a58cf-7e28-46c1-bb07-68303c1612a0",
+            "d971410d-5b27-4e33-965a-5307e40d7485",
+            "d973885f-3ccb-45b3-b4d2-c8e574c915b6",
+            "c174c4fd-54ba-4f06-96f0-a3fa3e9aa750",
+            "9c5fa71a-90ab-488c-a288-7aed04575f15",
+            "6a9eaa95-8c07-4acb-8a04-546b7e1fdc91",
+            "e0d8f332-678b-4a73-b90b-0636123e8567",
+            "c32cef16-742e-4456-8568-148eaf4a7c62",
+            "65becd40-6724-4c96-8840-d339dd80308a",
+            "e4fde4ca-5d65-403a-ae9d-ef7143b15e7d"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-fiji",
+            "reality-airport",
+            "reality-main-eruption",
+            "reality-traffic-return",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 691.1875,
+          "y": 100,
+          "width": 620,
+          "height": 358.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 511.46875,
+          "width": 800,
+          "height": 356.53125
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "08-mobile-opening",
+      "index": -1,
+      "playing": false,
+      "exploring": false,
+      "phase": "intro",
+      "title": "How Tonga lost its connection",
+      "body": "An eruption. A damaged cable. Weeks without normal internet access. Follow the connection that made Tonga vulnerable, the evidence of its failure, and the work that brought service back.",
+      "takeaway": "A guided explanation in about two minutes. Pause and inspect any claim.",
+      "question": "",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "585b7d62-dfd0-43ef-ad4a-fee4c26255d7",
+            "61cb2dc4-0b5e-4f5e-aa14-716a6ca3d40b",
+            "f756d3d6-b190-449f-8b85-b0c5d938935e",
+            "6c9cd1ff-ec3d-4d7c-983f-b1995f874c6b",
+            "fb2c2f50-6d41-4c56-9410-d811e0adc502",
+            "341195e3-37f8-45db-89bb-ea726bffe93d",
+            "551267bc-e253-416d-99f4-648c49321e19",
+            "905cc7bd-ba70-4733-a902-5fac4bd4d1f7",
+            "8636450a-f16c-4098-b773-a784c0a25a60",
+            "3112202f-0e44-4c16-b73a-56921c6d76a0",
+            "39ada85e-18a9-485f-95ee-0df3a2c86dae",
+            "d9a695c2-93ee-4a5a-8b9f-7696268df06c",
+            "e2160639-8533-46c2-970b-96a9f1434fc5",
+            "bfb84a52-99aa-4851-bc30-fb6b1c239d8b",
+            "a9a4e02c-7700-4726-82ed-8d821a52b205",
+            "1f8513dd-3eb2-4b46-96c0-5f3f119709be",
+            "2a0f9aab-d4e5-44e1-94fe-e588c08874fb",
+            "359d83dd-b2a7-4522-aa6b-c38a38d1a9e3",
+            "a41c67f9-ac93-4b33-9951-053d6056d195",
+            "12ae364f-4600-46ac-9a5c-2f466931a964",
+            "4d5ee28f-850d-4ff5-8caf-952e461f578e",
+            "064ede6b-4001-4580-a851-aabdc3082fa6",
+            "52f1c080-3d5e-44cf-8897-eb694724d85d",
+            "ec2edbcd-3ec5-4f44-8f65-43d581a42d03",
+            "27b5dafd-a1c1-4261-ac59-17d3aec33e6c",
+            "008cd99c-b80e-4941-a3e3-d4bf80d9acc8",
+            "e0f3fa74-075e-48ff-9700-a5d23defecb9",
+            "2fef166b-3132-4d0b-99cd-55e968d51335",
+            "5613b6df-86b5-42ed-9415-095e69bddd67",
+            "f2f22b77-1657-4261-b960-6901f72e26b3",
+            "25d5ea94-d0b5-4bbf-81fc-110888054b54",
+            "b719cd2d-3a4e-4ab7-923f-ebc037ed568f",
+            "cfdef8dd-3380-4e71-9d29-8d21244e7914",
+            "4b2bf61c-87ec-4fb2-999a-89682757d7cc",
+            "43cd73db-5e3b-4aac-bdae-1f63a892460e",
+            "9d71d0a8-84f3-400c-a24e-f91959d513a7",
+            "a955ff0e-6d56-4766-accc-a8c72a6aa742",
+            "0c49621b-8ff0-44b5-9843-427dd5571aba",
+            "39d2f99f-5855-4f3a-8127-b51e6fd14959",
+            "70916a41-d980-4e33-8749-9d93958c35ab",
+            "8917a3fb-57cf-49ed-a946-3e8d8c7c3da0",
+            "393b7335-36cf-4c30-bbee-71918741e385",
+            "85ad0fbd-53c3-4360-b1cd-e81967e85306",
+            "0a23db84-4154-4c35-ba25-9b427303107f",
+            "57cc1f25-14f4-4ee9-b795-17e89bfee706",
+            "33fb2914-ce15-42af-a1ca-6f70415de828",
+            "4d4e49a6-1c85-4520-89f8-1d21018461e0",
+            "274ec0df-207e-43eb-8b20-f7640c7b9410",
+            "d1158e9b-45b8-46ff-af9f-629cc7f0eb67",
+            "be6eaa8b-46af-41ad-9dc9-9815f9adee6b",
+            "fbc067d8-f49f-4a50-9034-ff615e590bab",
+            "42b2b923-70eb-4d64-a288-90239008bf8a",
+            "a803c7be-52e8-4262-981b-54b01d557c6b",
+            "c40a21df-cac5-421d-b7e4-a41e7be1c9ff"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 266.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 500.59375,
+          "width": 366,
+          "height": 331.40625
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "09-mobile-chapter",
+      "index": 0,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "One cable across an ocean",
+      "body": "Tonga’s international submarine cable connected the country to Fiji and onward to global networks. ITU described it as Tonga’s only international cable. Follow that long connection: a failure offshore could interrupt communications across the islands, far beyond the place where the cable was damaged.",
+      "takeaway": "A distant physical connection supported everyday digital life.",
+      "question": "Why this cable mattered",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "585b7d62-dfd0-43ef-ad4a-fee4c26255d7",
+            "61cb2dc4-0b5e-4f5e-aa14-716a6ca3d40b",
+            "f756d3d6-b190-449f-8b85-b0c5d938935e",
+            "6c9cd1ff-ec3d-4d7c-983f-b1995f874c6b",
+            "fb2c2f50-6d41-4c56-9410-d811e0adc502",
+            "341195e3-37f8-45db-89bb-ea726bffe93d",
+            "551267bc-e253-416d-99f4-648c49321e19",
+            "905cc7bd-ba70-4733-a902-5fac4bd4d1f7",
+            "8636450a-f16c-4098-b773-a784c0a25a60",
+            "3112202f-0e44-4c16-b73a-56921c6d76a0",
+            "39ada85e-18a9-485f-95ee-0df3a2c86dae",
+            "d9a695c2-93ee-4a5a-8b9f-7696268df06c",
+            "e2160639-8533-46c2-970b-96a9f1434fc5",
+            "bfb84a52-99aa-4851-bc30-fb6b1c239d8b",
+            "a9a4e02c-7700-4726-82ed-8d821a52b205",
+            "1f8513dd-3eb2-4b46-96c0-5f3f119709be",
+            "2a0f9aab-d4e5-44e1-94fe-e588c08874fb",
+            "359d83dd-b2a7-4522-aa6b-c38a38d1a9e3",
+            "a41c67f9-ac93-4b33-9951-053d6056d195",
+            "12ae364f-4600-46ac-9a5c-2f466931a964",
+            "4d5ee28f-850d-4ff5-8caf-952e461f578e",
+            "064ede6b-4001-4580-a851-aabdc3082fa6",
+            "52f1c080-3d5e-44cf-8897-eb694724d85d",
+            "ec2edbcd-3ec5-4f44-8f65-43d581a42d03",
+            "27b5dafd-a1c1-4261-ac59-17d3aec33e6c",
+            "008cd99c-b80e-4941-a3e3-d4bf80d9acc8",
+            "e0f3fa74-075e-48ff-9700-a5d23defecb9",
+            "2fef166b-3132-4d0b-99cd-55e968d51335",
+            "5613b6df-86b5-42ed-9415-095e69bddd67",
+            "f2f22b77-1657-4261-b960-6901f72e26b3",
+            "25d5ea94-d0b5-4bbf-81fc-110888054b54",
+            "b719cd2d-3a4e-4ab7-923f-ebc037ed568f",
+            "cfdef8dd-3380-4e71-9d29-8d21244e7914",
+            "4b2bf61c-87ec-4fb2-999a-89682757d7cc",
+            "43cd73db-5e3b-4aac-bdae-1f63a892460e",
+            "9d71d0a8-84f3-400c-a24e-f91959d513a7",
+            "a955ff0e-6d56-4766-accc-a8c72a6aa742",
+            "0c49621b-8ff0-44b5-9843-427dd5571aba",
+            "39d2f99f-5855-4f3a-8127-b51e6fd14959",
+            "70916a41-d980-4e33-8749-9d93958c35ab",
+            "8917a3fb-57cf-49ed-a946-3e8d8c7c3da0",
+            "393b7335-36cf-4c30-bbee-71918741e385",
+            "85ad0fbd-53c3-4360-b1cd-e81967e85306",
+            "0a23db84-4154-4c35-ba25-9b427303107f",
+            "57cc1f25-14f4-4ee9-b795-17e89bfee706",
+            "33fb2914-ce15-42af-a1ca-6f70415de828",
+            "4d4e49a6-1c85-4520-89f8-1d21018461e0",
+            "274ec0df-207e-43eb-8b20-f7640c7b9410",
+            "d1158e9b-45b8-46ff-af9f-629cc7f0eb67",
+            "be6eaa8b-46af-41ad-9dc9-9815f9adee6b",
+            "fbc067d8-f49f-4a50-9034-ff615e590bab",
+            "42b2b923-70eb-4d64-a288-90239008bf8a",
+            "a803c7be-52e8-4262-981b-54b01d557c6b",
+            "c40a21df-cac5-421d-b7e4-a41e7be1c9ff"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 266.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 426.8125,
+          "width": 366,
+          "height": 405.1875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    },
+    {
+      "name": "10-mobile-evidence",
+      "index": 0,
+      "playing": false,
+      "exploring": false,
+      "phase": "chapter",
+      "title": "One cable across an ocean",
+      "body": "Tonga’s international submarine cable connected the country to Fiji and onward to global networks. ITU described it as Tonga’s only international cable. Follow that long connection: a failure offshore could interrupt communications across the islands, far beyond the place where the cable was damaged.",
+      "takeaway": "A distant physical connection supported everyday digital life.",
+      "question": "Why this cable mattered",
+      "time": "2022-01-14T00:00:00Z",
+      "lens": "ALL",
+      "records": [
+        "volcano",
+        "tonga",
+        "fiji",
+        "international-cable",
+        "domestic-cable",
+        "international-dependency"
+      ],
+      "camera": [
+        3.12413936106985,
+        -0.3403392041388942,
+        2799999.999999971
+      ],
+      "sources": [
+        {
+          "name": "gev-annotations",
+          "entities": []
+        },
+        {
+          "name": "gev-draw-preview",
+          "entities": []
+        },
+        {
+          "name": "gev-recent-imagery-box-preview",
+          "entities": []
+        },
+        {
+          "name": "Reality Debugger · geographic reference",
+          "entities": [
+            "585b7d62-dfd0-43ef-ad4a-fee4c26255d7",
+            "61cb2dc4-0b5e-4f5e-aa14-716a6ca3d40b",
+            "f756d3d6-b190-449f-8b85-b0c5d938935e",
+            "6c9cd1ff-ec3d-4d7c-983f-b1995f874c6b",
+            "fb2c2f50-6d41-4c56-9410-d811e0adc502",
+            "341195e3-37f8-45db-89bb-ea726bffe93d",
+            "551267bc-e253-416d-99f4-648c49321e19",
+            "905cc7bd-ba70-4733-a902-5fac4bd4d1f7",
+            "8636450a-f16c-4098-b773-a784c0a25a60",
+            "3112202f-0e44-4c16-b73a-56921c6d76a0",
+            "39ada85e-18a9-485f-95ee-0df3a2c86dae",
+            "d9a695c2-93ee-4a5a-8b9f-7696268df06c",
+            "e2160639-8533-46c2-970b-96a9f1434fc5",
+            "bfb84a52-99aa-4851-bc30-fb6b1c239d8b",
+            "a9a4e02c-7700-4726-82ed-8d821a52b205",
+            "1f8513dd-3eb2-4b46-96c0-5f3f119709be",
+            "2a0f9aab-d4e5-44e1-94fe-e588c08874fb",
+            "359d83dd-b2a7-4522-aa6b-c38a38d1a9e3",
+            "a41c67f9-ac93-4b33-9951-053d6056d195",
+            "12ae364f-4600-46ac-9a5c-2f466931a964",
+            "4d5ee28f-850d-4ff5-8caf-952e461f578e",
+            "064ede6b-4001-4580-a851-aabdc3082fa6",
+            "52f1c080-3d5e-44cf-8897-eb694724d85d",
+            "ec2edbcd-3ec5-4f44-8f65-43d581a42d03",
+            "27b5dafd-a1c1-4261-ac59-17d3aec33e6c",
+            "008cd99c-b80e-4941-a3e3-d4bf80d9acc8",
+            "e0f3fa74-075e-48ff-9700-a5d23defecb9",
+            "2fef166b-3132-4d0b-99cd-55e968d51335",
+            "5613b6df-86b5-42ed-9415-095e69bddd67",
+            "f2f22b77-1657-4261-b960-6901f72e26b3",
+            "25d5ea94-d0b5-4bbf-81fc-110888054b54",
+            "b719cd2d-3a4e-4ab7-923f-ebc037ed568f",
+            "cfdef8dd-3380-4e71-9d29-8d21244e7914",
+            "4b2bf61c-87ec-4fb2-999a-89682757d7cc",
+            "43cd73db-5e3b-4aac-bdae-1f63a892460e",
+            "9d71d0a8-84f3-400c-a24e-f91959d513a7",
+            "a955ff0e-6d56-4766-accc-a8c72a6aa742",
+            "0c49621b-8ff0-44b5-9843-427dd5571aba",
+            "39d2f99f-5855-4f3a-8127-b51e6fd14959",
+            "70916a41-d980-4e33-8749-9d93958c35ab",
+            "8917a3fb-57cf-49ed-a946-3e8d8c7c3da0",
+            "393b7335-36cf-4c30-bbee-71918741e385",
+            "85ad0fbd-53c3-4360-b1cd-e81967e85306",
+            "0a23db84-4154-4c35-ba25-9b427303107f",
+            "57cc1f25-14f4-4ee9-b795-17e89bfee706",
+            "33fb2914-ce15-42af-a1ca-6f70415de828",
+            "4d4e49a6-1c85-4520-89f8-1d21018461e0",
+            "274ec0df-207e-43eb-8b20-f7640c7b9410",
+            "d1158e9b-45b8-46ff-af9f-629cc7f0eb67",
+            "be6eaa8b-46af-41ad-9dc9-9815f9adee6b",
+            "fbc067d8-f49f-4a50-9034-ff615e590bab",
+            "42b2b923-70eb-4d64-a288-90239008bf8a",
+            "a803c7be-52e8-4262-981b-54b01d557c6b",
+            "c40a21df-cac5-421d-b7e4-a41e7be1c9ff"
+          ]
+        },
+        {
+          "name": "Reality Debugger · Tonga",
+          "entities": [
+            "reality-volcano",
+            "reality-tonga",
+            "reality-fiji",
+            "reality-tonga-domestic-cable-extension-tdce-0",
+            "reality-tonga-domestic-cable-extension-tdce-1",
+            "reality-tonga-cable-2",
+            "reality-tonga-cable-3"
+          ]
+        }
+      ],
+      "layout": {
+        "diagram": {
+          "x": 18,
+          "y": 145,
+          "width": 354,
+          "height": 266.6875
+        },
+        "caption": {
+          "x": 12,
+          "y": 426.8125,
+          "width": 366,
+          "height": 405.1875
+        },
+        "overlap": false,
+        "captionInViewport": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)"
+  ],
+  "visualAcceptance": "PENDING: inspect images and assess comprehension in STORY-ACCEPTANCE.md",
+  "recording": "story-demo.webm"
+}

@@ -4,6 +4,7 @@ import { createSituationRuntime, createSituationActions } from './runtime.js';
 import { tongaSituation } from './tonga.js';
 import './world.css';
 import { createWorldEvidence } from './worldEvidence.js';
+import { createStoryPlayer } from './storyPlayer.js';
 
 const COLORS = {
   OBSERVED: '#75edff',
@@ -224,6 +225,7 @@ export async function mountTongaWorld({
     $('#reality-narration').textContent = message;
   };
   const evidence = $('#reality-evidence');
+  let story = null;
   let ownsVoice = false;
   const voiceButton = $('#reality-voice');
   voiceButton.hidden = !voiceSession;
@@ -267,6 +269,7 @@ export async function mountTongaWorld({
   let ownCamera = false;
   const handoff = styleManager?.subscribeCameraHandoff?.(() => {
     if (!ownCamera) {
+      story?.pause();
       actions.cancel();
       motion.cancel();
     }
@@ -305,6 +308,8 @@ export async function mountTongaWorld({
     if (message) narrative(message);
   };
   const inspect = (id) => {
+    // Inspection is also called by an in-flight trace; stop narration without aborting its own action.
+    story?.pause(false);
     const result = runtime.inspect(id);
     runtime.select(id);
     evidence.hidden = false;
@@ -536,8 +541,10 @@ export async function mountTongaWorld({
       )
     )
       superseded.add('tonga');
-    for (const [id, entity] of world)
+    for (const [id, entity] of world) {
       entity.show = ids.has(id) && !superseded.has(id);
+      entity.label.show = !root.classList.contains('story-mode');
+    }
     for (const id of [
       'traffic-decline',
       'traffic-collapse',
@@ -560,13 +567,15 @@ export async function mountTongaWorld({
       entity.polyline.material.color =
         Cesium.Color.fromCssColorString(color).withAlpha(0.8);
     }
-    cableLabel.show = ids.has('international-cable');
+    cableLabel.show =
+      ids.has('international-cable') && !root.classList.contains('story-mode');
     cableLabel.label.text = repaired
       ? 'CURRENT ROUTE REFERENCE · PRIMARY REPAIR REPORTED'
       : damage
         ? 'CURRENT ROUTE REFERENCE · DAMAGE REPORTED, LOCATION UNKNOWN'
         : 'TONGA–FIJI · CURRENT REFERENCE';
-    ring.show = ids.has('fault-unknown');
+    ring.show =
+      ids.has('fault-unknown') && !root.classList.contains('story-mode');
     $('#reality-time').value = String(
       tongaSituation.timeline.reduce(
         (i, moment, index) =>
@@ -801,6 +810,7 @@ export async function mountTongaWorld({
   const destroy = () => {
     if (destroyed) return;
     destroyed = true;
+    story?.destroy();
     actions.destroy();
     motion.destroy();
     unsub();
@@ -824,7 +834,15 @@ export async function mountTongaWorld({
     onDestroy?.();
   };
   signal?.addEventListener('abort', destroy, { once: true });
-  window.__realityDebugger = { runtime, actions, destroy, inspect };
+  story = createStoryPlayer({
+    root,
+    viewer,
+    runtime,
+    actions,
+    inspect,
+    presentationChanged: () => update(runtime.getContext()),
+  });
+  window.__realityDebugger = { runtime, actions, destroy, inspect, story };
   await execute('go', { target: 'pacific' });
   return { destroy, runtime, actions };
 }

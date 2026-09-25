@@ -1,5 +1,34 @@
 # Reality Debugger build journal
 
+## 25 September 2026 — explanatory product rebuild
+
+### DONE
+
+- Owner rejected the previous technical acceptance: the globe did not explain the event or make its interactions meaningful. Prior checks below establish implementation correctness, not product success.
+- Team divided narrative/source review, explanatory world rendering, guided player integration, and independent comprehension/visual validation.
+- Authored five chapters: international dependency, disruption, unresolved chronology, emergency access, and incomplete recovery. Added a clear opening and conclusion, captioned autoplay, pause/resume, chapter navigation, source inspection and questions with visual answers. Advanced evidence controls are secondary.
+- Production visual review found and corrected diagram/caption overlap, misleading conceptual/geographic label placement, legacy label clutter and a chapter-one source popup that did not directly support the dependency claim.
+- Questions now replace the chapter paragraph with an answer and offer a return to the explanation. All 15 targeted desktop/mobile/short-laptop checks passed; four targeted views were opened and inspected.
+- All 42 focused mission tests passed. Import/package boundaries and formatting passed. Production build succeeds. Captions include camera travel in their authored duration rather than adding travel to every chapter's reading time.
+
+### CURRENT
+
+The revised guided explanation is implemented and reviewed. The final walkthrough completed in 99.196 seconds without unhandled application exceptions; all 35 retained exploration checks and all 15 targeted layout checks passed. The reviewed chapter narrative, diagrams, source inspection and responsive question layout explain the dependency, chronology gap, emergency access and incomplete recovery. Review screenshots, preserved intermediate failures and the final demonstration are stored under `docs/reality/validation/story`.
+
+### NEXT
+
+Deliver the revised build and demonstration through the existing pull request and local production preview. No independent external comprehension study or public Vercel deployment is claimed.
+
+### BLOCKERS
+
+No owner input required. Public deployment remains separate; local production preview and GitHub delivery are authorized.
+
+### DECISIONS
+
+- Use original conceptual diagrams and source-backed captions, not fabricated traffic samples or exact fault locations.
+- The story guides by default; geography, time, highlighted relationships and evidence inspection support each explanation.
+- A team review can assess clarity but is not a substitute for independent user comprehension testing. Do not claim an external user study occurred.
+
 ## 24 September 2026 — integration and acceptance
 
 ### DONE

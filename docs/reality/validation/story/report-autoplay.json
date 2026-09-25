@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "startedAt": "2026-09-25T13:50:44.882Z",
+    "baseURL": "http://127.0.0.1:4180",
+    "serverMode": "plain-static-production",
+    "revision": "9433a83ed96d59b4cfa6b390b3cb62976ee6b2d9",
+    "workingTree": "M README.md\n M docs/reality/BUILD-JOURNAL.md\n M scripts/qa-reality.mjs\n M src/situations/tonga.js\n M src/situations/world.js\n?? docs/reality/STORY-ACCEPTANCE.md\n?? docs/reality/STORY-REVIEW.md\n?? docs/reality/validation/story/\n?? scripts/qa-reality-story.mjs\n?? src/situations/story.js\n?? src/situations/story.test.mjs\n?? src/situations/storyPlayer.css\n?? src/situations/storyPlayer.js\n?? src/situations/storyWorld.css\n?? src/situations/storyWorld.js"
+  },
+  "checks": [
+    {
+      "name": "Uninterrupted explanation finishes in 60–120 seconds",
+      "passed": true,
+      "detail": 99.196
+    },
+    {
+      "name": "No unhandled application exception",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "captures": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)"
+  ],
+  "visualAcceptance": "PENDING: inspect images and assess comprehension in STORY-ACCEPTANCE.md",
+  "recording": "story-demo.webm"
+}

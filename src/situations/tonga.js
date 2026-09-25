@@ -79,6 +79,21 @@ export const tongaSituation = {
   ],
   evidence: [
     {
+      id: 'sole-international-link',
+      sourceId: 'itu-response',
+      locator:
+        'Opening account, paragraph immediately before the cable-cut diagram',
+      summary:
+        'ITU described the damaged international cable as Tonga’s sole submarine cable connection to the rest of the world. This is a retrospective report about the 2022 disruption, not a claim that satellite access was impossible.',
+    },
+    {
+      id: 'fiji-international-link',
+      sourceId: 'cloudflare-return',
+      locator: 'Repair account immediately below the 45-day traffic chart',
+      summary:
+        'Cloudflare’s February 22 repair account identifies the submarine cable as connecting Tonga with Fiji and international networks. The present-day route drawing provides geographic context, not proof of its precise 2022 seabed alignment.',
+    },
+    {
       id: 'event-location',
       sourceId: 'diaz-seismic',
       locator: 'Results: Temporal evolution of the Hunga-Tonga eruption',
@@ -374,6 +389,18 @@ export const tongaSituation = {
     ),
   ],
   claims: [
+    record(
+      'international-dependency',
+      'Tonga’s sole international cable connected through Fiji',
+      'REPORTED',
+      ['sole-international-link', 'fiji-international-link'],
+      START,
+      {
+        timePrecision: 'RETROSPECTIVE_CONTEXT',
+        timeDescription:
+          'Historical dependency described in February 2022 reports. The January 14 display anchor is not a date of construction or publication.',
+      },
+    ),
     record(
       'chronology-gap',
       'Initial decline precedes main explosion',

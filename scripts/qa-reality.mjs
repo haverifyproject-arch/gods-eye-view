@@ -114,6 +114,8 @@ try {
     () => window.__realityDebugger && window.__godsEyeView,
     { timeout: 90000 },
   );
+  // This harness checks the retained exploration controls; story QA covers the default guided entry.
+  if (await page.$('#story-explore')) await page.click('#story-explore');
   await settle();
   await page.evaluate(() => {
     window.__qaOriginalViewer = window.__godsEyeView.viewer;
