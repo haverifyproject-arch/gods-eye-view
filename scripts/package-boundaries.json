@@ -1263,6 +1263,8 @@
     "modules": [
       "src/ui/worldDebug.js",
       "src/reality/worldDebug.js",
+      "src/reality/investigation.js",
+      "src/reality/signalEvidence.js",
       "src/reality/debugRelations.js",
       "src/app/layers/internetHealth.js",
       "src/layers/internetHealth/index.js",

@@ -916,6 +916,9 @@ schemas.push({
       action: {
         type: 'string',
         enum: [
+          'explore',
+          'verify',
+          'export',
           'debug',
           'context',
           'infrastructure',

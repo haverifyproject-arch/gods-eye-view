@@ -33,6 +33,7 @@ function harness({
   fetch = async () => [cable()],
   annotate,
   earthquakes = false,
+  signalSource,
 } = {}) {
   const previousWindow = globalThis.window;
   globalThis.window = new EventTarget();
@@ -68,7 +69,9 @@ function harness({
   const annotations = {
     async annotate(specs, options) {
       if (annotate) return annotate(specs, options, marks);
-      const ids = specs.map(() => `debug-${++serial}`);
+      const ids = (Array.isArray(specs) ? specs : [specs]).map(
+        () => `debug-${++serial}`,
+      );
       ids.forEach((id) => marks.add(id));
       return { ids };
     },
@@ -92,13 +95,15 @@ function harness({
     dataManager,
     annotations,
     styleManager: {},
+    signalSource,
   });
-  const select = (id) => {
+  const select = (id, layerId = 'test-objects') => {
+    visible.add(layerId);
     const entity = { show: true };
     registerEntityContext(entity, {
       id,
       label: id,
-      layerId: 'test-objects',
+      layerId,
       latitude: 0,
       longitude: 0,
     });
@@ -330,6 +335,145 @@ test('How do we know retains the inspected relationship until native selection c
     await h.api.run({ action: 'sources' });
     h.select('second');
     assert.equal(h.api.getState().inspected, null);
+  } finally {
+    h.close();
+  }
+});
+
+const signalResult = (comparison = 'lower') => ({
+  retrievedAt: 100000,
+  window: { from: 0, until: 86400 },
+  checks: ['bgp', 'ping-slash24'].map((id) => ({
+    id,
+    status: 'available',
+    stale: false,
+    comparison,
+    latestSampleAt: 100,
+    sourceUrl: 'https://ioda.inetintel.cc.gatech.edu/',
+  })),
+});
+function selectCountry(h) {
+  h.dataManager.layers.set('internet-health', {
+    module: {
+      getDebugRecords: () => [
+        {
+          id: 'country:PY',
+          countryCode: 'PY',
+          name: 'Paraguay',
+          label: 'Paraguay',
+          lat: 0,
+          lon: 0,
+          displayAnchor: { longitude: 0, latitude: 0 },
+          events: [{ from: 100, until: 200 }],
+          provenance: { url: 'https://ioda.inetintel.cc.gatech.edu/' },
+        },
+      ],
+    },
+  });
+  h.select('country:PY', 'internet-health');
+}
+
+test('selected country investigation checks live adapter and exports sourced findings', async () => {
+  const requested = [];
+  const h = harness({
+    signalSource: {
+      inspect: async (code) => {
+        requested.push(code);
+        return signalResult();
+      },
+    },
+  });
+  try {
+    selectCountry(h);
+    await h.api.run({ action: 'debug' });
+    assert.deepEqual(requested, ['PY']);
+    assert.equal(h.api.getState().investigation.verdict, 'corroborated');
+    const exported = await h.api.run({ action: 'export' });
+    assert.match(exported.markdown, /Still unknown/);
+    assert.match(exported.markdown, /https:\/\/ioda/);
+    assert.match(exported.filename, /PY/);
+  } finally {
+    h.close();
+  }
+});
+
+test('late signal response cannot restore assessment or marks after Clear', async () => {
+  const started = defer();
+  const pending = defer();
+  let requestSignal;
+  const h = harness({
+    signalSource: {
+      inspect: async (_code, { signal }) => {
+        requestSignal = signal;
+        started.resolve();
+        return pending.promise;
+      },
+    },
+  });
+  try {
+    selectCountry(h);
+    const work = h.api.run({ action: 'debug' });
+    await started.promise;
+    await h.api.run({ action: 'clear' });
+    assert.equal(requestSignal.aborted, true);
+    pending.resolve(signalResult());
+    await work;
+    assert.equal(h.api.getState().status, 'idle');
+    assert.equal(h.api.getState().investigation, null);
+    assert.equal(h.api.getState().progress, null);
+    assert.deepEqual([...h.marks], ['user-mark']);
+  } finally {
+    pending.resolve(signalResult());
+    h.close();
+  }
+});
+
+test('cancelled signal check cannot publish a late verdict', async () => {
+  const started = defer();
+  const pending = defer();
+  const h = harness({
+    signalSource: {
+      inspect: async () => {
+        started.resolve();
+        return pending.promise;
+      },
+    },
+  });
+  const controller = new AbortController();
+  try {
+    selectCountry(h);
+    const work = h.api.run({ action: 'debug' }, { signal: controller.signal });
+    await started.promise;
+    controller.abort();
+    pending.resolve(signalResult());
+    await work;
+    assert.notEqual(h.api.getState().investigation?.verdict, 'corroborated');
+    assert.equal(h.api.getState().progress, null);
+  } finally {
+    pending.resolve(signalResult());
+    h.close();
+  }
+});
+
+test('a repeated check revises only when returned evidence changes the conclusion', async () => {
+  let calls = 0;
+  const h = harness({
+    signalSource: {
+      inspect: async () => signalResult(++calls === 1 ? 'lower' : 'similar'),
+    },
+  });
+  try {
+    selectCountry(h);
+    await h.api.run({ action: 'debug' });
+    assert.equal(h.api.getState().investigation.revision, null);
+    await h.api.run({ action: 'verify' });
+    assert.equal(h.api.getState().investigation.verdict, 'not-reproduced');
+    assert.match(
+      h.api.getState().investigation.revision.before,
+      /both show a recent drop/,
+    );
+    await h.api.run({ action: 'verify' });
+    assert.equal(h.api.getState().investigation.revision, null);
   } finally {
     h.close();
   }

@@ -4,6 +4,7 @@ import { initDrawTool } from '../annotations/drawTool.js';
 import { initImageryBoxTool } from '../ui/imageryBoxTool.js';
 import { createRecentImageryPanel } from '../ui/recentImagery.js';
 import { createWorldDebug } from '../reality/worldDebug.js';
+import { createSignalEvidenceSource } from '../reality/signalEvidence.js';
 import { createWorldDebugUI } from '../ui/worldDebug.js';
 import { initGevVoiceCommands } from '../voice/gevRealtime.js';
 import { installScopeMask, destroyScopeMask } from '../scopeMask.js';
@@ -58,6 +59,7 @@ export function createApplicationTools({
   const drawTool = initDrawTool({ viewer, annotations });
   defer(() => drawTool?.destroy());
   const worldDebug = createWorldDebug({
+    signalSource: createSignalEvidenceSource(),
     viewer,
     dataManager,
     annotations,

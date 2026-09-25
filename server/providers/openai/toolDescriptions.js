@@ -1,7 +1,7 @@
 export const ACTION_DESCRIPTIONS = {
   debug_world: {
     description:
-      'Investigate the currently selected native world object without leaving God’s Eye View. Debug uses current selection and scene context; infrastructure reveals reference context, sources returns exact provenance, observed/reported/all/hide_reference/clear_inference filter investigation geometry, follow traverses selected cable geometry, another selects another available observation, clear removes investigation-owned marks. Only report success when the client action completes. Country connectivity detections do not prove a nationwide blackout, ongoing outage, causation, ASN membership or precise fault location.',
+      'Investigate the currently selected native world object without leaving God’s Eye View. Explore selects a current Internet anomaly and checks measured signals. Verify compares two IODA methods against a descriptive baseline; these are not independent providers. Export returns source-backed findings. Debug uses current selection and scene context; infrastructure reveals reference context, sources returns exact provenance, observed/reported/all/hide_reference/clear_inference filter investigation geometry, follow traverses selected cable geometry, another selects another available observation, clear removes investigation-owned marks. Only report success when the client action completes. Country connectivity detections do not prove a nationwide blackout, ongoing outage, causation, ASN membership or precise fault location.',
   },
   fly_to_location: {
     description:

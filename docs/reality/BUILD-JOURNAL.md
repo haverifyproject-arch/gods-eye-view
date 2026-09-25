@@ -1,6 +1,32 @@
 # Reality Debugger build journal
 
-## 25 September 2026 — native extension corrective reset (CURRENT)
+## 25 September 2026 — explainable live investigation (CURRENT)
+
+### DONE
+
+- Replaced the cryptic entrance with **Investigate an Internet anomaly**. One action selects current evidence, frames the country, stages relevant native reference context and checks measured signals.
+- Added bounded IODA BGP and active-probing reads, actual sample plots, explicit gaps/freshness, deterministic assessment and evidence revision. A same-provider comparison is never described as independent confirmation or root-cause diagnosis.
+- Added a visible next useful check and downloadable findings with source URLs, comparison window, method and uncertainty. The compact temporary controls preserve free native navigation and selective evidence ownership.
+- Parallel research, engine and UX agents delivered isolated modules; root reconciled contracts and tested integration. The root runtime remains responsible for cancellation, native selection and annotation cleanup.
+- 47 focused runtime/adapter/assessment/relationship tests and 87 voice/schema regression tests passed. Production build and import/package boundaries passed. See `INVESTIGATION-DELIVERY.md` for scope and reproducible verification.
+
+### CURRENT
+
+Final live production acceptance passed all ten checks with no page errors. Root and UX agent inspected loaded-map desktop and mobile screenshots. Fresh Cape Verde measurements produced a non-reproduced result; no outage or dramatic revision was manufactured. A duplicated headline and buried next check were corrected after the first visual review. A download-check timing race in the QA harness was corrected; the final run verified the new downloaded finding. The repository formatting scan passed across 1,109 source files. See `INVESTIGATION-ACCEPTANCE.json` and generated local `artifacts/investigation` evidence.
+
+### NEXT
+
+Deliver the reviewed production preview and preserve evidence in the existing GitHub PR. Broader independent-provider comparisons and model evaluations require separate verified data and evaluation work; they are not claimed here.
+
+### BLOCKERS
+
+No owner input required. Public Vercel hosting is not yet performed. Current external sources can fail or be incomplete; the application reports those limits. The user's machine is slow, so browser QA and production builds were serialized.
+
+### DECISIONS
+
+Keep the core explainable and credential-free. Evaluate the actual data rather than force a scripted narrative. Preserve Bilawal's prominent credit and distinguish the new investigation work from upstream viewer/navigation foundations. The prior 109/109 navigation tracking run remains prior evidence, not a fresh result for this patch.
+
+## 25 September 2026 — native extension corrective reset (PREVIOUS DELIVERY)
 
 ### DONE
 

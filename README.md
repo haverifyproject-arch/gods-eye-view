@@ -2,13 +2,13 @@
 
 # Reality Debugger — a native world extension
 
-A cross-layer spatial debugger built into **God's Eye View by Bilawal Sidhu and contributors**. Enable **Internet Health**, select a recent country connectivity anomaly, and use **Debug this** to reveal relevant cable reference geometry and available physical observations directly on Earth.
+A source-backed investigation tool built into **God's Eye View by Bilawal Sidhu and contributors**. Click **Investigate an Internet anomaly** to select a current detection, move the world to its country, reveal relevant infrastructure and compare routing visibility with active-probing measurements. The result explains whether those methods agree, disagree or lack usable evidence. Inspect the actual samples and sources, then save a finding with its limitations.
 
-GEV remains freely explorable. Evidence controls hide or restore temporary investigation marks; source callouts explain what is measured, what is reference context, and what remains unknown. Geographic coincidence does not establish an affected network or cause. No historical mission or mandatory walkthrough is active.
+GEV remains freely explorable. Evidence controls hide or restore temporary investigation marks; source callouts explain what is measured, what is reference context, and what remains unknown. **Check again** can revise the assessment when fresh measurements change its result. The core uses transparent rules, not an AI-generated explanation; both measurement methods come from IODA and are not independent-provider confirmation. Geographic coincidence does not establish an affected network or cause. No historical mission or mandatory walkthrough is active.
 
 Run `npm ci` and `npm run dev` with Node 24.14+ (24.x) or 26.x. The core extension requires no AI credentials. On this prepared Windows checkout, `./Start-Reality.ps1` uses the local runtime. See the [corrective contract](docs/reality/NATIVE-CORRECTIVE-CONTRACT.md), [source evaluation](docs/reality/INTERNET-SOURCES.md), [native integration](docs/reality/NATIVE-INTEGRATION.md), and [build journal](docs/reality/BUILD-JOURNAL.md).
 
-Original contributions include the native IODA source/layer, evidence-aware investigation orchestration, bounded cross-layer relationships and selective annotation ownership. Viewer, navigation, route motion, overlays, layer lifecycle and voice foundations remain upstream work (MIT). TeleGeography geometry retains its separate CC BY-NC-SA terms; Natural Earth is public domain. Runtime IODA access does not grant redistribution rights. Earlier prototypes are archived source, not the active product.
+Original contributions include the native IODA source/layer, two-method signal comparison, evidence revision rules, downloadable findings, investigation orchestration, bounded cross-layer relationships and selective annotation ownership. See the [measurement method](docs/reality/SIGNAL-SOURCES.md) and [counterexample evaluation](docs/reality/INVESTIGATION-EVALUATION.md). Viewer, navigation, route motion, overlays, layer lifecycle and voice foundations remain upstream work (MIT). TeleGeography geometry retains its separate CC BY-NC-SA terms; Natural Earth is public domain. Runtime IODA access does not grant redistribution rights. Earlier prototypes are archived source, not the active product.
 
 ---
 

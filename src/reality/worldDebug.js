@@ -2,6 +2,10 @@ import * as Cesium from 'cesium';
 import { getSelectedEntityContext } from '../data/contextStore.js';
 import { flyRoute, interruptCameraMotionIfActive } from '../cameraVerbs.js';
 import {
+  assessInvestigation,
+  serializeInvestigation,
+} from './investigation.js';
+import {
   buildDebugRelations,
   coordinatesOf,
   containsPoint,
@@ -35,6 +39,7 @@ export function createWorldDebug({
   dataManager,
   annotations,
   styleManager,
+  signalSource = null,
 }) {
   const listeners = new Set();
   const enabledHere = new Set();
@@ -43,6 +48,8 @@ export function createWorldDebug({
   let controller = null;
   let disposed = false;
   let pendingReset = Promise.resolve();
+  let navigationRequest = null;
+  let navigationEpoch = null;
   let state = {
     status: 'idle',
     selected: null,
@@ -72,13 +79,18 @@ export function createWorldDebug({
   const selectionChanged = () => {
     const current = selected();
     if (current?.id !== state.selected?.id)
-      state = { ...state, inspected: null };
+      state = {
+        ...state,
+        inspected: null,
+        investigation: null,
+        progress: null,
+      };
     if (current) commandEpoch++;
     if (state.subject && current?.id !== state.subject.id) {
       generation++;
       commandEpoch++;
       controller?.abort();
-      annotations.removeOwned(OWNER);
+      clearMarks();
       interruptCameraMotionIfActive(
         state.followMotionId,
         'debug-selection-changed',
@@ -110,7 +122,10 @@ export function createWorldDebug({
       await dataManager.setEnabled(id, true, { origin: OWNER });
     }
   };
-  const clearMarks = () => annotations.removeOwned(OWNER);
+  const clearMarks = () => {
+    annotations.removeOwned(OWNER);
+    annotations.removeOwned('reality-finding');
+  };
   const reset = async () => {
     const token = ++generation;
     controller?.abort();
@@ -138,6 +153,8 @@ export function createWorldDebug({
     state = {
       ...state,
       status: 'idle',
+      investigation: null,
+      progress: null,
       subject: null,
       relationships: [],
       inspected: null,
@@ -286,6 +303,12 @@ export function createWorldDebug({
       errors: [],
       unknowns: [],
       summary: `Inspecting ${subject.label || subject.name} against available native sources…`,
+      investigation: assessInvestigation({ subject, relationships: [] }),
+      progress: {
+        label: 'Finding relevant infrastructure and physical observations',
+        completed: 0,
+        total: 2,
+      },
     };
     publish();
     const outcomes = await Promise.allSettled([
@@ -358,6 +381,112 @@ export function createWorldDebug({
     };
     await stage(token, current);
     if (token !== generation || disposed || !current()) return state;
+    publish();
+    if (signalSource && subject.countryCode) await verify(current, token);
+    else state = { ...state, progress: null };
+    return publish();
+  };
+  const verify = async (current, inheritedToken = null) => {
+    const subject = state.subject || resolveSubject();
+    if (!subject.countryCode || !signalSource) {
+      state = {
+        ...state,
+        investigation: assessInvestigation({
+          subject,
+          relationships: state.relationships,
+        }),
+        progress: null,
+        summary:
+          'Select an Internet anomaly to compare measured signals. This object remains available for spatial investigation.',
+      };
+      return publish();
+    }
+    const token = inheritedToken ?? ++generation;
+    if (inheritedToken === null) {
+      controller?.abort();
+      controller = new AbortController();
+    }
+    const previous = state.investigation;
+    state = {
+      ...state,
+      subject,
+      status: 'loading',
+      inspected: null,
+      progress: {
+        label:
+          'Comparing routing visibility and active probing against their baselines',
+        completed: 1,
+        total: 2,
+      },
+    };
+    publish();
+    let signalEvidence;
+    try {
+      signalEvidence = await signalSource.inspect(subject.countryCode, {
+        signal: controller.signal,
+      });
+    } catch (error) {
+      if (token !== generation || !current()) return state;
+      signalEvidence = {
+        checks: [],
+        errors: [error.message],
+        status: 'unavailable',
+      };
+    }
+    if (token !== generation || !current()) return state;
+    const investigation = assessInvestigation({
+      subject,
+      signalEvidence,
+      relationships: state.relationships,
+      previous,
+    });
+    state = {
+      ...state,
+      investigation,
+      status: 'ready',
+      progress: null,
+      summary: investigation.headline,
+    };
+    // A compact world-anchored finding replaces the provisional interpretation.
+    // The anchor is cartographic, never a fabricated measurement location.
+    const anchor = subject.displayAnchor;
+    annotations.removeOwned('reality-finding');
+    if (anchor) {
+      const result = await annotations.annotate(
+        {
+          type: 'pin',
+          manual: true,
+          longitude: anchor.longitude,
+          latitude: anchor.latitude,
+          label: `${investigation.verdict.toUpperCase()} · ${subject.name || subject.countryCode}`,
+          color:
+            investigation.verdict === 'corroborated'
+              ? 'red'
+              : investigation.verdict === 'mixed'
+                ? 'amber'
+                : 'cyan',
+          evidenceState: 'DERIVED',
+          onSelect: () => {
+            state = { ...state, inspected: null };
+            publish();
+          },
+        },
+        {
+          owner: 'reality-finding',
+          persist: true,
+          flyTo: false,
+          autoFrame: false,
+        },
+      );
+      if (token !== generation || !current()) annotations.remove(result.ids);
+      else {
+        state.findingIds = result.ids;
+        annotations.setVisible(
+          result.ids,
+          visibleEvidence('DERIVED', state.filter),
+        );
+      }
+    }
     return publish();
   };
   const filter = (value) => {
@@ -366,6 +495,10 @@ export function createWorldDebug({
       relation.visible = visibleEvidence(relation.state, value);
       annotations.setVisible(relation.annotationIds || [], relation.visible);
     }
+    annotations.setVisible(
+      state.findingIds || [],
+      visibleEvidence('DERIVED', value),
+    );
     return publish();
   };
   const another = async (request, current) => {
@@ -384,6 +517,8 @@ export function createWorldDebug({
     await dataManager.setEnabled(INTERNET, true, { origin: 'user' });
     if (request !== commandEpoch || disposed || !current()) return state;
     layer(INTERNET).selectById(next.id);
+    navigationRequest = request;
+    navigationEpoch = commandEpoch;
     const target = viewer.selectedEntity;
     styleManager._runExplicitNavigation('Internet Health selection', () =>
       viewer.flyTo(target, {
@@ -455,6 +590,8 @@ export function createWorldDebug({
           status: 'idle',
           relationships: [],
           inspected: null,
+          investigation: null,
+          progress: null,
           summary: 'Investigation interrupted.',
         };
         publish();
@@ -463,6 +600,28 @@ export function createWorldDebug({
       try {
         const action = args.action || 'debug';
         if (action === 'clear') return await reset();
+        if (action === 'explore') {
+          await another(request, current);
+          if (
+            !current() ||
+            !selected() ||
+            navigationRequest !== request ||
+            navigationEpoch !== commandEpoch
+          )
+            return publish();
+          return await investigate(current);
+        }
+        if (action === 'verify') return await verify(current);
+        if (action === 'export')
+          return {
+            ok: true,
+            filename: `reality-debugger-${state.subject?.countryCode || 'investigation'}.md`,
+            markdown: serializeInvestigation({
+              subject: state.subject,
+              investigation: state.investigation,
+              relationships: state.relationships,
+            }),
+          };
         if (action === 'debug' || action === 'infrastructure')
           return await investigate(current);
         if (action === 'sources')
@@ -492,6 +651,7 @@ export function createWorldDebug({
         state = {
           ...state,
           status: 'error',
+          progress: null,
           summary: error.message,
           errors: [error.message],
         };
@@ -543,6 +703,8 @@ export function createWorldDebug({
         status: result.status,
         selected: result.selected,
         subject: brief(result.subject),
+        investigation: result.investigation,
+        progress: result.progress,
         summary: result.summary,
         filter: result.filter,
         relationships: result.relationships.map(evidence),
